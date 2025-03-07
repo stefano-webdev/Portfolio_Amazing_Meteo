@@ -1,0 +1,35 @@
+main {
+    margin-top: 7.8rem;
+}
+
+section#home div:first-child {
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    height: 30%;
+    color: var(--colore_frontend);
+    text-align: center;
+}
+
+section#home h1 {
+    text-align: center;
+    color: var(--colore_h1);
+    font-size: 53px;
+    margin-top: 12px;
+    font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
+    letter-spacing: 5.5px;
+}
+
+section#home img {
+    display: block;
+    width: 80%;
+    margin: auto;
+    opacity: 1;
+}
+
+section#home figure {
+    background-image: var(--bg_home);
+    background-size: 80%;
+    background-position: -40px 0px;
+    background-repeat: no-repeat;
+    margin: 0px;
+    transition: 0.35s;
+}

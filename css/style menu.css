@@ -1,0 +1,211 @@
+/* Barra di navigazione */
+nav {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(25, 25, 25);
+    padding: 15px;
+}
+
+/* Grafica SVG */
+#logo_svg {
+    font-family: 'Courier New', Courier, 'Lucida Console', monospace;
+    width: 275px;
+    height: 40px;
+    user-select: none;
+    -webkit-user-select: none;
+    font-size: 20px;
+    stroke-dasharray: 1000;  /* Lunghezza totale del testo, aumenta per un effetto più lento */
+    stroke-dashoffset: 1000; /* Imposta inizialmente il tracciato invisibile */
+    animation: draw 26.5s ease forwards;
+}
+
+#menu li svg {
+    font-family: 'Courier New', Courier, 'Lucida Console', monospace;
+    width: 38px;
+    height: 40px;
+}
+
+/* Animazione Logo SVG */
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Stile base per il pulsante hamburger */
+#btn_menu_toggle {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    margin-right: 10px;
+    width: 30.5px;
+    height: 40px;
+    position: relative;
+}
+
+/* Stile delle tre linee */
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    transition: 0.35s;
+    transform-origin: center;
+}
+
+/* Sposta la linea superiore e la linea inferiore */
+.hamburger::before {
+    top: -10px;
+}
+
+.hamburger::after {
+    top: 10px;
+}
+
+/* Trasformazione in X quando il menu viene aperto */
+/* Nasconde la linea centrale bianca dello <span> */
+#btn_menu_toggle.open .hamburger {
+    background-color: transparent;
+}
+
+/* Ruota le altre due linee per formare una X */
+#btn_menu_toggle.open .hamburger::before {
+    transform: rotate(45deg);
+    top: 0px;
+}
+
+#btn_menu_toggle.open .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0px;
+}
+
+/* Menu nascosto di default */
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    height: 75svh;
+    top: 70px;
+    left: 0px;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    background-color: var(--bg_menu_color);
+    box-shadow: var(--bg_menu_shadow);
+    transform: translateY(-35px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.35s;
+}
+
+/* Stile link */
+#menu li {
+    width: fit-content;
+    margin: auto;
+    list-style-type: none;
+    padding: 15px 0px;
+}
+
+#menu li:first-child {
+    margin-top: 85px;
+}
+
+#menu a {
+    color: var(--text_color);
+    text-decoration: none;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: clamp(22px, 6vw, 25px);
+}
+
+/* Quando il menu è aperto, diventa visibile */
+#menu.open {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* Layout e grafica SVG nella barra di navigazione */
+#menu a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Grafica e logica toggle light/dark mode */
+#btn_light_dark_toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 12px;
+    background-color: var(--bg_toggle_light_dark);
+    padding: 3px 6px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 1s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.animation {
+    transition: 1s ease;
+}
+
+:root.light_mode svg.luna{
+    transform-origin: center;
+    transform: scale(0);
+}
+
+:root.dark_mode svg.sole{
+    transform-origin: center;
+    transform: scale(0);
+}
+
+/* Adattamento barra di navigazione in landscape */
+@media (orientation: landscape) and (pointer: coarse) and (max-width: 1050px) {
+    #menu {
+        height: 63svh;
+        box-shadow: none;
+        padding: 12px 0px;
+        gap: 17px;
+    }
+
+    #menu li {
+        width: fit-content;
+        margin: auto;
+        padding: 0px;
+    }
+
+    #menu li:first-child {
+        margin: auto;
+    }
+
+    #menu a {
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    section#home img {
+        display: block;
+        width: 50%;
+        margin: auto;
+        opacity: 1;
+    }
+    
+}
