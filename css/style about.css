@@ -2,7 +2,7 @@ section#about h2 {
     text-align: center;
     color: var(--colore_titoli);
     font-size: 30px;
-    margin: 25px 0px 15px 0px;
+    margin-bottom: 15px;
     font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
     letter-spacing: 3px;
 }
@@ -10,7 +10,7 @@ section#about h2 {
 section#about img {
     width: 75%;
     display: block;
-    margin: auto auto 2.7rem auto;
+    margin: 0px auto;
     border-radius: 20px;
     outline: 2px solid black;
     outline-offset: -1px;
@@ -29,3 +29,73 @@ section#about span.marked {
     font-style: italic;
     letter-spacing: 1px;
 }
+
+section#about h3 {
+    color: var(--colore_titoli);
+    font-size: 23px;
+    text-align: center;
+    margin: 5.5rem 15px 7px 15px;
+    font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
+    letter-spacing: 3px;
+}
+
+section#about svg#skill_arrow {
+    display: block;
+    width: 27px;
+    margin: auto auto 2.5rem auto;
+    color: rgb(83, 193, 14);
+}
+
+/* Sezione competenze */
+
+#skill_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
+#skill_section div.skill_container {
+    width: 84%;
+    padding-top: 15px;
+    border-radius: 30px;
+    background-image: linear-gradient(90deg, #83b5ff, #7ace52); /* Applichiamo il gradiente come background */
+}
+
+#skill_section svg {
+    width: 40%;
+    display: block;
+    margin: auto;
+}
+
+#skill_section div.skill_name {
+    font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
+    font-size: 4.4vw;
+    font-weight: bold;
+    width: fit-content;
+    margin: auto;
+}
+
+#skill_section ul.skill_list {
+    max-width: 98%;
+    padding-left: 32px;
+}
+
+#skill_section ul.skill_list li {
+    font-size: clamp(14px, 3.2vw, 22px);
+    font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
+}
+
+/* #contenitore_competenze div.skill_container {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    gap: 5px;
+    border: 1px solid saddlebrown;
+}
+
+#contenitore_competenze svg {
+    width: 40%;
+} */
