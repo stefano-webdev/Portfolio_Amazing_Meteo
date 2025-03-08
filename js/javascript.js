@@ -14,13 +14,33 @@ function attiva_toggle_dark_light() {
     }
 }
 
-// 2 Apertura menu mobile
+// 2 Apertura/chiusura menu mobile e quando clicco un link il menu si chiude 
 const btn_menu_toggle = document.getElementById("btn_menu_toggle");
 const menu = document.getElementById("menu");
+const links = document.querySelectorAll('#menu a');
+
+// 2.1 Aggiungo al bottone un evento per l'apertura/chiusura del menu tramite switch sulla classe
 btn_menu_toggle.addEventListener("click", () => {
     btn_menu_toggle.classList.toggle("open");
     menu.classList.toggle("open");
 });
+
+// 2.2 Aggiungo ai link un evento per chiudere il menu in automatico 
+for (const x of links) {
+    x.addEventListener("click", (event) => {
+        event.preventDefault()
+        const targetId = x.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+        const offset = 80;
+        window.scrollTo({
+            top: targetElement.offsetTop - offset,
+            behavior: 'smooth'
+        });
+        
+        btn_menu_toggle.classList.toggle("open");
+        menu.classList.toggle("open");
+    })
+}
 
 // 3 Switch light/dark mode
 const btn_light_dark = document.getElementById("btn_light_dark_toggle");
@@ -35,4 +55,4 @@ if (!(theme === null) && theme != "light") {
 
 // 3.2 Aggiunge l'evento click al toggle e
 // l'interattività con toggle per l'accessibilità 
-btn_light_dark.addEventListener("click", attiva_toggle_dark_light)
+btn_light_dark.addEventListener("click", attiva_toggle_dark_light);

@@ -4,14 +4,13 @@ main {
 
 section#home div:first-child {
     font-family: Tahoma, Geneva, Verdana, sans-serif;
-    height: 30%;
     color: var(--colore_frontend);
     text-align: center;
 }
 
 section#home h1 {
     text-align: center;
-    color: var(--colore_h1);
+    color: var(--colore_titoli);
     font-size: 53px;
     margin-top: 12px;
     font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;

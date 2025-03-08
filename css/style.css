@@ -6,10 +6,24 @@ body {
     transition: 0.35s;
 }
 
+p {
+    font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
+}
+
 * {
     box-sizing: border-box;
     outline-offset: 4px;
 }
+
+hr {
+    width: 90%;
+    height: 2px;
+    background-color: #2c3e50;
+    border: none;
+    margin: 30px auto;
+    border-radius: 20px;
+}
+
 
 /* Modalità chiara */
 :root.light_mode {
@@ -20,7 +34,7 @@ body {
     --bg_menu_shadow: 0px 15px 25px 0px rgb(19, 19, 19);
     --bg_toggle_light_dark: rgb(34, 34, 34);
     --bg_home: url("../immagini/home_bg_light.webp");
-    --colore_h1: #353535;
+    --colore_titoli: #353535;
     --colore_frontend: rgb(149, 149, 149);
 }
 
@@ -33,7 +47,7 @@ body {
     --bg_menu_shadow: 0px 15px 20px 0px rgb(19, 19, 19);
     --bg_toggle_light_dark: rgb(255, 255, 255);
     --bg_home: url("../immagini/home_bg_dark.webp");
-    --colore_h1: #e0e0e0;
+    --colore_titoli: #e0e0e0;
     --colore_frontend: rgb(125, 125, 125);
 }
 
