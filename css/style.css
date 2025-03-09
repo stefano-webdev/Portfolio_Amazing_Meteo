@@ -1,7 +1,8 @@
 /* Settaggi generali */
 body {
-    margin: 0px;
-    min-width: 360px;
+    margin: auto;
+    min-width: 390px;
+    max-width: 1440px;
     background-color: var(--bg_color);
     transition: 0.35s;
 }
