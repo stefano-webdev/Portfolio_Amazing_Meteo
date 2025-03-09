@@ -1,0 +1,25 @@
+#contenitore_progetti {
+    display: flex;
+    flex-direction: column;
+    gap: 5.5rem;
+}
+
+section#projects figure {
+    margin: 0px;
+}
+
+section#projects img {
+    display: block;
+    margin: auto;
+    width: 70%;
+    border-radius: 50%;
+    outline: 3px solid rgb(111, 224, 232);
+}
+
+section#projects figcaption {
+    color: var(--colore_titoli);
+    font-size: 16px;
+    font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
+    text-align: center;
+    margin: 20px 0px;
+}

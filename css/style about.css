@@ -1,8 +1,10 @@
-section#about h2 {
+section#about h2,
+section#projects h2, 
+section#contacts h2 {
     text-align: center;
     color: var(--colore_titoli);
     font-size: clamp(35px, 9vw, 55px);
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
     letter-spacing: 3px;
 }

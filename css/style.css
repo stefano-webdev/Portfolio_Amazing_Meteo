@@ -13,7 +13,7 @@ p {
 
 * {
     box-sizing: border-box;
-    outline-offset: 4px;
+    outline-offset: 5px;
 }
 
 hr {
