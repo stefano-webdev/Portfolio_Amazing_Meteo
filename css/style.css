@@ -37,6 +37,7 @@ hr {
     --colore_titoli: #353535;
     --colore_frontend: rgb(149, 149, 149);
     --hr: #70889f;
+    --github: #000000;
 }
 
 /* Modalità scura */
@@ -50,6 +51,7 @@ hr {
     --colore_titoli: #e0e0e0;
     --colore_frontend: rgb(125, 125, 125);
     --hr: #e0e0e0;
+    --github: #FFFFFF;
 }
 
 
