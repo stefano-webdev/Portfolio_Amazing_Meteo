@@ -1,0 +1,74 @@
+/* Media query mobile landscape */
+@media (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
+    /*  Layout menu */
+    #menu {
+        height: calc(100svh - 130px);
+        padding: 12px 0px;
+        gap: 15px;
+    }
+
+    #menu {
+        flex-direction: row;
+    }
+
+    #menu a {
+        gap: 5px;
+        font-size: 20px;
+    }
+
+    #menu li {
+        margin: 10px auto 0px auto;
+        padding: 0px;
+    }
+
+    #menu li svg {
+        width: 33px;
+    }
+
+    #btn_light_dark_toggle {
+        top: auto;
+        right: auto;
+        bottom: 15px;
+    }
+
+    /* Layout home */
+    section#home img {
+        width: 38%;
+    }
+
+    section#home figure {
+        background-size: 60%;
+        background-position: 30px 25px;
+    }
+
+    /* Layout about */
+    section#about img {
+        width: 335px;
+    }
+
+    /* Layout skills */
+    #skill_section div.skill_container {
+        width: 60%;
+    }
+
+    #skill_section svg {
+        width: 140px;
+    }
+
+    #skill_section ul.skill_list li {
+        font-size: 15px;
+    }
+
+    /* Layout progetti */
+    #contenitore_progetti {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        width: fit-content;
+        margin: auto;
+    }
+
+    section#projects img {
+        width: 50%;
+    }
+}

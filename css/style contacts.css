@@ -22,6 +22,15 @@ section#contacts #github_svg {
     color: var(--github);
 }
 
+section#contacts p, section#contacts a  {
+    font-size: 14.5px;
+    font-style: normal;
+    font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
+    color: var(--colore_titoli);
+    margin: 0px;
+    text-decoration: none;
+}
+
 #footer_nota_div {
     display: flex;
     align-items: center;
@@ -35,17 +44,7 @@ section#contacts #github_svg {
 }
 
 #footer_paragrafo {
-    font-size: 10px;
+    font-size: 11px;
     margin: 0px;
     color: var(--colore_titoli);
 }
-
-section#contacts p, section#contacts a  {
-    font-size: 14px;
-    color: var(--colore_titoli);
-    margin: 0px;
-    font-style: normal;
-    font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
-    text-decoration: none;
-}
-

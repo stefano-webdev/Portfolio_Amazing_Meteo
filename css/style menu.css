@@ -14,11 +14,12 @@ nav {
 /* Grafica SVG */
 #logo_svg {
     font-family: 'Courier New', Courier, 'Lucida Console', monospace;
+    font-size: 26px;
+    /* font-size: clamp(20px, 5vw, 35px); */
     width: 330px;
     height: 40px;
     user-select: none;
     -webkit-user-select: none;
-    font-size: clamp(20px, 5vw, 35px);
     stroke-dasharray: 1000;  /* Lunghezza totale del testo, aumenta per un effetto più lento */
     stroke-dashoffset: 1000; /* Imposta inizialmente il tracciato invisibile */
     animation: draw 26.5s ease forwards;
@@ -119,15 +120,17 @@ nav {
     padding: 15px 0px;
 }
 
-#menu li:first-child {
-    margin-top: 85px;
-}
-
+/* Layout e grafica SVG nella barra di navigazione */
 #menu a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
     color: var(--text_color);
     text-decoration: none;
     font-family: 'Arial', 'Helvetica', sans-serif;
-    font-size: clamp(22px, 5.65vw, 28px);
+    font-size: 22px;
+    /* font-size: clamp(22px, 5.65vw, 28px); */
 }
 
 /* Quando il menu è aperto, diventa visibile */
@@ -135,14 +138,6 @@ nav {
     pointer-events: auto;
     opacity: 1;
     transform: translateY(0px);
-}
-
-/* Layout e grafica SVG nella barra di navigazione */
-#menu a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
 }
 
 /* Grafica e logica toggle light/dark mode */
@@ -173,47 +168,4 @@ nav {
 :root.dark_mode svg.sole{
     transform-origin: center;
     transform: scale(0);
-}
-
-/* Adattamento barra di navigazione in landscape */
-@media (orientation: landscape) and (pointer: coarse) and (max-width: 1100px) {
-    #menu {
-        height: 63svh;
-        box-shadow: none;
-        padding: 12px 0px;
-        gap: 17px;
-    }
-
-    #menu li {
-        width: fit-content;
-        margin: auto;
-        padding: 0px;
-    }
-
-    #menu li:first-child {
-        margin: auto;
-    }
-
-    #menu a {
-        font-size: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 30px;
-    }
-
-    section#home img {
-        display: block;
-        width: 50%;
-        margin: auto;
-        opacity: 1;
-    }
-
-    section#about p.descrizione {
-        font-size: 1.1vw;
-    }
-
-    section#about img {
-        width: 50%;
-    }
 }

@@ -11,14 +11,14 @@ section#projects figure {
 section#projects img {
     display: block;
     margin: auto;
-    width: 70%;
+    width: 60%;
     border-radius: 50%;
     outline: 3px solid rgb(111, 224, 232);
 }
 
 section#projects figcaption {
     color: var(--colore_titoli);
-    font-size: 16px;
+    font-size: 15px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
     text-align: center;
     margin: 20px 0px;
