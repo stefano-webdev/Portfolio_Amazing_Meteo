@@ -72,3 +72,147 @@
         width: 50%;
     }
 }
+
+
+
+/* Media query tablet verticale */
+@media (min-width: 461px) {
+    /* Layout menu */
+    #logo_svg {
+        font-size: clamp(26px, 4.6vw, 40px);
+    }
+
+    #menu a {
+        font-size: 22px;
+        /* font-size: clamp(22px, 3.8vw, 25px); */
+    }
+
+    /* Layout home */
+    section#home div:first-child {
+        font-size: clamp(15px, 2.65vw, 23px);
+    }
+
+    section#home h1 {
+        font-size: clamp(48px, 8.5vw, 80px);
+    }
+
+    section#home img {
+        width: 55%;
+    }
+
+    section#home figure {
+        background-size: 65%;
+        background-position: 10px -10px;
+    }
+
+    /* Layout about e p + a + figcaption*/
+    section#about h2,
+    section#projects h2, 
+    section#contacts h2 {
+        font-size: clamp(35px, 6.5vw, 52px);
+    }
+    
+    p, a, figcaption {
+        font-size: clamp(16px, 3vw , 19px);
+    }
+
+    section#about img {
+        width: 64%;
+    }
+
+    section#about h3 {
+        font-size: clamp(23px, 4.35vw, 38px);
+    }
+
+    #skill_section {
+        gap: 11rem;
+    }
+
+    #skill_section div.skill_container {
+        width: 75%;
+    }
+
+    #skill_section svg {
+        width: 31%;
+    }
+
+    #skill_section div.skill_name {
+        font-size: clamp(22px, 4.13vw, 37px);
+    }
+
+    #skill_section ul.skill_list {
+        padding-left: 40px;
+    }
+
+    #skill_section ul.skill_list li{
+        font-size: clamp(13.8px, 2.6vw, 25px);
+        letter-spacing: 1px;
+    }
+
+    /* layout progetti */
+    #contenitore_progetti {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        width: fit-content;
+        margin: 40px auto auto auto;
+    }
+
+    /* Layout contatti */
+    section#contacts svg {
+        width: clamp(25px, 4.68vw, 40px);
+    }
+
+    #footer_paragrafo {
+        font-size: clamp(11px, 2.05vw, 15.5px);
+    }
+}
+
+
+
+/* Media query tablet landscape + desktop */
+@media (min-width: 1001px) {
+    nav {
+        height: 70px;
+        align-items: center;
+        justify-content: center;
+        gap: 30%;
+        padding: 0px 0px 0px 15px;
+    }
+
+    #btn_menu_toggle {
+        display: none;
+    }
+
+    #btn_light_dark_toggle {
+        position: static;
+        height: 31px;
+    }
+
+    #menu {
+        opacity: 1;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        position: static;
+        height: auto;
+        width: fit-content;
+        transform: translateY(0px);
+        pointer-events: auto;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    #menu li {
+        padding: 10px;
+        margin: 0px;
+        position: relative;
+    }
+
+    #menu li svg {
+        position: absolute;
+        bottom: -60px;
+        opacity: 0;
+    }
+}

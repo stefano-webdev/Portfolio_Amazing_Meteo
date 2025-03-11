@@ -5,7 +5,6 @@ section#contacts h2 {
     color: var(--colore_titoli);
     font-size: 35px;
     font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
-    /* font-size: clamp(35px, 9vw, 55px); */
     margin-bottom: 25px;
     letter-spacing: 3px;
 }
@@ -21,8 +20,6 @@ section#about img {
 
 section#about p.descrizione {
     color: var(--colore_titoli);
-    font-size: 16px;
-    /* font-size: clamp(15px, 3.85vw, 20px); */
     margin: 20px 35px;
     line-height: 1.7;
     text-align: center;
@@ -38,7 +35,6 @@ section#about h3 {
     color: var(--colore_titoli);
     font-size: 23px;
     font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
-    /* font-size: clamp(23px, 5.9vw, 43px); */
     text-align: center;
     margin: 5.5rem 15px 7px 15px;
     letter-spacing: 3px;
@@ -76,10 +72,9 @@ section#about svg#skill_arrow {
 #skill_section div.skill_name {
     font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
     font-size: 22px;
-    /* font-size: 4.4vw; */
     font-weight: bold;
     width: fit-content;
-    margin: auto;
+    margin: auto auto 35px auto;
     letter-spacing: 3px;
 }
 
@@ -90,7 +85,6 @@ section#about svg#skill_arrow {
 
 #skill_section ul.skill_list li {
     font-size: 13.8px;
-    /* font-size: clamp(13px, 2.8vw, 22px); */
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
     margin: 20px 0px;
 }

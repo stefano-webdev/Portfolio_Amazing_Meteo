@@ -6,7 +6,6 @@ section#home div:first-child {
     font-family: Tahoma, Geneva, Verdana, sans-serif;
     color: var(--colore_frontend);
     font-size: 15px;
-    /* font-size: clamp(16px, 3.9vw, 18px); */
     text-align: center;
 }
 
@@ -14,7 +13,6 @@ section#home h1 {
     text-align: center;
     color: var(--colore_titoli);
     font-size: 48px;
-    /* font-size: clamp(53px, 13.6vw, 71px); */
     margin-top: 12px;
     font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
     letter-spacing: 5.5px;

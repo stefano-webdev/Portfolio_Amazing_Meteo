@@ -25,7 +25,17 @@ btn_menu_toggle.addEventListener("click", () => {
     menu.classList.toggle("open");
 });
 
-// 2.2 Aggiungo ai link un evento per chiudere il menu in automatico 
+// 2.2 Evito che al disattivarsi della media query si nota l'opacità 1-0
+window.addEventListener("resize", () => {
+    if (window.innerWidth < 1001 && window.innerWidth > 600) {
+        menu.style.transition = 'none';
+        setTimeout(() => {
+            menu.style.transition = '0.35s';
+        }, 10);
+    }
+});
+
+// 2.3 Aggiungo ai link un evento per chiudere il menu in automatico 
 for (const x of links) {
     x.addEventListener("click", (event) => {
         event.preventDefault()
@@ -56,3 +66,5 @@ if (!(theme === null) && theme != "light") {
 // 3.2 Aggiunge l'evento click al toggle e
 // l'interattività con toggle per l'accessibilità 
 btn_light_dark.addEventListener("click", attiva_toggle_dark_light);
+
+

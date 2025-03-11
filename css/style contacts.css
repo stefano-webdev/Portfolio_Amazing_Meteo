@@ -4,7 +4,7 @@ section#contacts address {
     justify-content: center;
     width: fit-content;
     margin: auto;
-    gap: 3.2rem;
+    gap: 4rem;
 }
 
 section#contacts div.contenitore_contatti div:first-child {
@@ -23,7 +23,6 @@ section#contacts #github_svg {
 }
 
 section#contacts p, section#contacts a  {
-    font-size: 14.5px;
     font-style: normal;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
     color: var(--colore_titoli);

@@ -6,7 +6,6 @@ nav {
     position: fixed;
     top: 0px;
     left: 0px;
-    align-items: center;
     background-color: rgb(25, 25, 25);
     padding: 15px;
 }
@@ -15,8 +14,7 @@ nav {
 #logo_svg {
     font-family: 'Courier New', Courier, 'Lucida Console', monospace;
     font-size: 26px;
-    /* font-size: clamp(20px, 5vw, 35px); */
-    width: 330px;
+    width: fit-content;
     height: 40px;
     user-select: none;
     -webkit-user-select: none;
@@ -26,8 +24,7 @@ nav {
 }
 
 #menu li svg {
-    font-family: 'Courier New', Courier, 'Lucida Console', monospace;
-    width: 38px;
+    width: 28px;
     height: 40px;
 }
 
@@ -48,7 +45,7 @@ nav {
     padding: 0px;
     margin-right: 10px;
     width: 30.5px;
-    height: 40px;
+    height: 38px;
     position: relative;
 }
 
@@ -58,8 +55,8 @@ nav {
 .hamburger::after {
     content: '';
     display: block;
-    width: 30px;
-    height: 3px;
+    width: 37px;
+    height: 3.5px;
     background-color: white;
     position: absolute;
     transition: 0.35s;
@@ -130,7 +127,6 @@ nav {
     text-decoration: none;
     font-family: 'Arial', 'Helvetica', sans-serif;
     font-size: 22px;
-    /* font-size: clamp(22px, 5.65vw, 28px); */
 }
 
 /* Quando il menu è aperto, diventa visibile */
@@ -153,7 +149,6 @@ nav {
     border-radius: 15px;
     cursor: pointer;
     transition: 1s ease;
-    -webkit-tap-highlight-color: transparent;
 }
 
 .animation {

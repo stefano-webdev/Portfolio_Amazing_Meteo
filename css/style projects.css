@@ -2,9 +2,13 @@
     display: flex;
     flex-direction: column;
     gap: 5.5rem;
+    margin-top: 40px;
 }
 
 section#projects figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0px;
 }
 
@@ -18,7 +22,6 @@ section#projects img {
 
 section#projects figcaption {
     color: var(--colore_titoli);
-    font-size: 15px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
     text-align: center;
     margin: 20px 0px;

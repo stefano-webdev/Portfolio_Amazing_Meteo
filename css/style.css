@@ -17,9 +17,14 @@ p {
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
 
+p, a, figcaption {
+    font-size: 16px;
+}
+
 * {
     box-sizing: border-box;
     outline-offset: 5px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 hr {
