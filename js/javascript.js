@@ -1,3 +1,12 @@
+// Variabili
+const btn_menu_toggle = document.getElementById("btn_menu_toggle");
+const menu = document.getElementById("menu");
+const svg = document.querySelectorAll('#menu li svg');
+const links = document.querySelectorAll('#menu a');
+const btn_light_dark = document.getElementById("btn_light_dark_toggle");
+const root = document.documentElement;
+const theme = localStorage.getItem("mode");
+
 // 1 Attiva il toggle dark_light
 function attiva_toggle_dark_light() {
     if (root.classList.contains("light_mode")) {
@@ -15,9 +24,6 @@ function attiva_toggle_dark_light() {
 }
 
 // 2 Apertura/chiusura menu mobile e quando clicco un link il menu si chiude 
-const btn_menu_toggle = document.getElementById("btn_menu_toggle");
-const menu = document.getElementById("menu");
-const links = document.querySelectorAll('#menu a');
 
 // 2.1 Aggiungo al bottone un evento per l'apertura/chiusura del menu tramite switch sulla classe
 btn_menu_toggle.addEventListener("click", () => {
@@ -25,15 +31,35 @@ btn_menu_toggle.addEventListener("click", () => {
     menu.classList.toggle("open");
 });
 
-// 2.2 Evito che al disattivarsi della media query si nota l'opacità 1-0
+// 2.2 Sistemo l'opacità con il passaggio delle media query
 let lastWidth = window.innerWidth;
+// Se sono sopra i 1135px gli svg hanno la transizione
+if (lastWidth >= 1135) {
+    console.log('g');
+    for (let x of svg) {
+        x.style.transition = '0.45s ease'
+    }
+}
 window.addEventListener("resize", () => {
-    let currentWidth = window.innerWidth;
-    if (lastWidth >= 1001 && currentWidth < 1001) {
+    let currentWidth = window.innerWidth;    
+    // Se supero i 1135px non vedo effetti strani
+    if (lastWidth < 1135 && currentWidth >= 1135) {
+        console.log('a');
+        menu.style.transition = 'none';
+        for (let x of svg) {
+            x.style.transition = '0.45s ease'
+        }
+    }
+    // Se scendo sotto i 1135px non vdo effetti stani
+    else if (lastWidth >= 1135 && currentWidth < 1135) {
+        console.log('b');
+        for (let x of svg) {
+            x.style.transition = 'none'
+        }
         menu.style.transition = 'none';
         setTimeout(() => {
-            menu.style.transition = '0.35s';
-        }, 10);
+            menu.style.transition = '0.35s ease';
+        }, 20);
     }
     lastWidth = currentWidth; // Aggiorno la larghezza attuale
 });
@@ -56,9 +82,6 @@ for (const x of links) {
 }
 
 // 3 Switch light/dark mode
-const btn_light_dark = document.getElementById("btn_light_dark_toggle");
-const root = document.documentElement;
-const theme = localStorage.getItem("mode");
 
 // 3.1 Se theme non è null e theme è dark, applico la dark mode
 if (!(theme === null) && theme != "light") {

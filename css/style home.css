@@ -21,6 +21,7 @@ section#home h1 {
 section#home img {
     display: block;
     width: 70%;
+    max-width: 468px;
     margin: auto;
 }
 
