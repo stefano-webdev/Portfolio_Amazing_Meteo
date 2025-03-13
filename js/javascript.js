@@ -26,13 +26,16 @@ btn_menu_toggle.addEventListener("click", () => {
 });
 
 // 2.2 Evito che al disattivarsi della media query si nota l'opacità 1-0
+let lastWidth = window.innerWidth;
 window.addEventListener("resize", () => {
-    if (window.innerWidth < 1001 && window.innerWidth > 600) {
+    let currentWidth = window.innerWidth;
+    if (lastWidth >= 1001 && currentWidth < 1001) {
         menu.style.transition = 'none';
         setTimeout(() => {
             menu.style.transition = '0.35s';
         }, 10);
     }
+    lastWidth = currentWidth; // Aggiorno la larghezza attuale
 });
 
 // 2.3 Aggiungo ai link un evento per chiudere il menu in automatico 
