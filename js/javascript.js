@@ -35,7 +35,6 @@ btn_menu_toggle.addEventListener("click", () => {
 let lastWidth = window.innerWidth;
 // Se sono sopra i 1135px gli svg hanno la transizione
 if (lastWidth >= 1135) {
-    console.log('g');
     for (let x of svg) {
         x.style.transition = '0.45s ease'
     }
@@ -44,7 +43,6 @@ window.addEventListener("resize", () => {
     let currentWidth = window.innerWidth;    
     // Se supero i 1135px non vedo effetti strani
     if (lastWidth < 1135 && currentWidth >= 1135) {
-        console.log('a');
         menu.style.transition = 'none';
         for (let x of svg) {
             x.style.transition = '0.45s ease'
@@ -52,7 +50,6 @@ window.addEventListener("resize", () => {
     }
     // Se scendo sotto i 1135px non vdo effetti stani
     else if (lastWidth >= 1135 && currentWidth < 1135) {
-        console.log('b');
         for (let x of svg) {
             x.style.transition = 'none'
         }

@@ -395,13 +395,27 @@
     section#about h3 {
         font-size: clamp(23px, 4.35vw, 38px);
     }
-    
+
     #skill_section {
-        gap: 11rem;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        column-gap: 0px;
+        row-gap: 13rem;
+        align-items: flex-start;
+        margin: 0px 45px;
     }
 
+    /* #skill_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5rem;
+    } */
+
     #skill_section div.skill_container {
-        width: 60%;
+        width: 47%;
+        /* width: 60%; */
     }
 
     #skill_section svg {
@@ -421,6 +435,7 @@
         letter-spacing: 2px;
     }
 
+    /* layout progetti */
     #contenitore_progetti {
         display: flex;
         flex-direction: row;
