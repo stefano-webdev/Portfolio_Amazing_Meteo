@@ -40,6 +40,16 @@ hr {
     border-radius: 20px;
 }
 
+.fade_in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s ease-out;
+}
+
+.fade_in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* Modalità chiara */
 :root.light_mode {

@@ -90,4 +90,18 @@ if (!(theme === null) && theme != "light") {
 // l'interattività con toggle per l'accessibilità 
 btn_light_dark.addEventListener("click", attiva_toggle_dark_light);
 
+// Aggiunto effetto apparizione elementi
+document.addEventListener("DOMContentLoaded", () => {
+    const osservatore = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                osservatore.unobserve(entry.target); // Per evitare di rianimare l'elemento
+            }
+        });
+    }, { threshold: 0.2 });
 
+    document.querySelectorAll(".fade_in").forEach(element => {
+        osservatore.observe(element);
+    });
+});
