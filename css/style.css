@@ -17,8 +17,12 @@ p {
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
 
-p, a, figcaption {
+p, figcaption {
     font-size: 16px;
+}
+
+a {
+    font-size: 14px;
 }
 
 * {
@@ -49,7 +53,7 @@ hr {
     --colore_frontend: rgb(106, 106, 106);
     --hr: #70889f;
     --github: #000000;
-    /* --bg_toggle_light_dark_desktop: rgb(78, 78, 78); */
+    --colore_sottolineatura: #353535;
 }
 
 /* Modalità scura */
@@ -64,6 +68,7 @@ hr {
     --colore_frontend: rgb(125, 125, 125);
     --hr: #e0e0e0;
     --github: #FFFFFF;
+    --colore_sottolineatura: #e0e0e0;
 }
 
 

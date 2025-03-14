@@ -406,16 +406,8 @@
         margin: 0px 45px;
     }
 
-    /* #skill_section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5rem;
-    } */
-
     #skill_section div.skill_container {
         width: 47%;
-        /* width: 60%; */
     }
 
     #skill_section svg {
@@ -446,10 +438,34 @@
 
     section#projects img {
         width: 70%;
+        transition: 0.5s ease;
     }
 
+    section#projects img:hover {
+        transform: translateY(-25px) scale(1.06);
+    }
+
+    /* layout contatti */
     section#contacts svg {
         width: clamp(25px, 4.68vw, 40px);
+    }
+
+    section#contacts a {
+        display: inline-block;
+    }
+
+    section#contacts a::after {
+        content: '';
+        display: block;
+        margin-top: 7px;
+        height: 2px;
+        width: 0px;
+        background-color: var(--colore_sottolineatura);
+        transition: 0.8s ease;
+    }
+
+    section#contacts a:hover::after {
+        width: 100%;
     }
 
     #footer_svg {
