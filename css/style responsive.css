@@ -84,7 +84,7 @@
 
 
 /* Media query tablet verticale */
-@media (orientation: portrait) and (pointer: coarse) and (min-width: 461px) {
+@media (orientation: portrait) and (min-width: 461px) {
 
     /* Layout menu */
     #logo_svg {

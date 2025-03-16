@@ -19,6 +19,10 @@ section#projects a {
     border-radius: 50%;
     overflow: hidden;
     outline: 3px solid rgb(111, 224, 232);
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 section#projects img {

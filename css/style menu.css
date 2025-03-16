@@ -48,6 +48,7 @@ nav {
     width: 30.5px;
     height: 38px;
     position: relative;
+    cursor: pointer;
 }
 
 /* Stile delle tre linee */
