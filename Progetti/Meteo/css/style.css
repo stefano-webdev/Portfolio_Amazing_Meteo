@@ -10,6 +10,7 @@ body {
     max-width: 1550px;
     transition: 0.5s ease;
     background-color: #ffffff;
+    overflow: hidden;
 }
 
 p {
@@ -46,12 +47,12 @@ nav svg {
 
 header input {
     display: block;
-    width: 270px;
+    width: 320px;
     height: 45px;
     margin: auto;
     border-radius: 8px;
     border: 2px solid black;
-    padding: 0px 12px;
+    padding: 0px 35px 0px 12px;
     font-size: 16px;
     -webkit-tap-highlight-color: transparent;
 }
@@ -117,17 +118,24 @@ section#meteo_attuale {
     margin-top: 3.5rem;
 }
 
-section#meteo_attuale div.div_blocco {
-    width: fit-content;
-    margin: auto;
-}
-
 section#meteo_attuale svg {
-    width: 30px;
-    color: #dddd44;
+    width: 50px;
 }
 
-section#meteo_attuale div.div_risultati {
+section#meteo_attuale div.fascia_oraria {
+    display: grid;
+    grid-template-rows: 40px 70px;
+    grid-template-columns: 1fr 2fr 1fr;
+    column-gap: 15px;
+}
+
+section#meteo_attuale div.svg_e_gradi {
     display: flex;
-    gap: 20px;
+    gap: 0px;
+    justify-content: center;
+    grid-row: span 2;
+}
+
+section#meteo_attuale div.quantita_e_vento {
+    justify-self: end;
 }
