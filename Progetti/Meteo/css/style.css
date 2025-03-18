@@ -14,6 +14,7 @@ body {
 }
 
 p {
+    font-size: 16px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
 
@@ -92,50 +93,90 @@ header button svg {
 
 
 /* Sezione dati generali */
-section#dati_generali {
+div#dati_generali {
     margin-top: 11.5rem;
 }
 
-section#dati_generali p:nth-child(1),
-section#dati_generali p:nth-child(2) {
+div#dati_generali p:nth-child(1),
+div#dati_generali p:nth-child(2) {
     font-size: 45px;
     text-align: center;
     margin: 10px 0px;
     letter-spacing: 4px;
 }
 
-section#dati_generali p:nth-child(2) {
+div#dati_generali p:nth-child(2) {
     font-size: 33px;
 }
 
-section#dati_generali p:nth-child(3) {
-    font-size: 16px;
+div#dati_generali p:nth-child(3) {
     margin: 35px 0px 0px 0px;
 }
 
-/* Sezione meteo attuale */
-section#meteo_attuale {
-    margin-top: 3.5rem;
+div#selettore_giorno {
+    width: fit-content;
+    margin: 60px auto 0px auto;
+    padding: 5px 20px;
+    display: flex;
+    gap: 0px;
+    display: none;
 }
 
-section#meteo_attuale svg {
+div#selettore_giorno button {
+    font-size: 16px;
+    color: black;
+    padding-right: 9px;
+    padding-left: 9px;
+}
+
+div#selettore_giorno button:nth-child(1) {
+    border-right: none;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}
+
+div#selettore_giorno button:nth-child(2) {
+    border-right: 1px solid black;;
+    border-left: 1px solid black;;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+div#selettore_giorno button:nth-child(3) {
+    border-left: none;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+
+/* Sezione meteo attuale */
+div#meteo_attuale {
+    margin-top: 1.2rem;
+}
+
+div#meteo_attuale svg {
     width: 50px;
 }
 
-section#meteo_attuale div.fascia_oraria {
+div#meteo_attuale div.fascia_oraria {
     display: grid;
     grid-template-rows: 40px 70px;
     grid-template-columns: 1fr 2fr 1fr;
     column-gap: 15px;
+    margin-bottom: 25px;
 }
 
-section#meteo_attuale div.svg_e_gradi {
+div#meteo_attuale div.svg_e_gradi {
     display: flex;
     gap: 0px;
     justify-content: center;
     grid-row: span 2;
 }
 
-section#meteo_attuale div.quantita_e_vento {
+div#meteo_attuale div.quantita_e_vento {
     justify-self: end;
 }

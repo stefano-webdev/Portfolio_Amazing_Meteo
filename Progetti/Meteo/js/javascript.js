@@ -1,9 +1,10 @@
 // Variabili
 const bottone_cerca = document.getElementById('bottone_cerca');
 const input_cerca = document.getElementById('input_cerca');
-const paragrafo_paese = document.querySelector('section#dati_generali p:nth-child(1)');
-const paragrafo_nazione = document.querySelector('section#dati_generali p:nth-child(2)');
-const paragrafo_data = document.querySelector('section#dati_generali p:nth-child(3)');
+const paragrafo_paese = document.querySelector('div#dati_generali p:nth-child(1)');
+const paragrafo_nazione = document.querySelector('div#dati_generali p:nth-child(2)');
+const paragrafo_data = document.querySelector('div#dati_generali p:nth-child(3)');
+const selettore_giorno = document.querySelector('div#selettore_giorno');
 const ogg_traduci_città = {
     "Milano": "Milan",
     "Roma": "Rome",
@@ -88,27 +89,6 @@ function ricerca() {
                 ora = ora.slice(1);
             }
             
-            const codice = dati.forecast.forecastday[0].hour[ora].condition.code;
-
-            // Prendo la condizione
-            const dati_codice = lista_condizioni.find(oggetto => oggetto.code == codice);
-            const condizione = dati_codice.languages.day_text;
-
-            // Prendo svg
-            const stato = dati_codice.languages.condizione;
-            const svg = stati_svg[stato]
-
-            // Prendo la temperatura
-            const temperatura = dati.forecast.forecastday[0].hour[ora].temp_c + '°';
-
-            // Prendo quantità di pioggia, se c'è
-            const mm_pioggia = dati.forecast.forecastday[0].hour[ora].precip_mm;
-            const qnt_pioggia = Number(mm_pioggia) == 0 ? 'Assenti' : mm_pioggia + 'mm';
-
-            // Prendo velocità vento in km/h
-            const vento = dati.forecast.forecastday[0].hour[ora].wind_kph + ' km/h'
-
-
 
             // Aggiornamento dei dati nel DOM
             // Aggiornamento dati generali
@@ -116,26 +96,69 @@ function ricerca() {
             paragrafo_nazione.textContent = nome_nazione;
             paragrafo_data.textContent = `Previsioni per il ${data_completa}`;
 
-            // Aggiornamento fascia oraria
-            const div_totali = 24;
-            const div_rimanenti = div_totali - Number(ora);
+            // Aggiornamento fascie orarie rimanenti
+            let ora_fascia = Number(ora);
+            const div_totali_dom = Array.from(document.querySelectorAll('div.fascia_oraria'));
+            const div_da_usare = Array.from(document.querySelectorAll('div.fascia_oraria')).toSpliced(-ora_fascia, ora_fascia);
+            const div_da_nascondere_dom = Array.from(document.querySelectorAll('div.fascia_oraria')).splice(-ora_fascia, ora_fascia);
+            // Pulizia dei div dai dati di ricerche precedenti
+            div_totali_dom.forEach(div_da_pulire => {
+                div_da_pulire.style.display = 'grid';
+                div_da_pulire.querySelector('div.ora_e_condizioni p:nth-child(1)').textContent = '';
+                div_da_pulire.querySelector('div.ora_e_condizioni p:nth-child(2)').textContent = '';
+    
+                div_da_pulire.querySelector('div.svg_e_gradi svg:nth-child(1)').outerHTML = `<svg></svg>`;
+                div_da_pulire.querySelector('div.svg_e_gradi p:nth-of-type(1)').textContent = '';
+    
+                div_da_pulire.querySelector('div.quantita_e_vento p:nth-child(1)').textContent = '';
+                div_da_pulire.querySelector('div.quantita_e_vento p:nth-child(2)').textContent = '';
+            });
 
-            document.querySelector('div.ora_e_condizioni p:nth-child(1)').textContent = fuso_orario;
-            document.querySelector('div.ora_e_condizioni p:nth-child(2)').textContent = condizione;
+            // Ciclo ed aggiornamento di tutte le fascie orarie
+            div_da_usare.forEach((div) => {
+                const codice = dati.forecast.forecastday[0].hour[ora_fascia].condition.code;
 
-            document.querySelector('div.svg_e_gradi svg:nth-child(1)').outerHTML = svg;
-            document.querySelector('div.svg_e_gradi p:nth-of-type(1)').textContent = temperatura;
+                // Prendo la condizione
+                const dati_codice = lista_condizioni.find(oggetto => oggetto.code == codice);
+                const condizione = dati_codice.languages.day_text;
+    
+                // Prendo svg
+                const stato = dati_codice.languages.condizione;
+                const svg = stati_svg[stato]
+    
+                // Prendo la temperatura
+                const temperatura = dati.forecast.forecastday[0].hour[ora_fascia].temp_c + '°';
+    
+                // Prendo quantità di pioggia, se c'è
+                const mm_pioggia = dati.forecast.forecastday[0].hour[ora_fascia].precip_mm;
+                const qnt_pioggia = Number(mm_pioggia) == 0 ? 'Assenti' : mm_pioggia + 'mm';
+    
+                // Prendo velocità vento in km/h
+                const vento = dati.forecast.forecastday[0].hour[ora_fascia].wind_kph + ' km/h'
+                
+                div.querySelector('div.ora_e_condizioni p:nth-child(1)').textContent = String(ora_fascia).length == 1 ? '0' + String(ora_fascia) + ':00' : String(ora_fascia) + ':00';
+                div.querySelector('div.ora_e_condizioni p:nth-child(2)').textContent = condizione;
+    
+                div.querySelector('div.svg_e_gradi svg:nth-child(1)').outerHTML = svg;
+                div.querySelector('div.svg_e_gradi p:nth-of-type(1)').textContent = temperatura;
+    
+                div.querySelector('div.quantita_e_vento p:nth-child(1)').textContent = qnt_pioggia;
+                div.querySelector('div.quantita_e_vento p:nth-child(2)').textContent = vento;
+                ora_fascia += 1
+            });
 
-            document.querySelector('div.quantita_e_vento p:nth-child(1)').textContent = qnt_pioggia;
-            document.querySelector('div.quantita_e_vento p:nth-child(2)').textContent = vento;
-
-            console.log(dati);
+            selettore_giorno.style.display = 'flex';
+            // Nascondo i div non utilizzati
+            div_da_nascondere_dom.forEach(div => div.style.display = 'none');
         }
-
         catch (errore) {
             console.log(`Errore nella richiesta: ${errore}`);
         }
     }
-
     dati_meteo();
 }
+
+// let array = [1,2,3,4,5,6];
+// let array2 = array.toSpliced(-2, 2);
+// console.log(array); 
+// console.log(array2); 
