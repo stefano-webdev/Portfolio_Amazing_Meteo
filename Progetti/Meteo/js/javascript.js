@@ -5,6 +5,24 @@ const paragrafo_paese = document.querySelector('div#dati_generali p:nth-child(1)
 const paragrafo_nazione = document.querySelector('div#dati_generali p:nth-child(2)');
 const paragrafo_data = document.querySelector('div#dati_generali p:nth-child(3)');
 const selettore_giorno = document.querySelector('div#selettore_giorno');
+const selettore_giorno_bottoni = document.querySelectorAll('div#selettore_giorno button');
+const selettore_0 = document.querySelector('div#selettore_giorno button:nth-child(1)');
+const selettore_1 = document.querySelector('div#selettore_giorno button:nth-child(2)');
+const selettore_2 = document.querySelector('div#selettore_giorno button:nth-child(3)');
+const data = new Date();
+const domani = new Date();
+domani.setDate(data.getDate() + 1);
+const dopodomani = new Date();
+dopodomani.setDate(data.getDate() + 2);
+const giorno = String(data.getDate());
+let mese = String(data.getMonth() + 1);
+if (mese.length == 1) {
+    mese = '0' + mese;
+}
+const anno = String(data.getFullYear());
+let data_completa = `${giorno}/${mese}/${anno}`;
+const giorni_settimana = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+let giorno_scelto;
 const ogg_traduci_città = {
     "Milano": "Milan",
     "Roma": "Rome",
@@ -17,15 +35,58 @@ const ogg_traduci_città = {
 
 
 // Assegnazione comandi
-bottone_cerca.addEventListener('click', ricerca);
+// Inizia ricerca
+bottone_cerca.addEventListener('click', () => {
+    data_completa = `${giorno}/${mese}/${anno}`;
+    ricerca(0, data_completa);
+    document.querySelector('button.attivo').classList.remove('attivo');
+    selettore_0.classList.add('attivo');
+});
 input_cerca.addEventListener('keydown', (event) => {
     if (event.key == 'Enter') {
-        ricerca();
+        data_completa = `${giorno}/${mese}/${anno}`;
+        ricerca(0, data_completa);
+        document.querySelector('button.attivo').classList.remove('attivo');
+        selettore_0.classList.add('attivo');
     }
 })
 
+// Selettore giorni con testo dinamico
+selettore_0.textContent = 'Oggi';
+selettore_1.textContent = `${giorni_settimana[domani.getDay()]} ${domani.getDate()}`;
+selettore_2.textContent = `${giorni_settimana[dopodomani.getDay()]} ${dopodomani.getDate()}`;
+
+for (const bottone of selettore_giorno_bottoni) {
+    bottone.addEventListener('click', (event) => {
+        // Prendo 0 1 2 in base al giorno, per farlo corrispondere a forecastday, poi vai di nuovo su ricerca()
+        document.querySelector('button.attivo').classList.remove('attivo');
+        event.target.classList.add('attivo');
+        if (event.target.classList.contains('zero')) {
+            data_completa = `${giorno}/${mese}/${anno}`
+            giorno_scelto = 0;
+        }
+        else if (event.target.classList.contains('uno')) {
+            data_completa = `${domani.getDate()}/${mese}/${anno}`
+            giorno_scelto = 1;
+        }
+        else {
+            data_completa = `${dopodomani.getDate()}/${mese}/${anno}`
+            giorno_scelto = 2;
+        }
+
+        // Disabilito i bottoni
+        selettore_0.disabled = true;
+        selettore_1.disabled = true;
+        selettore_2.disabled = true;
+
+        // Chiamo la funzione
+        ricerca(giorno_scelto, data_completa);
+    })
+};
+
+
 // Funzione ricerca meteo paese
-function ricerca() {
+function ricerca(giorno_scelto, data_aggiornata) {
     // Il body ora può scrollare
     document.body.style.overflow = 'visible';
 
@@ -65,15 +126,6 @@ function ricerca() {
             if (nome_nazione == 'Italy') {
                 nome_nazione = 'Italia';
             }
-            const data = new Date();
-            const giorno = String(data.getDate());
-            let mese = String(data.getMonth() + 1);
-            if (mese.length == 1) {
-                mese = '0' + mese;
-            }
-            const anno = String(data.getFullYear());
-            const data_completa = `${giorno}/${mese}/${anno}`
-
 
             // Dati ora per ora
             // Prendo l'orario ed il codice
@@ -90,17 +142,21 @@ function ricerca() {
             }
             
 
-            // Aggiornamento dei dati nel DOM
-            // Aggiornamento dati generali
+            // Aggiornamento dei dati nel DOM, prima dati generali
             paragrafo_paese.textContent = nome_paese;
             paragrafo_nazione.textContent = nome_nazione;
-            paragrafo_data.textContent = `Previsioni per il ${data_completa}`;
+            paragrafo_data.textContent = `Previsioni per il ${data_aggiornata}`;
 
-            // Aggiornamento fascie orarie rimanenti
+            // Aggiornamento di tutte le fasce orarie
             let ora_fascia = Number(ora);
+            if (giorno_scelto != 0) {
+                ora_fascia = 0;
+            }
             const div_totali_dom = Array.from(document.querySelectorAll('div.fascia_oraria'));
             const div_da_usare = Array.from(document.querySelectorAll('div.fascia_oraria')).toSpliced(-ora_fascia, ora_fascia);
             const div_da_nascondere_dom = Array.from(document.querySelectorAll('div.fascia_oraria')).splice(-ora_fascia, ora_fascia);
+            const hr_da_nascondere_dom = Array.from(document.querySelectorAll('hr')).splice(-ora_fascia, ora_fascia);
+            
             // Pulizia dei div dai dati di ricerche precedenti
             div_totali_dom.forEach(div_da_pulire => {
                 div_da_pulire.style.display = 'grid';
@@ -116,7 +172,7 @@ function ricerca() {
 
             // Ciclo ed aggiornamento di tutte le fascie orarie
             div_da_usare.forEach((div) => {
-                const codice = dati.forecast.forecastday[0].hour[ora_fascia].condition.code;
+                const codice = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].condition.code;
 
                 // Prendo la condizione
                 const dati_codice = lista_condizioni.find(oggetto => oggetto.code == codice);
@@ -127,14 +183,14 @@ function ricerca() {
                 const svg = stati_svg[stato]
     
                 // Prendo la temperatura
-                const temperatura = dati.forecast.forecastday[0].hour[ora_fascia].temp_c + '°';
+                const temperatura = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].temp_c + '°';
     
                 // Prendo quantità di pioggia, se c'è
-                const mm_pioggia = dati.forecast.forecastday[0].hour[ora_fascia].precip_mm;
+                const mm_pioggia = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].precip_mm;
                 const qnt_pioggia = Number(mm_pioggia) == 0 ? 'Assenti' : mm_pioggia + 'mm';
     
                 // Prendo velocità vento in km/h
-                const vento = dati.forecast.forecastday[0].hour[ora_fascia].wind_kph + ' km/h'
+                const vento = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].wind_kph + ' km/h'
                 
                 div.querySelector('div.ora_e_condizioni p:nth-child(1)').textContent = String(ora_fascia).length == 1 ? '0' + String(ora_fascia) + ':00' : String(ora_fascia) + ':00';
                 div.querySelector('div.ora_e_condizioni p:nth-child(2)').textContent = condizione;
@@ -144,12 +200,23 @@ function ricerca() {
     
                 div.querySelector('div.quantita_e_vento p:nth-child(1)').textContent = qnt_pioggia;
                 div.querySelector('div.quantita_e_vento p:nth-child(2)').textContent = vento;
+
+                div.nextElementSibling.style.display = 'block';
                 ora_fascia += 1
             });
 
+            // Nel CSS avevo nascosto selettore_giorno, qui lo mostro
             selettore_giorno.style.display = 'flex';
-            // Nascondo i div non utilizzati
+
+            // Nascondo i div ed hr non utilizzati
             div_da_nascondere_dom.forEach(div => div.style.display = 'none');
+            hr_da_nascondere_dom.forEach(hr => hr.style.display = 'none');
+
+            // Riabilito i bottoni
+            selettore_0.disabled = false;
+            selettore_1.disabled = false;
+            selettore_2.disabled = false;
+            console.log(dati);
         }
         catch (errore) {
             console.log(`Errore nella richiesta: ${errore}`);
@@ -157,8 +224,3 @@ function ricerca() {
     }
     dati_meteo();
 }
-
-// let array = [1,2,3,4,5,6];
-// let array2 = array.toSpliced(-2, 2);
-// console.log(array); 
-// console.log(array2); 
