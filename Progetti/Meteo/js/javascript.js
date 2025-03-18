@@ -197,8 +197,9 @@ function ricerca(giorno_scelto, data_aggiornata) {
     
                 div.querySelector('div.svg_e_gradi svg:nth-child(1)').outerHTML = svg;
                 div.querySelector('div.svg_e_gradi p:nth-of-type(1)').textContent = temperatura;
-    
-                div.querySelector('div.quantita_e_vento p:nth-child(1)').textContent = qnt_pioggia;
+                
+                div.querySelector('div.quantita_e_vento div.pioggia svg:nth-of-type(1)').outerHTML = stati_svg["Vento"];
+                div.querySelector('div.quantita_e_vento div.pioggia p:nth-of-type(1)').textContent = qnt_pioggia;
                 div.querySelector('div.quantita_e_vento p:nth-child(2)').textContent = vento;
 
                 div.nextElementSibling.style.display = 'block';

@@ -160,7 +160,7 @@ div#selettore_giorno button:nth-child(3) {
 }
 
 div#selettore_giorno button.attivo {
-    background-color: #a9d8ff;
+    background-color: #b1dcff;
 }
 
 hr {
@@ -178,8 +178,12 @@ div#meteo_attuale {
     margin-top: 1.2rem;
 }
 
-div#meteo_attuale svg {
+div#meteo_attuale svg:not(svg.svg_quantita_e_vento) {
     width: 50px;
+}
+
+div#meteo_attuale svg.svg_quantita_e_vento {
+    width: 20px;
 }
 
 div#meteo_attuale div.fascia_oraria {
@@ -199,3 +203,9 @@ div#meteo_attuale div.svg_e_gradi {
 div#meteo_attuale div.quantita_e_vento p {
     text-align: end;
 }
+
+div#meteo_attuale div.quantita_e_vento div.vento {
+    display: flex;
+}
+
+
