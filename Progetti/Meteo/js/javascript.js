@@ -16,13 +16,20 @@ const dopodomani = new Date();
 dopodomani.setDate(data.getDate() + 2);
 const giorno = String(data.getDate());
 let mese = String(data.getMonth() + 1);
+let mese_stagione = mese;
 if (mese.length == 1) {
     mese = '0' + mese;
 }
+let tramonto;
+let alba = 6;
+let svg;
 const anno = String(data.getFullYear());
 let data_completa = `${giorno}/${mese}/${anno}`;
 const giorni_settimana = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
 let giorno_scelto;
+let paese;
+let prima_lettera;
+let paese_variabile;
 const ogg_traduci_città = {
     "Milano": "Milan",
     "Roma": "Rome",
@@ -50,6 +57,10 @@ input_cerca.addEventListener('keydown', (event) => {
         selettore_0.classList.add('attivo');
     }
 })
+document.querySelector('button#torna_su').addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+})
+
 
 // Selettore giorni con testo dinamico
 selettore_0.textContent = 'Oggi';
@@ -87,20 +98,25 @@ for (const bottone of selettore_giorno_bottoni) {
 
 // Funzione ricerca meteo paese
 function ricerca(giorno_scelto, data_aggiornata) {
-    // Il body ora può scrollare
-    document.body.style.overflow = 'visible';
-
-    // Aggiustamento paese
-    let paese = input_cerca.value;
-    let prima_lettera = paese.at(0).toUpperCase();
-    paese = prima_lettera + paese.slice(1);
-    input_cerca.value = paese;
-    const paese_variabile = paese;
-
-    // Conversione per città italiane importanti
-    if (paese in ogg_traduci_città) {
-        paese = ogg_traduci_città[paese];
+    // Raccolta del paese ed aggiustamenti
+    try {
+        paese = input_cerca.value;
+        prima_lettera = paese.at(0).toUpperCase();
+        paese = prima_lettera + paese.slice(1);
+        input_cerca.value = paese;
+        paese_variabile = paese;
+        input_cerca.blur();
+    
+        // Conversione per città italiane importanti
+        if (paese in ogg_traduci_città) {
+            paese = ogg_traduci_città[paese];
+        }
+        dati_meteo();
+    } 
+    catch (error) {
+        console.log('Catchatooo')
     }
+
 
     async function dati_meteo() {
         // Previsione meteo ed aggiornamento DOM
@@ -140,7 +156,7 @@ function ricerca(giorno_scelto, data_aggiornata) {
             if (ora.startsWith('0')) {
                 ora = ora.slice(1);
             }
-            
+
 
             // Aggiornamento dei dati nel DOM, prima dati generali
             paragrafo_paese.textContent = nome_paese;
@@ -156,18 +172,20 @@ function ricerca(giorno_scelto, data_aggiornata) {
             const div_da_usare = Array.from(document.querySelectorAll('div.fascia_oraria')).toSpliced(-ora_fascia, ora_fascia);
             const div_da_nascondere_dom = Array.from(document.querySelectorAll('div.fascia_oraria')).splice(-ora_fascia, ora_fascia);
             const hr_da_nascondere_dom = Array.from(document.querySelectorAll('hr')).splice(-ora_fascia, ora_fascia);
-            
+
             // Pulizia dei div dai dati di ricerche precedenti
             div_totali_dom.forEach(div_da_pulire => {
                 div_da_pulire.style.display = 'grid';
                 div_da_pulire.querySelector('div.ora_e_condizioni p:nth-child(1)').textContent = '';
                 div_da_pulire.querySelector('div.ora_e_condizioni p:nth-child(2)').textContent = '';
-    
+
                 div_da_pulire.querySelector('div.svg_e_gradi svg:nth-child(1)').outerHTML = `<svg></svg>`;
                 div_da_pulire.querySelector('div.svg_e_gradi p:nth-of-type(1)').textContent = '';
-    
-                div_da_pulire.querySelector('div.quantita_e_vento p:nth-child(1)').textContent = '';
-                div_da_pulire.querySelector('div.quantita_e_vento p:nth-child(2)').textContent = '';
+
+                div_da_pulire.querySelector('div.quantita_e_vento div.pioggia svg:nth-of-type(1)').outerHTML = `<svg></svg>`;
+                div_da_pulire.querySelector('div.quantita_e_vento div.pioggia p:nth-of-type(1)').textContent = '';
+                div_da_pulire.querySelector('div.quantita_e_vento div.vento svg:nth-of-type(1)').outerHTML = `<svg></svg>`;
+                div_da_pulire.querySelector('div.quantita_e_vento div.vento p:nth-of-type(1)').textContent = '';
             });
 
             // Ciclo ed aggiornamento di tutte le fascie orarie
@@ -177,30 +195,52 @@ function ricerca(giorno_scelto, data_aggiornata) {
                 // Prendo la condizione
                 const dati_codice = lista_condizioni.find(oggetto => oggetto.code == codice);
                 const condizione = dati_codice.languages.day_text;
-    
-                // Prendo svg
                 const stato = dati_codice.languages.condizione;
-                const svg = stati_svg[stato]
-    
+
+                // Stabilisco l'ora media del tramonto in base all'orario e stagione
+                if (mese >= 4 && mese <= 9) { // Primavera - estate
+                    tramonto = 20;
+                }
+                else { // Autunno inverno
+                    tramonto = 18;
+                }
+
                 // Prendo la temperatura
                 const temperatura = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].temp_c + '°';
-    
+
                 // Prendo quantità di pioggia, se c'è
                 const mm_pioggia = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].precip_mm;
                 const qnt_pioggia = Number(mm_pioggia) == 0 ? 'Assenti' : mm_pioggia + 'mm';
-    
+
                 // Prendo velocità vento in km/h
                 const vento = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].wind_kph + ' km/h'
-                
+
                 div.querySelector('div.ora_e_condizioni p:nth-child(1)').textContent = String(ora_fascia).length == 1 ? '0' + String(ora_fascia) + ':00' : String(ora_fascia) + ':00';
+
+                // Fascia notturna
+                if (ora_fascia >= tramonto || ora_fascia < alba) {
+                    if (stato == "Sole" || stato == "Nuvoloso") {
+                        svg = stati_svg["Nebbia"];
+                    }
+
+                    else {
+                        svg = stati_svg[stato];
+                    }
+                }
+
+                // Fascia diurna
+                else {
+                    svg = stati_svg[stato];
+                }
+
                 div.querySelector('div.ora_e_condizioni p:nth-child(2)').textContent = condizione;
-    
                 div.querySelector('div.svg_e_gradi svg:nth-child(1)').outerHTML = svg;
                 div.querySelector('div.svg_e_gradi p:nth-of-type(1)').textContent = temperatura;
-                
-                div.querySelector('div.quantita_e_vento div.pioggia svg:nth-of-type(1)').outerHTML = stati_svg["Vento"];
+
+                div.querySelector('div.quantita_e_vento div.pioggia svg:nth-of-type(1)').outerHTML = stati_svg["Goccia"];
                 div.querySelector('div.quantita_e_vento div.pioggia p:nth-of-type(1)').textContent = qnt_pioggia;
-                div.querySelector('div.quantita_e_vento p:nth-child(2)').textContent = vento;
+                div.querySelector('div.quantita_e_vento div.vento svg:nth-of-type(1)').outerHTML = stati_svg["Vento"];
+                div.querySelector('div.quantita_e_vento div.vento p:nth-of-type(1)').textContent = vento;
 
                 div.nextElementSibling.style.display = 'block';
                 ora_fascia += 1
@@ -217,11 +257,12 @@ function ricerca(giorno_scelto, data_aggiornata) {
             selettore_0.disabled = false;
             selettore_1.disabled = false;
             selettore_2.disabled = false;
-            console.log(dati);
         }
         catch (errore) {
             console.log(`Errore nella richiesta: ${errore}`);
         }
     }
-    dati_meteo();
 }
+
+// input_cerca.value = 'Roma';
+// ricerca(0, data_completa);

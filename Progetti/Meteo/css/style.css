@@ -3,27 +3,25 @@
     box-sizing: border-box;
 }
 
+div#contenitore_madre {
+    padding: 18px;
+}
+
 body {
     margin: 0px;
-    padding: 20px;
     min-width: 390px;
     max-width: 1550px;
-    transition: 0.5s ease;
     background-color: #ffffff;
-    overflow: hidden;
 }
 
 p, #selettore_giorno button {
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
 
 header {
     background-color: #5b9bd0;
     padding: 15px;
-    position: fixed;
-    top: 0px;
-    left: 0px;
 }
 
 nav {
@@ -60,7 +58,7 @@ header input {
 
 header input:focus {
     outline: 2px solid white;
-    outline-offset: 2px;
+    outline-offset: 3px;
 }
 
 header #div_ricerca {
@@ -94,19 +92,20 @@ header button svg {
 
 /* Sezione dati generali */
 div#dati_generali {
-    margin-top: 11.5rem;
+    margin-top: 3rem;
 }
 
 div#dati_generali p:nth-child(1),
 div#dati_generali p:nth-child(2) {
-    font-size: 45px;
+    font-size: 35px;
     text-align: center;
     margin: 10px 0px;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 }
 
 div#dati_generali p:nth-child(2) {
-    font-size: 33px;
+    font-size: 20px;
+    letter-spacing: 1px;
 }
 
 div#dati_generali p:nth-child(3) {
@@ -132,6 +131,11 @@ div#selettore_giorno button {
     cursor: pointer;
 }
 
+div#selettore_giorno button:focus {
+    outline: 3px solid black;
+    outline-offset: -3px;
+}
+
 div#selettore_giorno button:nth-child(1) {
     border-right: none;
     border-top: 2px solid black;
@@ -142,8 +146,8 @@ div#selettore_giorno button:nth-child(1) {
 }
 
 div#selettore_giorno button:nth-child(2) {
-    border-right: 1px solid black;;
-    border-left: 1px solid black;;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     padding-top: 5px;
@@ -160,7 +164,7 @@ div#selettore_giorno button:nth-child(3) {
 }
 
 div#selettore_giorno button.attivo {
-    background-color: #b1dcff;
+    background-color: #b7dfff;
 }
 
 hr {
@@ -176,14 +180,21 @@ hr {
 /* Sezione meteo attuale */
 div#meteo_attuale {
     margin-top: 1.2rem;
+    margin-bottom: 6.5rem;
 }
 
-div#meteo_attuale svg:not(svg.svg_quantita_e_vento) {
+div#meteo_attuale div.svg_e_gradi svg {
     width: 50px;
 }
 
-div#meteo_attuale svg.svg_quantita_e_vento {
-    width: 20px;
+div#meteo_attuale div.svg_e_gradi svg.sole,
+div#meteo_attuale div.svg_e_gradi svg.nuvoloso {
+    width: 60px;
+}
+
+div#meteo_attuale div.quantita_e_vento svg {
+    width: 15px;
+    min-width: 15px;
 }
 
 div#meteo_attuale div.fascia_oraria {
@@ -200,12 +211,33 @@ div#meteo_attuale div.svg_e_gradi {
     grid-row: span 2;
 }
 
-div#meteo_attuale div.quantita_e_vento p {
-    text-align: end;
-}
 
-div#meteo_attuale div.quantita_e_vento div.vento {
+div#meteo_attuale div.quantita_e_vento div.vento,
+div#meteo_attuale div.quantita_e_vento div.pioggia {
     display: flex;
+    column-gap: 18px;
 }
 
+button#torna_su {
+    background-color: rgb(157, 228, 157);
+    width: 40px;
+    padding: 5px 0px 3px 0px;
+    border: none;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
 
+button#torna_su:focus {
+    outline: 2px solid black;
+    outline-offset: 3px;
+}
+
+button#torna_su svg {
+    width: 25px;
+    height: 28px;
+}
