@@ -9,13 +9,13 @@ div#contenitore_madre {
 
 body {
     margin: 0px;
-    min-width: 390px;
+    min-width: 320px;
     max-width: 1550px;
     background-color: #ffffff;
 }
 
 p, #selettore_giorno button {
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
 
@@ -46,7 +46,7 @@ nav svg {
 
 header input {
     display: block;
-    width: 320px;
+    width: 100%;
     height: 45px;
     margin: auto;
     border-radius: 8px;
@@ -57,13 +57,17 @@ header input {
 }
 
 header input:focus {
+    outline: none;
+}
+
+/* header input:focus {
     outline: 2px solid white;
     outline-offset: 3px;
-}
+} */
 
 header #div_ricerca {
     position: relative;
-    width: fit-content;
+    width: 90%;
     margin: auto;
 }
 
@@ -73,49 +77,61 @@ header button {
     background-color: transparent;
     position: absolute;
     top: 50%;
-    right: 1px;
+    right: 0px;
     transform: translateY(-50%);
     height: 100%;
     width: 35px;
     -webkit-tap-highlight-color: transparent;
 }
 
-header button:focus {
+/* header button:focus {
     outline: 2px solid black;
     outline-offset: -6px;
-}
+} */
 
 header button svg {
     width: 18px;
 }
 
-
 /* Sezione dati generali */
-div#dati_generali {
-    margin-top: 3rem;
+div#dati_generali p:first-child {
+    width: fit-content;
+    max-width: 280px;
+    text-align: center;
 }
 
 div#dati_generali p:nth-child(1),
 div#dati_generali p:nth-child(2) {
     font-size: 35px;
-    text-align: center;
     margin: 10px 0px;
-    letter-spacing: 5px;
+    font-style: italic;
 }
 
 div#dati_generali p:nth-child(2) {
     font-size: 20px;
-    letter-spacing: 1px;
+    margin-top: 0px;
+    text-align: center;
 }
 
 div#dati_generali p:nth-child(3) {
-    margin: 35px 0px 0px 0px;
+    margin: 4rem 0px 0px 0px;
+}
+
+div#dati_generali div:first-child {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+}
+
+div#dati_generali div:first-child svg {
+    display: none;
+    width: 28px;
 }
 
 /* Stile selettore giorno */
 div#selettore_giorno {
     width: fit-content;
-    margin: 60px auto 0px auto;
+    margin: 15px auto 0px auto;
     padding: 5px 20px;
     display: flex;
     gap: 0px;
@@ -131,10 +147,10 @@ div#selettore_giorno button {
     cursor: pointer;
 }
 
-div#selettore_giorno button:focus {
+/* div#selettore_giorno button:focus {
     outline: 3px solid black;
     outline-offset: -3px;
-}
+} */
 
 div#selettore_giorno button:nth-child(1) {
     border-right: none;
@@ -184,12 +200,12 @@ div#meteo_attuale {
 }
 
 div#meteo_attuale div.svg_e_gradi svg {
-    width: 50px;
+    width: 45px;
 }
 
 div#meteo_attuale div.svg_e_gradi svg.sole,
 div#meteo_attuale div.svg_e_gradi svg.nuvoloso {
-    width: 60px;
+    width: 55px;
 }
 
 div#meteo_attuale div.quantita_e_vento svg {
@@ -206,8 +222,10 @@ div#meteo_attuale div.fascia_oraria {
 
 div#meteo_attuale div.svg_e_gradi {
     display: flex;
-    gap: 0px;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 0px;
     grid-row: span 2;
 }
 
@@ -215,8 +233,14 @@ div#meteo_attuale div.svg_e_gradi {
 div#meteo_attuale div.quantita_e_vento div.vento,
 div#meteo_attuale div.quantita_e_vento div.pioggia {
     display: flex;
-    column-gap: 18px;
+    justify-content: space-between;
+    column-gap: 8px;
 }
+
+div#meteo_attuale div.quantita_e_vento div.vento p,
+div#meteo_attuale div.quantita_e_vento div.pioggia p {
+    text-align: right;
+} 
 
 button#torna_su {
     background-color: rgb(157, 228, 157);
@@ -232,10 +256,10 @@ button#torna_su {
     -webkit-tap-highlight-color: transparent;
 }
 
-button#torna_su:focus {
+/* button#torna_su:focus {
     outline: 2px solid black;
     outline-offset: 3px;
-}
+} */
 
 button#torna_su svg {
     width: 25px;

@@ -1,6 +1,7 @@
 // Variabili
 const bottone_cerca = document.getElementById('bottone_cerca');
 const input_cerca = document.getElementById('input_cerca');
+const svg_paese = document.querySelector('div#dati_generali svg');
 const paragrafo_paese = document.querySelector('div#dati_generali p:nth-child(1)');
 const paragrafo_nazione = document.querySelector('div#dati_generali p:nth-child(2)');
 const paragrafo_data = document.querySelector('div#dati_generali p:nth-child(3)');
@@ -49,17 +50,21 @@ bottone_cerca.addEventListener('click', () => {
     document.querySelector('button.attivo').classList.remove('attivo');
     selettore_0.classList.add('attivo');
 });
-input_cerca.addEventListener('keydown', (event) => {
+input_cerca.addEventListener('keydown', () => {
     if (event.key == 'Enter') {
         data_completa = `${giorno}/${mese}/${anno}`;
         ricerca(0, data_completa);
         document.querySelector('button.attivo').classList.remove('attivo');
         selettore_0.classList.add('attivo');
     }
-})
+});
+input_cerca.addEventListener('input', () => {
+    input_cerca.style.border = '2px solid black';
+    input_cerca.placeholder = 'Cerca località';
+});
 document.querySelector('button#torna_su').addEventListener('click', () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
-})
+});
 
 
 // Selettore giorni con testo dinamico
@@ -114,7 +119,8 @@ function ricerca(giorno_scelto, data_aggiornata) {
         dati_meteo();
     } 
     catch (error) {
-        console.log('Catchatooo')
+        input_cerca.style.border = '2px solid #ff0000';
+        input_cerca.placeholder = 'Inserisci una paese!';
     }
 
 
@@ -159,9 +165,29 @@ function ricerca(giorno_scelto, data_aggiornata) {
 
 
             // Aggiornamento dei dati nel DOM, prima dati generali
+            paragrafo_paese.style.fontSize = '35px'
             paragrafo_paese.textContent = nome_paese;
+            svg_paese.style.display = 'inline';
+            let font_paragrafo_paese = 35;
+            let altezza_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).height.slice(0, -2));
+            let numero_cicli = 0;
+            while (altezza_paragrafo_paese > 42) {
+                font_paragrafo_paese -= 1;
+                font_paragrafo_paese = font_paragrafo_paese < 16 ? 16 : font_paragrafo_paese;
+                paragrafo_paese.style.fontSize = `${font_paragrafo_paese}px`;
+                altezza_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).height.slice(0, -2));
+                numero_cicli += 1;
+                if (numero_cicli > 50) {
+                    console.log('brekkato')
+                    break;
+                }
+            }
+            console.log(numero_cicli);
             paragrafo_nazione.textContent = nome_nazione;
-            paragrafo_data.textContent = `Previsioni per il ${data_aggiornata}`;
+            let font_paragrafo_nazione = Number(window.getComputedStyle(paragrafo_paese).fontSize.slice(0, -2)) - 10;
+            font_paragrafo_nazione = font_paragrafo_nazione < 16 ? 16 : font_paragrafo_nazione;
+            paragrafo_nazione.style.fontSize = `${font_paragrafo_nazione}px`;
+            paragrafo_data.textContent = `Previsioni per oggi, ${data_aggiornata}`;
 
             // Aggiornamento di tutte le fasce orarie
             let ora_fascia = Number(ora);
@@ -210,7 +236,7 @@ function ricerca(giorno_scelto, data_aggiornata) {
 
                 // Prendo quantità di pioggia, se c'è
                 const mm_pioggia = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].precip_mm;
-                const qnt_pioggia = Number(mm_pioggia) == 0 ? 'Assenti' : mm_pioggia + 'mm';
+                const qnt_pioggia = Number(mm_pioggia) == 0 ? 'Assenti' : `${mm_pioggia}mm`;
 
                 // Prendo velocità vento in km/h
                 const vento = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].wind_kph + ' km/h'
@@ -259,10 +285,12 @@ function ricerca(giorno_scelto, data_aggiornata) {
             selettore_2.disabled = false;
         }
         catch (errore) {
-            console.log(`Errore nella richiesta: ${errore}`);
+            input_cerca.style.border = '2px solid #ff0000';
+            input_cerca.value = '';
+            input_cerca.placeholder = 'Località non trovata!';
         }
     }
 }
 
-// input_cerca.value = 'Roma';
-// ricerca(0, data_completa);
+input_cerca.value = 'Roma';
+ricerca(0, data_completa);
