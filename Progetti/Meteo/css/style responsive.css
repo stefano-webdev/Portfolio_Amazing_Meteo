@@ -1,0 +1,169 @@
+/* Media query mobile landscape */
+@media (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
+
+    /* Sezione header */
+    div#contenitore_madre {
+        padding: 25px;
+    }
+
+    nav {
+        margin-bottom: 7px;
+    }
+
+    nav svg {
+        width: 11.5%;
+    }
+
+    /* Sezione dati generali */
+    div#dati_generali p:first-child {
+        font-size: 35px;
+        max-width: none;
+    }
+
+    /* Sezione meteo */
+    p,
+    #selettore_giorno button,
+    header input {
+        font-size: 18px;
+    }
+
+    p.avviso_ricerca {
+        font-size: 16px;
+    }
+
+    div#meteo_attuale div.svg_e_gradi svg {
+        width: 60px;
+    }
+
+    div#meteo_attuale div.svg_e_gradi svg.sole,
+    div#meteo_attuale div.svg_e_gradi svg.nuvoloso {
+        width: 70px;
+    }
+
+    footer p,
+    footer a {
+        font-size: 17px;
+    }
+
+    footer svg {
+        width: 30px;
+    }
+
+}
+
+/* Media query tablet verticale */
+@media (orientation: portrait) and (min-width: 461px) {
+    /* Sezione header */
+    nav div#logo {
+        font-size: clamp(35px, 7vw, 60px);
+    }
+
+    nav svg {
+        width: 20%;
+        max-width: 180px;
+    }
+
+    header #div_ricerca {
+        width: 65%;
+    }
+
+    header input {
+        width: 100%;
+        font-size: clamp(16px, 3.3vw, 24px);
+        padding: 0px 47px 0px 12px;
+    }
+
+    header button {
+        top: 52%;
+        right: 7px;
+    }
+
+    header button svg {
+        width: clamp(18px, 3.5vw, 27px);
+    }
+
+    p.avviso_ricerca {
+        font-size: clamp(14px, 2.85vw, 22px);
+    }
+
+    /* Sezione dati generali */
+    div#dati_generali p:nth-child(1) {
+        font-size: 45px !important;
+        max-width: none;
+    }
+
+    div#dati_generali p:nth-child(2) {
+        font-size: 32px;
+    }
+
+    /* Sezione meteo */
+    p,
+    #selettore_giorno button {
+        font-size: clamp(16px, 3.3vw, 20px);
+    }
+
+    div#meteo_attuale div.fascia_oraria {
+        grid-template-rows: 90px 65px;
+    }
+
+    div#meteo_attuale div.svg_e_gradi svg {
+        width: 45%;
+        max-width: 185px;
+    }
+
+    div#meteo_attuale div.svg_e_gradi svg.sole,
+    div#meteo_attuale div.svg_e_gradi svg.nuvoloso {
+        width: 50%;
+        max-width: 185px;
+    }
+
+    div#meteo_attuale div.svg_e_gradi svg.nebbia {
+        width: 40%;
+        max-width: 185px;
+    }
+
+    div#meteo_attuale div.svg_e_gradi {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    div#meteo_attuale div.quantita_e_vento div.vento,
+    div#meteo_attuale div.quantita_e_vento div.pioggia {
+        justify-content: flex-end;
+        align-items: flex-start;
+        column-gap: 15px;
+    }
+
+    div#meteo_attuale div.quantita_e_vento svg {
+        width: 13%;
+        max-width: 23px;
+    }
+
+    div#meteo_attuale div.fascia_oraria p {
+        margin-top: 0px;
+        margin-bottom: 30px;
+    }
+
+    hr {
+        margin: 0px auto 50px auto;
+    }
+
+    button#torna_su {
+        width: 45px;
+    }
+    
+    button#torna_su svg {
+        width: 30px;
+        height: 33px;
+    }
+
+    /* Sezione footer */
+    footer p,
+    footer a {
+        font-size: 20px;
+    }
+
+    footer svg {
+        width: clamp(30px, 6vw, 37px);
+    }
+}

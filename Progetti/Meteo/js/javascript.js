@@ -3,6 +3,7 @@ const bottone_cerca = document.getElementById('bottone_cerca');
 const input_cerca = document.getElementById('input_cerca');
 const svg_paese = document.querySelector('div#dati_generali svg');
 const paragrafo_paese = document.querySelector('div#dati_generali p:nth-child(1)');
+let font_paragrafo_paese;
 const paragrafo_nazione = document.querySelector('div#dati_generali p:nth-child(2)');
 const paragrafo_data = document.querySelector('div#dati_generali p:nth-child(3)');
 const selettore_giorno = document.querySelector('div#selettore_giorno');
@@ -50,7 +51,7 @@ bottone_cerca.addEventListener('click', () => {
     document.querySelector('button.attivo').classList.remove('attivo');
     selettore_0.classList.add('attivo');
 });
-input_cerca.addEventListener('keydown', () => {
+input_cerca.addEventListener('keydown', (event) => {
     if (event.key == 'Enter') {
         data_completa = `${giorno}/${mese}/${anno}`;
         ricerca(0, data_completa);
@@ -65,7 +66,6 @@ input_cerca.addEventListener('input', () => {
 document.querySelector('button#torna_su').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
 
 // Selettore giorni con testo dinamico
 selettore_0.textContent = 'Oggi';
@@ -165,19 +165,20 @@ function ricerca(giorno_scelto, data_aggiornata) {
 
 
             // Aggiornamento dei dati nel DOM, prima dati generali
-            paragrafo_paese.style.fontSize = '35px'
+            font_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).fontSize.slice(0, -2));
+            paragrafo_paese.style.fontSize = `${font_paragrafo_paese}px`;
             paragrafo_paese.textContent = nome_paese;
             svg_paese.style.display = 'inline';
-            let font_paragrafo_paese = 35;
             let altezza_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).height.slice(0, -2));
             let numero_cicli = 0;
             while (altezza_paragrafo_paese > 42) {
                 font_paragrafo_paese -= 1;
                 font_paragrafo_paese = font_paragrafo_paese < 16 ? 16 : font_paragrafo_paese;
                 paragrafo_paese.style.fontSize = `${font_paragrafo_paese}px`;
+                console.log(window.getComputedStyle(paragrafo_paese).fontSize);
                 altezza_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).height.slice(0, -2));
                 numero_cicli += 1;
-                if (numero_cicli > 50) {
+                if (numero_cicli > 40) {
                     console.log('brekkato')
                     break;
                 }
@@ -293,8 +294,10 @@ function ricerca(giorno_scelto, data_aggiornata) {
                 ora_fascia += 1
             });
 
-            // Nel CSS avevo nascosto selettore_giorno, qui lo mostro
+            // Nel CSS avevo nascosto degli elementi, qui lli mostro
             selettore_giorno.style.display = 'flex';
+            document.getElementById('torna_su').style.display = 'inline-block';
+            document.querySelector('footer').style.display = 'block';
 
             // Riabilito i bottoni
             selettore_0.disabled = false;

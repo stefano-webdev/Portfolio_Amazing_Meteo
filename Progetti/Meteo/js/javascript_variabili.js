@@ -51,7 +51,7 @@ const stati_svg = {
     11.7-1.9 17.2c37.4 6.7 65.8 39.4 65.8 78.7z" />
     </svg>`,
 
-    "Nebbia": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+    "Nebbia": `<svg class="nebbia" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
         <path fill="#C8C8C8" d="M0 336c0 79.5 64.5 144 144 144l368 0c70.7 0 
       128-57.3 128-128c0-61.9-44-113.6-102.4-125.4c4.1-10.7 
       6.4-22.4 6.4-34.6c0-53-43-96-96-96c-19.7 0-38.1 6-53.3 
