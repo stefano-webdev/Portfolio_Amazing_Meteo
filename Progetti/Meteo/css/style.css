@@ -7,6 +7,10 @@ div#contenitore_madre {
     padding: 18px;
 }
 
+main {
+    margin-bottom: 4rem;
+}
+
 body {
     margin: 0px;
     min-width: 320px;
@@ -76,7 +80,7 @@ header button {
     padding: 0px;
     background-color: transparent;
     position: absolute;
-    top: 50%;
+    top: 51%;
     right: 0px;
     transform: translateY(-50%);
     height: 100%;
@@ -91,6 +95,16 @@ header button {
 
 header button svg {
     width: 18px;
+}
+
+p#avviso_ricerca {
+    font-size: 14px;
+    width: 100%;
+    margin: 7px auto 0px auto;
+    color: rgb(0, 0, 0);
+    opacity: 0.45;
+    text-align: center;
+    white-space: nowrap;
 }
 
 /* Sezione dati generali */
@@ -196,7 +210,6 @@ hr {
 /* Sezione meteo attuale */
 div#meteo_attuale {
     margin-top: 1.2rem;
-    margin-bottom: 6.5rem;
 }
 
 div#meteo_attuale div.svg_e_gradi svg {
@@ -248,7 +261,7 @@ button#torna_su {
     padding: 5px 0px 3px 0px;
     border: none;
     border-radius: 50%;
-    position: fixed;
+    position: sticky;
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
@@ -264,4 +277,28 @@ button#torna_su {
 button#torna_su svg {
     width: 25px;
     height: 28px;
+}
+
+/* Stile footer */
+footer div.contenitore_github {
+    margin-top: 1.5rem;
+}
+footer div.contenitore_github div:first-child {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+footer svg {
+    width: 25px;
+}
+
+footer p, footer a {
+    font-style: italic;
+    font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
+    font-size: 15px;
+    margin: 0px;
+    color: black;
+    text-decoration: none;
 }

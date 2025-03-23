@@ -63,7 +63,7 @@ input_cerca.addEventListener('input', () => {
     input_cerca.placeholder = 'Cerca località';
 });
 document.querySelector('button#torna_su').addEventListener('click', () => {
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 
@@ -111,13 +111,13 @@ function ricerca(giorno_scelto, data_aggiornata) {
         input_cerca.value = paese;
         paese_variabile = paese;
         input_cerca.blur();
-    
+
         // Conversione per città italiane importanti
         if (paese in ogg_traduci_città) {
             paese = ogg_traduci_città[paese];
         }
         dati_meteo();
-    } 
+    }
     catch (error) {
         input_cerca.style.border = '2px solid #ff0000';
         input_cerca.placeholder = 'Inserisci una paese!';
@@ -182,7 +182,6 @@ function ricerca(giorno_scelto, data_aggiornata) {
                     break;
                 }
             }
-            console.log(numero_cicli);
             paragrafo_nazione.textContent = nome_nazione;
             let font_paragrafo_nazione = Number(window.getComputedStyle(paragrafo_paese).fontSize.slice(0, -2)) - 10;
             font_paragrafo_nazione = font_paragrafo_nazione < 16 ? 16 : font_paragrafo_nazione;
@@ -194,27 +193,49 @@ function ricerca(giorno_scelto, data_aggiornata) {
             if (giorno_scelto != 0) {
                 ora_fascia = 0;
             }
-            const div_totali_dom = Array.from(document.querySelectorAll('div.fascia_oraria'));
-            const div_da_usare = Array.from(document.querySelectorAll('div.fascia_oraria')).toSpliced(-ora_fascia, ora_fascia);
-            const div_da_nascondere_dom = Array.from(document.querySelectorAll('div.fascia_oraria')).splice(-ora_fascia, ora_fascia);
-            const hr_da_nascondere_dom = Array.from(document.querySelectorAll('hr')).splice(-ora_fascia, ora_fascia);
 
-            // Pulizia dei div dai dati di ricerche precedenti
-            div_totali_dom.forEach(div_da_pulire => {
-                div_da_pulire.style.display = 'grid';
-                div_da_pulire.querySelector('div.ora_e_condizioni p:nth-child(1)').textContent = '';
-                div_da_pulire.querySelector('div.ora_e_condizioni p:nth-child(2)').textContent = '';
+            // Rimuovo le fascie orarie precedenti rimaste nel DOM
+            document.querySelectorAll("div.fascia_oraria, hr").forEach(elemento => elemento.remove());
 
-                div_da_pulire.querySelector('div.svg_e_gradi svg:nth-child(1)').outerHTML = `<svg></svg>`;
-                div_da_pulire.querySelector('div.svg_e_gradi p:nth-of-type(1)').textContent = '';
+            // Creo le fasce orarie in modo dinamico
+            for (let i = 0; i < 24 - ora_fascia; i++) {
+                const div_fascia_oraria = document.createElement('div');
+                div_fascia_oraria.classList.add('fascia_oraria');
 
-                div_da_pulire.querySelector('div.quantita_e_vento div.pioggia svg:nth-of-type(1)').outerHTML = `<svg></svg>`;
-                div_da_pulire.querySelector('div.quantita_e_vento div.pioggia p:nth-of-type(1)').textContent = '';
-                div_da_pulire.querySelector('div.quantita_e_vento div.vento svg:nth-of-type(1)').outerHTML = `<svg></svg>`;
-                div_da_pulire.querySelector('div.quantita_e_vento div.vento p:nth-of-type(1)').textContent = '';
-            });
+                const div_ora_e_condizioni = document.createElement('div');
+                div_ora_e_condizioni.classList.add('ora_e_condizioni');
+                const p_ora = document.createElement('p');
+                const p_ora2 = document.createElement('p');
+                div_ora_e_condizioni.append(p_ora, p_ora2);
+
+                const div_svg_e_gradi = document.createElement('div');
+                div_svg_e_gradi.classList.add('svg_e_gradi');
+                const svg_gradi = document.createElement('svg');
+                const p_gradi = document.createElement('p');
+                div_svg_e_gradi.append(svg_gradi, p_gradi);
+
+                const div_quantita_e_vento = document.createElement('div');
+                div_quantita_e_vento.classList.add('quantita_e_vento');
+                const div_pioggia = document.createElement('div');
+                div_pioggia.classList.add('pioggia');
+                const svg_pioggia = document.createElement('svg');
+                const p_pioggia = document.createElement('p');
+                div_pioggia.append(svg_pioggia, p_pioggia);
+                const div_vento = document.createElement('div');
+                div_vento.classList.add('vento');
+                const svg_vento = document.createElement('svg');
+                const p_vento = document.createElement('p');
+                div_vento.append(svg_vento, p_vento);
+                div_quantita_e_vento.append(div_pioggia, div_vento);
+
+                div_fascia_oraria.append(div_ora_e_condizioni, div_svg_e_gradi, div_quantita_e_vento);
+                const hr = document.createElement('hr');
+                
+                document.getElementById('meteo_attuale').append(div_fascia_oraria, hr);
+            }
 
             // Ciclo ed aggiornamento di tutte le fascie orarie
+            const div_da_usare = Array.from(document.querySelectorAll('div.fascia_oraria'));
             div_da_usare.forEach((div) => {
                 const codice = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].condition.code;
 
@@ -275,10 +296,6 @@ function ricerca(giorno_scelto, data_aggiornata) {
             // Nel CSS avevo nascosto selettore_giorno, qui lo mostro
             selettore_giorno.style.display = 'flex';
 
-            // Nascondo i div ed hr non utilizzati
-            div_da_nascondere_dom.forEach(div => div.style.display = 'none');
-            hr_da_nascondere_dom.forEach(hr => hr.style.display = 'none');
-
             // Riabilito i bottoni
             selettore_0.disabled = false;
             selettore_1.disabled = false;
@@ -292,5 +309,6 @@ function ricerca(giorno_scelto, data_aggiornata) {
     }
 }
 
+// Capitale d'italia come ricerca di default, in modo da presentare del contenuto
 input_cerca.value = 'Roma';
 ricerca(0, data_completa);
