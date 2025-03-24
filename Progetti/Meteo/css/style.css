@@ -25,6 +25,7 @@ body {
 }
 
 p, #selettore_giorno button {
+    line-height: 1.2;
     font-size: 15px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
@@ -116,7 +117,6 @@ p.avviso_ricerca {
 /* Sezione dati generali */
 div#dati_generali p:nth-child(1) {
     width: fit-content;
-    max-width: 280px;
     text-align: center;
     font-size: 35px;
 }
@@ -215,7 +215,7 @@ hr {
 
 /* Sezione meteo attuale */
 div#meteo_attuale {
-    margin-top: 1.2rem;
+    margin-top: 1.5rem;
 }
 
 div#meteo_attuale div.svg_e_gradi svg {

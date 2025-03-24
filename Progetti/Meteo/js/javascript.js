@@ -4,6 +4,8 @@ const input_cerca = document.getElementById('input_cerca');
 const svg_paese = document.querySelector('div#dati_generali svg');
 const paragrafo_paese = document.querySelector('div#dati_generali p:nth-child(1)');
 let font_paragrafo_paese;
+let nome_paese;
+let nome_nazione;
 const paragrafo_nazione = document.querySelector('div#dati_generali p:nth-child(2)');
 const paragrafo_data = document.querySelector('div#dati_generali p:nth-child(3)');
 const selettore_giorno = document.querySelector('div#selettore_giorno');
@@ -66,6 +68,36 @@ input_cerca.addEventListener('input', () => {
 document.querySelector('button#torna_su').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+window.addEventListener('resize', () => {
+    ricalcola_font_paragrafo_paese();
+});
+
+function ricalcola_font_paragrafo_paese() {
+    paragrafo_paese.style.removeProperty("font-size");
+    font_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).fontSize.slice(0, -2));
+    paragrafo_paese.style.fontSize = `${font_paragrafo_paese}px`;
+    paragrafo_paese.textContent = nome_paese;
+    svg_paese.style.display = 'inline';
+    let altezza_paragrafo_paese = parseFloat(window.getComputedStyle(paragrafo_paese).height);
+    let line_height_paragrafo_paese = parseFloat(window.getComputedStyle(paragrafo_paese).lineHeight);
+    let numero_cicli = 0;
+    while (altezza_paragrafo_paese > line_height_paragrafo_paese) {
+        font_paragrafo_paese -= 1;
+        font_paragrafo_paese = font_paragrafo_paese < 16 ? 16 : font_paragrafo_paese;
+        paragrafo_paese.style.fontSize = `${font_paragrafo_paese}px`;
+        altezza_paragrafo_paese = parseFloat(window.getComputedStyle(paragrafo_paese).height);
+        numero_cicli += 1;
+        if (numero_cicli > 45) {
+            break;
+        }
+    }
+    paragrafo_nazione.textContent = nome_nazione;
+    let font_paragrafo_nazione = parseFloat(window.getComputedStyle(paragrafo_paese).fontSize) - 10;
+    font_paragrafo_nazione = font_paragrafo_nazione < 16 ? 16 : font_paragrafo_nazione;
+    paragrafo_nazione.style.fontSize = `${font_paragrafo_nazione}px`;
+}
+
 
 // Selettore giorni con testo dinamico
 selettore_0.textContent = 'Oggi';
@@ -143,8 +175,8 @@ function ricerca(giorno_scelto, data_aggiornata) {
             const dati = await risposta.json();
 
             // Dati generali
-            const nome_paese = paese_variabile;
-            let nome_nazione = dati.location.country;
+            nome_paese = paese_variabile;
+            nome_nazione = dati.location.country;
             if (nome_nazione == 'Italy') {
                 nome_nazione = 'Italia';
             }
@@ -165,28 +197,7 @@ function ricerca(giorno_scelto, data_aggiornata) {
 
 
             // Aggiornamento dei dati nel DOM, prima dati generali
-            font_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).fontSize.slice(0, -2));
-            paragrafo_paese.style.fontSize = `${font_paragrafo_paese}px`;
-            paragrafo_paese.textContent = nome_paese;
-            svg_paese.style.display = 'inline';
-            let altezza_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).height.slice(0, -2));
-            let numero_cicli = 0;
-            while (altezza_paragrafo_paese > 42) {
-                font_paragrafo_paese -= 1;
-                font_paragrafo_paese = font_paragrafo_paese < 16 ? 16 : font_paragrafo_paese;
-                paragrafo_paese.style.fontSize = `${font_paragrafo_paese}px`;
-                console.log(window.getComputedStyle(paragrafo_paese).fontSize);
-                altezza_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).height.slice(0, -2));
-                numero_cicli += 1;
-                if (numero_cicli > 40) {
-                    console.log('brekkato')
-                    break;
-                }
-            }
-            paragrafo_nazione.textContent = nome_nazione;
-            let font_paragrafo_nazione = Number(window.getComputedStyle(paragrafo_paese).fontSize.slice(0, -2)) - 10;
-            font_paragrafo_nazione = font_paragrafo_nazione < 16 ? 16 : font_paragrafo_nazione;
-            paragrafo_nazione.style.fontSize = `${font_paragrafo_nazione}px`;
+            ricalcola_font_paragrafo_paese();
             paragrafo_data.textContent = `Previsioni per oggi, ${data_aggiornata}`;
 
             // Aggiornamento di tutte le fasce orarie
@@ -231,7 +242,7 @@ function ricerca(giorno_scelto, data_aggiornata) {
 
                 div_fascia_oraria.append(div_ora_e_condizioni, div_svg_e_gradi, div_quantita_e_vento);
                 const hr = document.createElement('hr');
-                
+
                 document.getElementById('meteo_attuale').append(div_fascia_oraria, hr);
             }
 
@@ -315,3 +326,5 @@ function ricerca(giorno_scelto, data_aggiornata) {
 // Capitale d'italia come ricerca di default, in modo da presentare del contenuto
 input_cerca.value = 'Roma';
 ricerca(0, data_completa);
+
+console.log(parseInt('25px'));
