@@ -67,6 +67,7 @@ input_cerca.addEventListener('input', () => {
 });
 document.querySelector('button#torna_su').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.querySelector('button#torna_su').blur();
 });
 
 window.addEventListener('resize', () => {
@@ -96,6 +97,8 @@ function ricalcola_font_paragrafo_paese() {
     let font_paragrafo_nazione = parseFloat(window.getComputedStyle(paragrafo_paese).fontSize) - 10;
     font_paragrafo_nazione = font_paragrafo_nazione < 16 ? 16 : font_paragrafo_nazione;
     paragrafo_nazione.style.fontSize = `${font_paragrafo_nazione}px`;
+    let altezza_header = parseFloat(window.getComputedStyle(document.querySelector('header')).height) + 0;
+    document.getElementById('contenitore_madre').style.marginTop = `${altezza_header}px`;
 }
 
 
@@ -326,5 +329,3 @@ function ricerca(giorno_scelto, data_aggiornata) {
 // Capitale d'italia come ricerca di default, in modo da presentare del contenuto
 input_cerca.value = 'Roma';
 ricerca(0, data_completa);
-
-console.log(parseInt('25px'));

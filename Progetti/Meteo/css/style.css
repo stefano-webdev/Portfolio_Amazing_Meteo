@@ -18,7 +18,7 @@ main {
 }
 
 body {
-    margin: 0px;
+    margin: 0px auto;
     min-width: 320px;
     max-width: 1550px;
     background-color: #ffffff;
@@ -33,6 +33,10 @@ p, #selettore_giorno button {
 header {
     background-color: #5b9bd0;
     padding: 15px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
 }
 
 nav {
@@ -71,11 +75,6 @@ header input:focus {
     outline: none;
 }
 
-/* header input:focus {
-    outline: 2px solid white;
-    outline-offset: 3px;
-} */
-
 header #div_ricerca {
     position: relative;
     width: 90%;
@@ -93,15 +92,17 @@ header button {
     height: 100%;
     width: 35px;
     -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
 }
-
-/* header button:focus {
-    outline: 2px solid black;
-    outline-offset: -6px;
-} */
 
 header button svg {
     width: 18px;
+    fill: black;
+    transition: transform 0.8s ease;
+}
+
+header button:active svg {
+    transform: scale(0.6);
 }
 
 p.avviso_ricerca {
@@ -140,6 +141,7 @@ div#dati_generali p:nth-child(3) {
 div#dati_generali div:first-child {
     display: flex;
     justify-content: center;
+    align-items: first baseline;
     gap: 13px;
 }
 
@@ -166,11 +168,6 @@ div#selettore_giorno button {
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
 }
-
-/* div#selettore_giorno button:focus {
-    outline: 3px solid black;
-    outline-offset: -3px;
-} */
 
 div#selettore_giorno button:nth-child(1) {
     border-right: none;
@@ -275,11 +272,6 @@ button#torna_su {
     -webkit-tap-highlight-color: transparent;
     display: none;
 }
-
-/* button#torna_su:focus {
-    outline: 2px solid black;
-    outline-offset: 3px;
-} */
 
 button#torna_su svg {
     width: 25px;

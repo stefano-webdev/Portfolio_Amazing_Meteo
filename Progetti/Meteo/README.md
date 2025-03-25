@@ -23,5 +23,4 @@ Per disporre in modo efficiente i dati raccolti ho usato i moderni metodi Grid e
 Infine per garantire una completa compatibilità e responsività sono state usate delle media queries, in modo da adattare i vari elementi e le loro dimensioni anche per layout più grandi, partendo dal mobile-first fino agli schermi più grandi come quelli desktop/ultrawide. Le media queries sono state usate anche per il Portfolio base in maniera più specifica ed approfondita, andando a modificare più elementi nel layout.
 
 NOTA:
-Le informazioni sui dati meteo e le ricerche delle località tramite API in questo progetto potrebbero non essere sempre precise al 100%. L'obiettivo principale non è creare un vero e proprio sito di previsioni meteo, ma dimostrare le mie competenze nello sviluppo web attraverso una possibile applicazione realistica. Per una ricerca più precisa di una località inserire: Località paese
-Ad esempio: Como Italia
+Le informazioni sui dati meteo e le ricerche delle località tramite API in questo progetto potrebbero non essere sempre precise al 100%. L'obiettivo principale non è creare un vero e proprio sito di previsioni meteo, ma dimostrare le mie competenze nello sviluppo web attraverso una possibile applicazione realistica.
