@@ -159,7 +159,7 @@
 }
 
 /* Media query tablet orizzontale */
-@media (orientation: landscape) and (pointer: coarse) and (min-width: 901px) {
+@media (orientation: landscape) and (min-width: 901px) {
 
     /* Sezione header */
     nav svg {

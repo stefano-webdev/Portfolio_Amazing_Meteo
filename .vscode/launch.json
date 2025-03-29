@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://127.0.0.1:5500/Progetti/Meteo/html/meteo.html",
+            "url": "http://127.0.0.1:5500/Progetti/E-commerce/html/e-commerce.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
