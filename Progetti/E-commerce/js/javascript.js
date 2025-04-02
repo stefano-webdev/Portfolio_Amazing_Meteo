@@ -16,6 +16,11 @@ const bottone_cerca = document.getElementById('bottone_cerca');
 const input_cerca = document.getElementById('input_cerca');
 const contenitore_prodotti = document.getElementById('contenitore_prodotti');
 const div_categorie = document.querySelectorAll('div.categoria');
+const crescente = document.querySelector('#div_crescente_decrescente div:nth-child(1)');
+const decrescente = document.querySelector('#div_crescente_decrescente div:nth-child(2)');
+const lista_range_prezzi = document.querySelectorAll('#div_range_prezzi div.range_valore');
+const range_custom = document.getElementById('range_custom');
+
 
 // Assegnazione comandi
 // Tasto cerca
@@ -28,7 +33,7 @@ input_cerca.addEventListener('keydown', (event) => {
     }
 });
 
-// Categorie filtra prodotti
+// Sezione categorie disponibili
 div_categorie.forEach(categoria => {
     categoria.addEventListener('click', (event) => {
         if (event.target.textContent == 'Tutte le categorie') {
@@ -42,6 +47,42 @@ div_categorie.forEach(categoria => {
     })
 });
 
+// Sezione filtri
+// Prezzo
+crescente.addEventListener('click', () => {
+    prezzo_crescente_decrescente('crescente');
+});
+decrescente.addEventListener('click', () => {
+    prezzo_crescente_decrescente('decrescente');
+});
+
+// Range prezzi
+lista_range_prezzi.forEach(elemento => elemento.addEventListener('click', (event) => {
+    range_prezzi(event);
+}));
+
+range_custom.addEventListener('keydown', (event) => {
+    if (event.key == 'Enter') {
+        range_custom.blur();
+    }
+});
+
+range_custom.addEventListener('blur', (event) => {
+    document.getElementById('div_input_valuta').classList.add('attivo');
+    range_custom.classList.add('attivo');
+    if (range_custom.value == '') {
+        document.getElementById('div_input_valuta').classList.remove('attivo');
+        range_custom.classList.remove('attivo');
+        const div_prodotti = Array.from(document.querySelectorAll('div.prodotto'));
+        div_prodotti.forEach(div => div.style.display = 'flex');
+    }
+});
+
+range_custom.addEventListener('input', (event) => {
+    range_custom_fnc(event);
+});
+
+
 // Comando bottone torna_su
 document.getElementById('torna_su').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -50,6 +91,127 @@ document.getElementById('torna_su').addEventListener('click', () => {
 
 
 // Funzioni
+// Funzione prezzo crescente o decrescente
+function prezzo_crescente_decrescente(azione) {
+    const prezzi_articoli_dom = document.querySelectorAll('p.prezzo_prodotto');
+    const lista_prezzi_articoli = Array.from(prezzi_articoli_dom).map(elemento => {
+        return parseFloat(elemento.textContent.replace(',', '.'))
+    });
+
+    if (azione == 'crescente') {
+        crescente.classList.add('attivo');
+        decrescente.classList.remove('attivo');
+        lista_prezzi_articoli.sort((a, b) => a - b);
+    }
+    else {
+        decrescente.classList.add('attivo');
+        crescente.classList.remove('attivo');
+        lista_prezzi_articoli.sort((a, b) => b - a);
+    }
+
+    const div_prodotti = Array.from(document.querySelectorAll('div.prodotto'));
+    div_prodotti.forEach(elemento => elemento.remove());
+    lista_prezzi_articoli.forEach((elemento, indice) => {
+        const div_corrispondente = div_prodotti.find(div => {
+            return parseFloat(div.querySelector("p.prezzo_prodotto").textContent.replace(',', '.')) == elemento
+        });
+        contenitore_prodotti.append(div_corrispondente);
+        div_prodotti.splice(div_prodotti.indexOf(div_corrispondente), 1);
+    });
+}
+
+// Funzione range prezzi
+function range_prezzi(event) {
+    // Tolgo paragrafo avviso e ripristino min-height
+    if (document.querySelector('p.paragrafo_avviso')) {
+        document.querySelector('p.paragrafo_avviso').remove()
+    }
+    contenitore_prodotti.style.minHeight = '100svh';
+
+    // Gestisco selezione
+    if (event.target.classList.contains('attivo')) {
+        event.target.classList.remove('attivo');
+        const div_prodotti = Array.from(document.querySelectorAll('div.prodotto'));
+        div_prodotti.forEach(elemento => elemento.style = 'flex');
+    }
+
+    else {
+        // Gestisco selezione
+        lista_range_prezzi.forEach(elemento => elemento.classList.remove('attivo'));
+        event.target.classList.add('attivo');
+        document.getElementById('div_input_valuta').classList.remove('attivo');
+        range_custom.classList.remove('attivo');
+
+        // Prendo prezzo limite selezionato e creo lista dei paragrafi nel DOM
+        const prezzo_limite = parseInt(event.target.textContent);
+
+        // Prendo tutti i div.prodotto e mostro quelli oscurati in precedenza
+        const div_prodotti = Array.from(document.querySelectorAll('div.prodotto'));
+        div_prodotti.forEach(elemento => elemento.style = 'flex');
+
+        // Faccio vedere a schermo solo i div sotto al range selezionato
+        div_prodotti.forEach(div => {
+            if (parseFloat(div.querySelector('p.prezzo_prodotto').textContent.replace(',', '.')) > prezzo_limite) {
+                div.style.display = 'none';
+            }
+        });
+
+        // Se nessun prodotto corrisponde al filtro
+        if (div_prodotti.every(div => div.style.display == 'none') && document.querySelector('p.paragrafo_avviso') === null) {
+            const paragrafo_avviso = document.createElement('p');
+            paragrafo_avviso.textContent = 'Non sono presenti articoli corrispondenti ai filtri selezionati';
+            paragrafo_avviso.classList.add('paragrafo_avviso');
+            contenitore_prodotti.append(paragrafo_avviso);
+
+            contenitore_prodotti.style.minHeight = 'fit-content';
+        }
+    }
+}
+
+// Funzione range_custom
+function range_custom_fnc(event) {
+    // Limite massimo caratteri
+    if (range_custom.value.length > 7) {
+        range_custom.value = range_custom.value.slice(0, 7);
+    }
+
+    console.log(range_custom.value)
+    // Entra nell'if solo se è un numero valido
+    if (!isNaN(parseFloat(range_custom.value))) {
+        // Tolgo paragrafo avviso e ripristino min-height
+        if (document.querySelector('p.paragrafo_avviso')) {
+            document.querySelector('p.paragrafo_avviso').remove()
+        }
+        contenitore_prodotti.style.minHeight = '100svh';
+    
+        // Rendo tutti i div visibili
+        const div_prodotti = Array.from(document.querySelectorAll('div.prodotto'));
+        div_prodotti.forEach(elemento => elemento.style = 'flex');
+    
+        // Gestisco selezione
+        lista_range_prezzi.forEach(elemento => elemento.classList.remove('attivo'));
+        
+        // Prendo prezzo limite selezionato e creo lista dei paragrafi nel DOM
+        const prezzo_limite = parseFloat(range_custom.value);
+
+        // Faccio vedere a schermo solo i div sotto al range selezionato
+        div_prodotti.forEach(div => {
+            if (parseFloat(div.querySelector('p.prezzo_prodotto').textContent.replace(',', '.')) > prezzo_limite) {
+                div.style.display = 'none';
+            }
+        });
+    
+        // Se nessun prodotto corrisponde al filtro
+        if (div_prodotti.every(div => div.style.display == 'none') && document.querySelector('p.paragrafo_avviso') === null) {
+            const paragrafo_avviso = document.createElement('p');
+            paragrafo_avviso.textContent = 'Non sono presenti articoli corrispondenti ai filtri selezionati';
+            paragrafo_avviso.classList.add('paragrafo_avviso');
+            contenitore_prodotti.append(paragrafo_avviso);
+            contenitore_prodotti.style.minHeight = 'fit-content';
+        }
+    }
+}
+
 // Funzione aggiungi o sottrai quantità prodotto
 function aggiungi_sottrai_quantità(operatore, event) {
     const elemento_prezzo = event.target.parentElement.previousElementSibling;
@@ -79,15 +241,30 @@ function aggiungi_sottrai_quantità(operatore, event) {
     event.target.parentElement.previousElementSibling.textContent = `${prezzo_aggiornato} €`;
 }
 
-// Funzione prodotti apertura ecommerce
+// Funzione prodotti apertura ecommerce e Tutte le categorie
 function prodotti_iniziali() {
     try {
         prodotti()
         async function prodotti() {
+            // Tolgo eventuale stato "attivo"
+            crescente.classList.remove('attivo');
+            decrescente.classList.remove('attivo');
+            lista_range_prezzi.forEach(elemento => elemento.classList.remove('attivo'));
+            range_custom.value = '';
+            document.getElementById('div_input_valuta').classList.remove('attivo');
+            range_custom.classList.remove('attivo');
+
+            // Tolgo paragrafo avviso e ripristino min-height
+            if (document.querySelector('p.paragrafo_avviso')) {
+                document.querySelector('p.paragrafo_avviso').remove()
+            }
+            contenitore_prodotti.style.minHeight = '100svh';
+
             // Creo un catalogo con ordine dei prodotti casuale
             let risposta = await fetch('../json/prodotti.json');
             let catalogo = await risposta.json();
             catalogo.sort(() => Math.random() - 0.5);
+
             // Pulisco il DOM da eventuali ricerche precedenti
             document.querySelectorAll('div.prodotto').forEach((contenitore) => contenitore.remove());
 
@@ -169,8 +346,23 @@ function prodotti_iniziali() {
 // Funzione principale di ricerca prodotti
 function ricerca_prodotti() {
     try {
+        // Tolgo eventuale stato "attivo"
+        crescente.classList.remove('attivo');
+        decrescente.classList.remove('attivo');
+        lista_range_prezzi.forEach(elemento => elemento.classList.remove('attivo'));
+        range_custom.value = '';
+        document.getElementById('div_input_valuta').classList.remove('attivo');
+        range_custom.classList.remove('attivo');
+
+
+        // Tolgo paragrafo avviso e ripristino min-height
+        if (document.querySelector('p.paragrafo_avviso')) {
+            document.querySelector('p.paragrafo_avviso').remove()
+        }
+        contenitore_prodotti.style.minHeight = '100svh';
+
         // Controllo input e ottengo prodotto
-        let prodotto = input_cerca.value;
+        let prodotto = input_cerca.value.trim();
         let prima_lettera = prodotto.at(0).toUpperCase();
         prodotto = prima_lettera + prodotto.slice(1);
         input_cerca.value = prodotto;
@@ -187,7 +379,7 @@ function ricerca_prodotti() {
                 let catalogo_filtrato = catalogo.filter(elemento => elemento.categoria == prodotto);
 
                 // Pulisco il DOM da eventuali ricerche precedenti
-                document.querySelectorAll('div.prodotto').forEach((contenitore) => contenitore.remove());
+                document.querySelectorAll('div.prodotto').forEach(contenitore => contenitore.remove());
 
                 // Creo i prodotti in base alla categoria scelta
                 catalogo_filtrato.forEach((elemento, indice) => {
