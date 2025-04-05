@@ -29,9 +29,13 @@ summary {
 
 nav {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+}
+
+div#logo_contenitore {
+    display: flex;
+    gap: 15px;
     align-items: center;
-    justify-content: center;
 }
 
 nav div#logo {
@@ -47,6 +51,10 @@ nav svg {
     width: 8%;
 }
 
+svg#svg_carrello {
+    width: 15%;
+}
+
 header {
     background-color: #35475f;
     padding: 15px;
@@ -57,11 +65,18 @@ header {
     width: 100%;
 }
 
+p#prodotti_trovati {
+    text-align: center;
+    margin-top: 3.5rem;
+    margin-bottom: 30px;
+    font-size: 22px;
+}
+
 /* Settaggi main */
 #div_ricerca {
     position: relative;
     z-index: 0;
-    width: 85%;
+    width: 93%;
     margin: auto;
 }
 
@@ -75,6 +90,10 @@ header {
     padding: 0px 50px 0px 12px;
     font-size: 16px;
     -webkit-tap-highlight-color: transparent;
+}
+
+#div_ricerca input::placeholder {
+    opacity: 0.73;
 }
 
 #div_ricerca input:focus {
@@ -97,7 +116,7 @@ header {
 }
 
 #div_ricerca button svg {
-    width: 18px;
+    width: 20px;
     fill: black;
 }
 
@@ -128,13 +147,14 @@ div#contenitore_madre_categorie div.categoria {
 /* Crescente o decrescente */
 summary {
     width: fit-content;
+    cursor: pointer;
 }
 
 div#contenitore_madre_filtri {
     margin-top: 40px;
 }
 
-div#contenitore_madre_filtri p.paragrafo_prezzo {
+div#contenitore_madre_filtri p.paragrafo_filtro {
     margin-top: 25px;
     margin-bottom: 7px;
     font-weight: bold;
@@ -193,7 +213,7 @@ svg.svg_prezzo {
 }
 
 div#contenitore_madre_filtri p.paragrafo_range {
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 7px;
 }
 
@@ -211,7 +231,7 @@ p.paragrafo_avviso {
 }
 
 .input_range {
-    width: 75px;
+    width: 95px;
     border: 0px;
     background-color: #F8F8F8;
     font-size: 17px;
@@ -235,6 +255,38 @@ div#div_input_valuta p {
     font-size: 17px;
 }
 
+
+/* Ordine alfabetico */
+div#filtro_madre_prezzo {
+    margin-bottom: 50px;
+}
+
+div#div_ordine_alfabetico {
+    display: flex;
+    gap: 12px;
+}
+
+div#div_ordine_alfabetico button,
+button#reset_filtri {
+    background-color: #F8F8F8;
+    border: 1px solid #35475f;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+div#div_ordine_alfabetico button.attivo {
+    background-color: rgb(187, 238, 255);
+}
+
+/* Azzera filtri */
+div#filtro_madre_alfabeto {
+    margin-bottom: 40px;
+}
+
+button#reset_filtri:active {
+    background-color: rgb(187, 238, 255);
+}
+
 /* Sezione prodotti */
 div#contenitore_prodotti {
     display: grid;
@@ -244,9 +296,8 @@ div#contenitore_prodotti {
     justify-content: center;
     column-gap: 6rem;
     row-gap: 4.5rem;
-    margin-top: 3rem;
     margin-bottom: 3rem;
-    min-height: 100svh;
+    min-height: 70svh;
 }
 
 div#contenitore_prodotti div.prodotto {
@@ -255,6 +306,7 @@ div#contenitore_prodotti div.prodotto {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    /* height: fit-content; */
     border: 1px solid black;
     border-radius: 10px;
     background-color: #f8f8f8;
