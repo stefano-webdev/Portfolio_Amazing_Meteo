@@ -46,6 +46,16 @@ const ogg_traduci_città = {
 
 
 // Assegnazione comandi
+// Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
+window.addEventListener('load', () => {
+    document.body.style.visibility = 'visible';
+});
+
+// Ricalcolo il font del paragrafo paese per ogni resize
+window.addEventListener('resize', () => {
+    ricalcola_font_paragrafo_paese();
+});
+
 // Inizia ricerca
 bottone_cerca.addEventListener('click', () => {
     data_completa = `${giorno}/${mese}/${anno}`;
@@ -68,10 +78,6 @@ input_cerca.addEventListener('input', () => {
 document.querySelector('button#torna_su').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.querySelector('button#torna_su').blur();
-});
-
-window.addEventListener('resize', () => {
-    ricalcola_font_paragrafo_paese();
 });
 
 function ricalcola_font_paragrafo_paese() {

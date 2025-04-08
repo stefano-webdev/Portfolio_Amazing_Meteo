@@ -7,6 +7,12 @@ const btn_light_dark = document.getElementById("btn_light_dark_toggle");
 const root = document.documentElement;
 const theme = localStorage.getItem("mode");
 
+// Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
+window.addEventListener('load', () => {
+    document.body.style.visibility = 'visible';
+});
+
+
 // 1 Attiva il toggle dark_light
 function attiva_toggle_dark_light() {
     if (root.classList.contains("light_mode")) {

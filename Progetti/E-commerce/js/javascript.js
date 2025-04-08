@@ -1,15 +1,11 @@
 // Settaggi generali
 function settaggi_generali() {
+    // Imposto dinamicamente il margin-top del contenitore madre
     let altezza_header = window.getComputedStyle(document.querySelector('header')).height;
     document.getElementById('contenitore_madre').style.marginTop = altezza_header;
-
     let altezza_input_cerca = Number(window.getComputedStyle(document.getElementById('input_cerca')).height.slice(0, -2)) - 4;
     document.querySelector('#div_ricerca button').style.height = `${altezza_input_cerca}px`;
 }
-window.addEventListener('resize', () => {
-    settaggi_generali();
-});
-
 
 // Variabili
 const bottone_cerca = document.getElementById('bottone_cerca');
@@ -24,6 +20,7 @@ const bottone_AZ = document.querySelector('#div_ordine_alfabetico button:nth-chi
 const bottone_ZA = document.querySelector('#div_ordine_alfabetico button:nth-child(2)');
 const prodotti_trovati_paragrafo = document.getElementById('prodotti_trovati');
 let id;
+let oggetto_carrello = [];
 const lista_categorie = ["Mouse", "Accessori", "Altoparlante", "Assistenti vocali",
     "Speaker", "Smart home", "Laptop", "Notebook", "Computer portatile", "Portatile",
     "Computer", "PC", "PC Portatile", "Tastiere", "Keyboard", "Digitazione", "Cuffie",
@@ -37,6 +34,30 @@ const lista_categorie = ["Mouse", "Accessori", "Altoparlante", "Assistenti vocal
     "Reflex", "Camera", "Macchina fotografica"];
 
 // Assegnazione comandi
+// Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
+window.addEventListener('load', () => {
+    document.body.style.visibility = 'visible';
+});
+
+// Se torno alla homepage dell'ecommerce con il tasto indietro del browser, ricarico la pagina per sincronizzare il localStorage
+window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+        // Se la pagina è stata caricata dalla cache (andando indietro con gesture/tasto fisico) ricarico la pagina
+        location.reload(); 
+    }
+});
+
+// Home sito web
+document.getElementById('logo').addEventListener('click', () => {
+    input_cerca.value = '';
+    prodotti_iniziali();
+});
+
+// Settaggio iniziale
+window.addEventListener('resize', () => {
+    settaggi_generali();
+});
+
 // Tasto cerca
 bottone_cerca.addEventListener('click', () => {
     ricerca_prodotti();
@@ -46,7 +67,6 @@ input_cerca.addEventListener('keydown', (event) => {
         ricerca_prodotti();
     }
 });
-
 input_cerca.addEventListener('input', () => {
     // Resetto lo stile del campo di input
     input_cerca.style.border = '2px solid black';
@@ -125,15 +145,64 @@ document.getElementById('reset_filtri').addEventListener('click', () => {
     reset_filtri_fnc();
 });
 
-
 // Comando bottone torna_su
 document.getElementById('torna_su').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.getElementById('torna_su').blur();
 });
 
-
 // Funzioni
+// Aggiungi al carrello funzione
+function aggiungi_al_carrello_fnc(event) {
+    // Raccolgo i dati del prodotto
+    // Prodotto genitore
+    const div_prodotto = event.target.parentElement;
+
+    // Ottengo i dati specifici del prodotto
+    const img = div_prodotto.querySelector('img').src;
+    const titolo = div_prodotto.querySelector('p.titolo_prodotto').textContent;
+    const descrizione = div_prodotto.querySelector('p.descrizione_prodotto').textContent;
+    const quantità = Number(div_prodotto.querySelector('p.quantità').textContent);
+    const prezzo_base = Number(Array.from(div_prodotto.querySelector('p.prezzo_prodotto').classList).at(-1));
+    const prezzo_totale = prezzo_base * quantità;
+
+    // Metto i dati in un oggetto
+    const prodotto = {
+        "img": img,
+        "titolo": titolo,
+        "descrizione": descrizione,
+        "prezzo_base": prezzo_base,
+        "prezzo_totale": prezzo_totale,
+        "quantità": quantità
+    };
+
+    // Se il prodotto è già presente nel carrello aggiorno la quantità, se non c'è (else) lo aggiungo 
+    const prodotto_esistente = oggetto_carrello.find(elemento => elemento.titolo == prodotto.titolo);
+    if (prodotto_esistente) {
+        prodotto_esistente.quantità += prodotto.quantità;
+        prodotto_esistente.prezzo_totale = (prodotto_esistente.prezzo_base * prodotto_esistente.quantità).toFixed(2);
+    }
+    else {
+        oggetto_carrello.push(prodotto);
+    }
+
+    // Rendo visibile il div con la quantità nel carrello e ne aggiorno la quantità
+    const div_quantità_nel_carrello = div_prodotto.querySelector('div.div_quantità_nel_carrello');
+    div_quantità_nel_carrello.style.display = 'flex';
+    div_quantità_nel_carrello.querySelector('p#paragrafo_quantità_nel_carrello').
+        textContent = String(oggetto_carrello.find(elemento => elemento.titolo == prodotto.titolo).quantità);
+
+    // Aggiorno il numero di prodotti nel carrello
+    document.getElementById('numero_prodotti').textContent = oggetto_carrello.length;
+
+    // Salvo i dati nel localStorage
+    localStorage.setItem("carrello", JSON.stringify(oggetto_carrello));
+
+    // Ripristino a quantità 1 il prodotto
+    div_prodotto.querySelector('p.quantità').textContent = '1';
+    div_prodotto.querySelector('p.prezzo_prodotto').textContent = `${String(prezzo_base).replace('.', ',')} €`;
+}
+
 // Funzione placeholder dinamico
 function placeholder_dinamico() {
     id = setInterval(() => {
@@ -182,6 +251,7 @@ function range_prezzi(event) {
         event.target.classList.remove('attivo');
         const div_prodotti = Array.from(document.querySelectorAll('div.prodotto'));
         div_prodotti.forEach(elemento => elemento.style = 'flex');
+        document.getElementById('prodotti_trovati').textContent = '5 prodotti trovati';
     }
 
     else {
@@ -315,7 +385,6 @@ function reset_filtri_fnc() {
         }
     }
 
-    // Reset range prezzi
     // Range custom
     if (range_custom.value != '') {
         range_custom.value = '';
@@ -467,25 +536,82 @@ function prodotti_iniziali() {
                 più.addEventListener('click', (event) => {
                     aggiungi_sottrai_quantità('più', event)
                 });
-                contenitore_quantità.append(meno, quantità, più);
+
+                // Sezione quantità prodotti nel carrello
+                const div_quantità_nel_carrello = document.createElement('div');
+                div_quantità_nel_carrello.classList.add('div_quantità_nel_carrello');
+
+                const svg = document.createElement("div");
+                svg.innerHTML = `
+                <svg id="svg_quantità_carrello" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                  <path fill="#2B2B2B" d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 
+                  41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 
+                  38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 
+                  53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 
+                  23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 
+                  24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 
+                  54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 
+                  0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 
+                  0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+                </svg>
+                `;
+
+                const paragrafo_X = document.createElement('p');
+                paragrafo_X.id = ('paragrafo_x');
+                paragrafo_X.textContent = 'x';
+
+                const paragrafo_quantità = document.createElement('p');
+                paragrafo_quantità.id = ('paragrafo_quantità_nel_carrello');
+
+                // Aggiungo gli elementi al div, inizialmente nascosto
+                div_quantità_nel_carrello.append(svg, paragrafo_X, paragrafo_quantità);
+                div_quantità_nel_carrello.style.display = 'none';
+
+                contenitore_quantità.append(meno, quantità, più, div_quantità_nel_carrello);
                 contenitore_prezzo_e_quantità.append(prezzo_prodotto, contenitore_quantità);
 
                 // Aggiungi al carrello
                 const bottone_aggiungi_carrello = document.createElement('button');
                 bottone_aggiungi_carrello.textContent = 'Aggiungi al carrello';
                 bottone_aggiungi_carrello.id = ('bottone_aggiungi_carrello');
+                bottone_aggiungi_carrello.addEventListener('click', (event) => {
+                    aggiungi_al_carrello_fnc(event);
+                });
 
                 // Creo la gerarchia
                 div_prodotto.append(img_prodotto, testo_prodotto, descrizione_prodotto, contenitore_prezzo_e_quantità, bottone_aggiungi_carrello);
                 contenitore_prodotti.append(div_prodotto);
             });
+
+            // Se c'è già un carrello su localStorage, lo recupero ed aggiorno i dati
+            oggetto_carrello = JSON.parse(localStorage.getItem("carrello"));
+            if (oggetto_carrello.length > 0) {
+                // Aggiorno il numero di prodotti in alto a destra
+                document.getElementById('numero_prodotti').textContent = oggetto_carrello.length;
+
+                // Aggiorno per ciascun prodotto nel carrello il numero di prodotti dentro al carrello
+                oggetto_carrello.forEach(oggetto => {
+                    // Trovo ciascun div.prodotto che è già nel carrello
+                    const div_nel_carrello = Array.from(document.querySelectorAll('div.prodotto')).find(div => {
+                        return div.querySelector('p.titolo_prodotto').textContent == oggetto.titolo;
+                    });
+
+                    // Per ciascun div.prodotto che è già nel carrello ne aggiorno i dati
+                    const div_quantità_nel_carrello = div_nel_carrello.querySelector('div.div_quantità_nel_carrello');
+                    div_quantità_nel_carrello.style.display = 'flex';
+                    div_quantità_nel_carrello.querySelector('p#paragrafo_quantità_nel_carrello').textContent = String(oggetto.quantità);
+                });
+            }
+
+            else {
+                document.getElementById('numero_prodotti').textContent = 0;
+            }
         }
     }
     catch (errore) {
         console.log(errore)
     }
 }
-
 
 // Funzione principale di ricerca prodotti
 function ricerca_prodotti() {
@@ -595,18 +721,78 @@ function ricerca_prodotti() {
                     più.addEventListener('click', (event) => {
                         aggiungi_sottrai_quantità('più', event)
                     });
-                    contenitore_quantità.append(meno, quantità, più);
+
+                    // Sezione quantità prodotti nel carrello
+                    const div_quantità_nel_carrello = document.createElement('div');
+                    div_quantità_nel_carrello.classList.add('div_quantità_nel_carrello');
+
+                    const svg = document.createElement("div");
+                    svg.innerHTML = `
+                    <svg id="svg_quantità_carrello" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                      <path fill="#2B2B2B" d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 
+                      41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 
+                      38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 
+                      53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 
+                      23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 
+                      24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 
+                      54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 
+                      0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 
+                      0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+                    </svg>
+                    `;
+
+                    const paragrafo_X = document.createElement('p');
+                    paragrafo_X.id = ('paragrafo_x');
+                    paragrafo_X.textContent = 'x';
+
+                    const paragrafo_quantità = document.createElement('p');
+                    paragrafo_quantità.id = ('paragrafo_quantità_nel_carrello');
+
+                    // Aggiungo gli elementi al div, inizialmente nascosto
+                    div_quantità_nel_carrello.append(svg, paragrafo_X, paragrafo_quantità);
+                    div_quantità_nel_carrello.style.display = 'none';
+
+                    contenitore_quantità.append(meno, quantità, più, div_quantità_nel_carrello);
                     contenitore_prezzo_e_quantità.append(prezzo_prodotto, contenitore_quantità);
 
                     // Aggiungi al carrello
                     const bottone_aggiungi_carrello = document.createElement('button');
                     bottone_aggiungi_carrello.textContent = 'Aggiungi al carrello';
                     bottone_aggiungi_carrello.id = ('bottone_aggiungi_carrello');
+                    bottone_aggiungi_carrello.addEventListener('click', (event) => {
+                        aggiungi_al_carrello_fnc(event);
+                    });
 
                     // Creo la gerarchia
                     div_prodotto.append(img_prodotto, testo_prodotto, descrizione_prodotto, contenitore_prezzo_e_quantità, bottone_aggiungi_carrello);
                     contenitore_prodotti.append(div_prodotto);
                 });
+
+                // Se c'è già un carrello su localStorage, lo recupero ed aggiorno i dati
+                oggetto_carrello = JSON.parse(localStorage.getItem("carrello"));
+                if (oggetto_carrello.length > 0) {
+                    // Creo oggetto_carrello e aggiorno il numero di prodotti in alto a destra
+                    document.getElementById('numero_prodotti').textContent = oggetto_carrello.length;
+
+                    // Aggiorno per ciascun prodotto nel carrello il numero di prodotti dentro al carrello
+                    oggetto_carrello.forEach(oggetto => {
+                        // Trovo ciascun div.prodotto che è già nel carrello
+                        const div_nel_carrello = Array.from(document.querySelectorAll('div.prodotto')).find(div => {
+                            return div.querySelector('p.titolo_prodotto').textContent == oggetto.titolo;
+                        });
+
+                        // Per ciascun div.prodotto che è già nel carrello ne aggiorno i dati
+                        if (div_nel_carrello) {
+                            const div_quantità_nel_carrello = div_nel_carrello.querySelector('div.div_quantità_nel_carrello');
+                            div_quantità_nel_carrello.style.display = 'flex';
+                            div_quantità_nel_carrello.querySelector('p#paragrafo_quantità_nel_carrello').textContent = String(oggetto.quantità);
+                        }
+                    });
+                }
+
+                else {
+                    document.getElementById('numero_prodotti').textContent = 0;
+                }
             }
             catch (errore) {
                 // Errore nella ricerca del prodotto o nella raccolta dei dati
@@ -629,7 +815,6 @@ function ricerca_prodotti() {
         placeholder_dinamico();
     }
 }
-
 settaggi_generali();
 prodotti_iniziali();
 placeholder_dinamico();

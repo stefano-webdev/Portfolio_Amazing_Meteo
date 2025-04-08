@@ -14,6 +14,7 @@ body {
     min-width: 320px;
     max-width: 1550px;
     background-color: #ffffff;
+    visibility: hidden;
 }
 
 div#contenitore_madre {
@@ -27,19 +28,50 @@ summary {
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
 
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
+    height: 37px;
 }
 
 div#logo_contenitore {
     display: flex;
-    gap: 15px;
+    gap: 7px;
+    align-items: center;
+    height: 37px;
+}
+
+div#carrello_contenitore {
+    position: relative;
+    width: fit-content;
+    height: 37px;
+}
+
+div#prodotti_nel_carrello {
+    position: absolute;
+    left: -25px;
+    bottom: -8px;
+    background-color: rgb(44, 163, 44);
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
+p#numero_prodotti {
+    margin: 0px;
+    font-size: 16px;
+    color: white;
+}
+
 nav div#logo {
-    font-size: 33px;
+    font-size: 29px;
     font-family: 'Courier New', 'Lucida Console', 'Monaco', 'Andale Mono', monospace;
     font-weight: bold;
     font-style: italic;
@@ -48,11 +80,12 @@ nav div#logo {
 }
 
 nav svg {
-    width: 8%;
+    width: 22px;
 }
 
 svg#svg_carrello {
-    width: 15%;
+    width: 34px;
+    height: 37px;
 }
 
 header {
@@ -63,6 +96,7 @@ header {
     top: 0px;
     left: 0px;
     width: 100%;
+    height: 67px;
 }
 
 p#prodotti_trovati {
@@ -306,7 +340,6 @@ div#contenitore_prodotti div.prodotto {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    /* height: fit-content; */
     border: 1px solid black;
     border-radius: 10px;
     background-color: #f8f8f8;
@@ -347,6 +380,7 @@ div#contenitore_prodotti div.contenitore_quantità {
     border: 1px solid black;
     border-radius: 5px;
     padding: 3px 0px;
+    position: relative;
 }
 
 div#contenitore_prodotti div.contenitore_quantità button:nth-of-type(1) {
@@ -357,7 +391,7 @@ div#contenitore_prodotti div.contenitore_quantità button:nth-of-type(2) {
     padding: 0px 12px 0px 0px;
 }
 
-div#contenitore_prodotti div.contenitore_quantità p,
+div#contenitore_prodotti div.contenitore_quantità p.quantità,
 div#contenitore_prodotti div.contenitore_quantità button {
     color: black;
     font-size: 22px;
@@ -380,6 +414,30 @@ div#contenitore_prodotti div.contenitore_prezzo_e_quantità {
     align-items: center;
     gap: 18px;
     width: 135px;
+    margin-bottom: 30px;
+}
+
+/* Quantità attuale dei prodotti nel carrello */
+div.div_quantità_nel_carrello {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    position: absolute;
+    bottom: -39px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+p#paragrafo_x,
+p#paragrafo_quantità_nel_carrello {
+    margin: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2B2B2B;
+}
+
+svg#svg_quantità_carrello {
+    width: 25px;
 }
 
 button#bottone_aggiungi_carrello {
