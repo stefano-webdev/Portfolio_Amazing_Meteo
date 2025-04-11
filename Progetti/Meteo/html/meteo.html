@@ -29,7 +29,7 @@
 
         <!-- Barra di ricerca -->
         <div id="div_ricerca">
-            <input id="input_cerca" type="text" placeholder="Cerca località">
+            <input id="input_cerca" type="text" placeholder="Cerca località" autocomplete="off">
             <button id="bottone_cerca" type="button" aria-label="Cerca una località per le previsioni meteo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 
@@ -44,6 +44,9 @@
     <div id="contenitore_madre">
         <!-- Main -->
         <main>
+            <!-- Torna al portfolio -->
+            <a id="torna_portfolio" href="/html/portfolio.html">Torna al portfolio</a>
+            
             <!-- Sezione dati generali -->
             <div id="dati_generali" aria-live="polite" aria-label="Dati meteo generali">
                 <div>
@@ -62,7 +65,7 @@
                 <button class="zero attivo" aria-label="Seleziona il primo giorno di previsione"></button>
                 <button class="uno" aria-label="Seleziona il secondo giorno di previsione"></button>
                 <button class="due" aria-label="Seleziona il terzo giorno di previsione"></button>
-            </div>            
+            </div>
 
             <!-- Sezione meteo attuale -->
             <div id="meteo_attuale" aria-live="polite" aria-label="Meteo attuale">
@@ -94,10 +97,10 @@
                         33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 
                         383.5 8 244.8 8z" />
                     </svg>
-                    <p>GitHub: (codice sorgente e maggiori info)</p>
+                    <p>GitHub (codice sorgente)</p>
                 </div>
-                <a href="https://github.com/Forty9669/Portfolio/tree/main/Progetti/Meteo"
-                    target="_blank" aria-label="Vai al progetto GitHub">github.com/Forty9669/Portfolio</a>
+                <a href="https://github.com/Forty9669/Portfolio/tree/main/Progetti/Meteo" target="_blank"
+                    aria-label="Vai al progetto GitHub">github.com/Forty9669/Meteo</a>
             </div>
         </footer>
     </div>

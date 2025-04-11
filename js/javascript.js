@@ -9,7 +9,7 @@ const theme = localStorage.getItem("mode");
 
 // Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
 window.addEventListener('load', () => {
-    document.body.style.visibility = 'visible';
+    document.body.style.opacity = '1';
 });
 
 

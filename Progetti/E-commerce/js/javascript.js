@@ -26,7 +26,7 @@ const lista_categorie = ["Mouse", "Accessori", "Altoparlante", "Assistenti vocal
     "Computer", "PC", "PC Portatile", "Tastiere", "Keyboard", "Digitazione", "Cuffie",
     "Cuffie over-ear", "Cuffie wireless", "Audio", "Headphones", "Smartphone", "Telefoni",
     "Telefono cellulare", "Cellulare", "Dispositivo mobile", "Tablet", "Smartwatch",
-    "Orologio intelligente", "Fitness tracker", "Smart wearable", "Orologi", "Microfoni",
+    "Orologio intelligente", "Fitness tracker", "Fitness",  "Smart wearable", "Orologi", "Microfoni",
     "Microphone", "Router", "Router mesh", "Modem", "Dispositivo di rete", "Wi-Fi", "Router Wi-Fi",
     "Webcam", "Webcam full hd", "Webcam 1080p", "Videocamere", "Videocamera web",
     "Videochiamate", "Streaming", "Videoconferenze", "Fotocamere", "Fotocamera reflex", "Fotocamera digitale",
@@ -36,19 +36,23 @@ const lista_categorie = ["Mouse", "Accessori", "Altoparlante", "Assistenti vocal
 // Assegnazione comandi
 // Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
 window.addEventListener('load', () => {
-    document.body.style.visibility = 'visible';
+    document.body.style.opacity = '1';
 });
 
 // Se torno alla homepage dell'ecommerce con il tasto indietro del browser, ricarico la pagina per sincronizzare il localStorage
 window.addEventListener("pageshow", (event) => {
     if (event.persisted) {
         // Se la pagina è stata caricata dalla cache (andando indietro con gesture/tasto fisico) ricarico la pagina
-        location.reload(); 
+        location.reload();
     }
 });
 
 // Home sito web
 document.getElementById('logo').addEventListener('click', () => {
+    input_cerca.value = '';
+    prodotti_iniziali();
+});
+document.querySelector('#logo_contenitore svg').addEventListener('click', () => {
     input_cerca.value = '';
     prodotti_iniziali();
 });
@@ -166,6 +170,13 @@ function aggiungi_al_carrello_fnc(event) {
     const prezzo_base = Number(Array.from(div_prodotto.querySelector('p.prezzo_prodotto').classList).at(-1));
     const prezzo_totale = prezzo_base * quantità;
 
+    // Controllo se aggiungendo la quantità non supero 999 prodotti nel carrello
+    const articoli_nel_carrelo = parseInt(document.getElementById('numero_prodotti').textContent);
+    if ((articoli_nel_carrelo + quantità) > 999) {
+        alert('Attenzione, puoi inserire nel carrello fino a 999 prodotti!');
+        return;
+    }
+
     // Metto i dati in un oggetto
     const prodotto = {
         "img": img,
@@ -192,8 +203,15 @@ function aggiungi_al_carrello_fnc(event) {
     div_quantità_nel_carrello.querySelector('p#paragrafo_quantità_nel_carrello').
         textContent = String(oggetto_carrello.find(elemento => elemento.titolo == prodotto.titolo).quantità);
 
-    // Aggiorno il numero di prodotti nel carrello
-    document.getElementById('numero_prodotti').textContent = oggetto_carrello.length;
+    // Aggiorno il numerino dei prodotti totali nel carrello, somma delle quantità
+    const numero_prodotti = oggetto_carrello.reduce((accumulatore, elemento) => accumulatore + elemento.quantità, 0);
+    if (String(numero_prodotti).length == 2) {
+        document.getElementById('numero_prodotti').style.fontSize = '15px';
+    }
+    else if (String(numero_prodotti).length == 3) {
+        document.getElementById('numero_prodotti').style.fontSize = '13px';
+    }
+    document.getElementById('numero_prodotti').textContent = String(numero_prodotti);
 
     // Salvo i dati nel localStorage
     localStorage.setItem("carrello", JSON.stringify(oggetto_carrello));
@@ -583,16 +601,25 @@ function prodotti_iniziali() {
                 contenitore_prodotti.append(div_prodotto);
             });
 
-            // Se c'è già un carrello su localStorage, lo recupero ed aggiorno i dati
-            oggetto_carrello = JSON.parse(localStorage.getItem("carrello"));
-            if (oggetto_carrello.length > 0) {
-                // Aggiorno il numero di prodotti in alto a destra
-                document.getElementById('numero_prodotti').textContent = oggetto_carrello.length;
+            if (localStorage.getItem("carrello") != null) {
+                // Recupero il carello da localStorage ed aggiorno i dati
+                oggetto_carrello = JSON.parse(localStorage.getItem("carrello"));
 
-                // Aggiorno per ciascun prodotto nel carrello il numero di prodotti dentro al carrello
+                // Aggiorno il numerino dei prodotti totali nel carrello, somma delle quantità
+                const numero_prodotti = oggetto_carrello.reduce((accumulatore, elemento) => accumulatore + elemento.quantità, 0);
+                if (String(numero_prodotti).length == 2) {
+                    document.getElementById('numero_prodotti').style.fontSize = '15px';
+                }
+                else if (String(numero_prodotti).length == 3) {
+                    document.getElementById('numero_prodotti').style.fontSize = '13px';
+                }
+                document.getElementById('numero_prodotti').textContent = numero_prodotti;
+
+                // I prodotti nel carrello vengono aggiunti ai prodotti visibili nella pagina
+                const div_prodotti_dom = Array.from(document.querySelectorAll('div.prodotto'));
                 oggetto_carrello.forEach(oggetto => {
                     // Trovo ciascun div.prodotto che è già nel carrello
-                    const div_nel_carrello = Array.from(document.querySelectorAll('div.prodotto')).find(div => {
+                    const div_nel_carrello = div_prodotti_dom.find(div => {
                         return div.querySelector('p.titolo_prodotto').textContent == oggetto.titolo;
                     });
 
@@ -602,7 +629,6 @@ function prodotti_iniziali() {
                     div_quantità_nel_carrello.querySelector('p#paragrafo_quantità_nel_carrello').textContent = String(oggetto.quantità);
                 });
             }
-
             else {
                 document.getElementById('numero_prodotti').textContent = 0;
             }
@@ -768,11 +794,19 @@ function ricerca_prodotti() {
                     contenitore_prodotti.append(div_prodotto);
                 });
 
-                // Se c'è già un carrello su localStorage, lo recupero ed aggiorno i dati
-                oggetto_carrello = JSON.parse(localStorage.getItem("carrello"));
-                if (oggetto_carrello.length > 0) {
-                    // Creo oggetto_carrello e aggiorno il numero di prodotti in alto a destra
-                    document.getElementById('numero_prodotti').textContent = oggetto_carrello.length;
+                if (localStorage.getItem("carrello") != null) {
+                    // Recupero il carello da localStorage ed aggiorno i dati
+                    oggetto_carrello = JSON.parse(localStorage.getItem("carrello"));
+
+                    // Aggiorno il numerino dei prodotti totali nel carrello, somma delle quantità
+                    const numero_prodotti = oggetto_carrello.reduce((accumulatore, elemento) => accumulatore + elemento.quantità, 0);
+                    if (String(numero_prodotti).length == 2) {
+                        document.getElementById('numero_prodotti').style.fontSize = '15px';
+                    }
+                    else if (String(numero_prodotti).length == 3) {
+                        document.getElementById('numero_prodotti').style.fontSize = '13px';
+                    }
+                    document.getElementById('numero_prodotti').textContent = numero_prodotti;
 
                     // Aggiorno per ciascun prodotto nel carrello il numero di prodotti dentro al carrello
                     oggetto_carrello.forEach(oggetto => {

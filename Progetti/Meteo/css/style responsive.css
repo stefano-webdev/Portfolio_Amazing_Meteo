@@ -1,6 +1,11 @@
 /* Media query mobile landscape */
 @media (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
 
+    /* Torna portfolio */
+    a#torna_portfolio {
+        font-size: 16px;
+    }
+
     /* Sezione header */
     div#contenitore_madre {
         padding: 25px;
@@ -52,6 +57,11 @@
 
 /* Media query tablet verticale */
 @media (orientation: portrait) and (min-width: 461px) {
+
+    /* Torna portfolio */
+    a#torna_portfolio {
+        font-size: 18px;
+    }
 
     /* Sezione header */
     nav div#logo {
@@ -160,6 +170,11 @@
 
 /* Media query tablet orizzontale */
 @media (orientation: landscape) and (min-width: 901px) {
+
+    /* Torna portfolio */
+    a#torna_portfolio {
+        font-size: 20px;
+    }
 
     /* Sezione header */
     nav svg {
@@ -273,7 +288,12 @@
 }
 
 /* Media query desktop */
-@media (min-width: 1200px) and (pointer: fine){
+@media (min-width: 1200px) and (pointer: fine) {
+
+    /* Torna portfolio */
+    a#torna_portfolio {
+        font-size: 20px;
+    }
 
     /* Sezione header */
     header input:focus {

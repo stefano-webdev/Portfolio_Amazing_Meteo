@@ -46,11 +46,6 @@ const ogg_traduci_città = {
 
 
 // Assegnazione comandi
-// Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
-window.addEventListener('load', () => {
-    document.body.style.visibility = 'visible';
-});
-
 // Ricalcolo il font del paragrafo paese per ogni resize
 window.addEventListener('resize', () => {
     ricalcola_font_paragrafo_paese();
@@ -184,6 +179,7 @@ function ricerca(giorno_scelto, data_aggiornata) {
             const dati = await risposta.json();
 
             // Dati generali
+            document.body.style.opacity = '1';
             nome_paese = paese_variabile;
             nome_nazione = dati.location.country;
             if (nome_nazione == 'Italy') {

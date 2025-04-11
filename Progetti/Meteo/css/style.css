@@ -10,7 +10,7 @@ html {
 }
 
 div#contenitore_madre {
-    padding: 20px;
+    padding: 25px 20px 20px 20px;
 }
 
 main {
@@ -22,12 +22,12 @@ body {
     min-width: 320px;
     max-width: 1550px;
     background-color: #ffffff;
-    visibility: hidden;
+    opacity: 0;
 }
 
 p, #selettore_giorno button {
     line-height: 1.2;
-    font-size: 15px;
+    font-size: 14px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
 
@@ -123,26 +123,53 @@ div#dati_generali p:nth-child(1) {
     font-size: 35px;
 }
 
-div#dati_generali p:nth-child(1),
-div#dati_generali p:nth-child(2) {
-    margin: 10px 0px;
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a#torna_portfolio {
+    font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
+    font-size: 15px;
+    color: white;
+    background-color: #414040;
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: 1px solid #1a1a1a;
+    text-decoration: none;
+    position: relative;
+    left: -10px;
+    top: -8px;
+}
+
+a#torna_portfolio:active {
+    background-color: #313030;
+}
+
+#dati_generali {
+    margin-top: 40px;
+}
+
+div#dati_generali p:nth-child(1) {
     font-style: italic;
+    margin: 0px;
 }
 
 div#dati_generali p:nth-child(2) {
     font-size: 20px;
-    margin-top: 0px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+    font-style: italic;
     text-align: center;
 }
 
 div#dati_generali p:nth-child(3) {
-    margin: 4rem 0px 0px 0px;
+    margin: 1.5rem 0px 0px 0px;
 }
 
 div#dati_generali div:first-child {
     display: flex;
     justify-content: center;
-    align-items: first baseline;
+    align-items: center;
     gap: 13px;
 }
 
