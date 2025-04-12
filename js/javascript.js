@@ -54,7 +54,7 @@ window.addEventListener("resize", () => {
             x.style.transition = '0.45s ease'
         }
     }
-    // Se scendo sotto i 1135px non vdo effetti stani
+    // Se scendo sotto i 1135px non vedo effetti stani
     else if (lastWidth >= 1135 && currentWidth < 1135) {
         for (let x of svg) {
             x.style.transition = 'none'

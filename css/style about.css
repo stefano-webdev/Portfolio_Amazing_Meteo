@@ -80,11 +80,11 @@ section#about svg#skill_arrow {
 
 #skill_section ul.skill_list {
     max-width: 97%;
-    padding-left: 30px;
+    padding-left: 25px;
 }
 
 #skill_section ul.skill_list li {
-    font-size: 13.8px;
+    font-size: 15px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
     margin: 20px 0px;
 }

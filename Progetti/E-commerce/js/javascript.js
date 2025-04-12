@@ -37,6 +37,10 @@ const lista_categorie = ["Mouse", "Accessori", "Altoparlante", "Assistenti vocal
 // Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
 window.addEventListener('load', () => {
     document.body.style.opacity = '1';
+    setTimeout(() => {
+        document.getElementById('torna_su').style.opacity = '1';
+        document.querySelector('footer').style.opacity = '1';
+    }, 40);
 });
 
 // Se torno alla homepage dell'ecommerce con il tasto indietro del browser, ricarico la pagina per sincronizzare il localStorage
@@ -206,7 +210,7 @@ function aggiungi_al_carrello_fnc(event) {
     // Aggiorno il numerino dei prodotti totali nel carrello, somma delle quantità
     const numero_prodotti = oggetto_carrello.reduce((accumulatore, elemento) => accumulatore + elemento.quantità, 0);
     if (String(numero_prodotti).length == 2) {
-        document.getElementById('numero_prodotti').style.fontSize = '15px';
+        document.getElementById('numero_prodotti').style.fontSize = '16px';
     }
     else if (String(numero_prodotti).length == 3) {
         document.getElementById('numero_prodotti').style.fontSize = '13px';
@@ -608,10 +612,10 @@ function prodotti_iniziali() {
                 // Aggiorno il numerino dei prodotti totali nel carrello, somma delle quantità
                 const numero_prodotti = oggetto_carrello.reduce((accumulatore, elemento) => accumulatore + elemento.quantità, 0);
                 if (String(numero_prodotti).length == 2) {
-                    document.getElementById('numero_prodotti').style.fontSize = '15px';
+                    document.getElementById('numero_prodotti').style.fontSize = '16px';
                 }
                 else if (String(numero_prodotti).length == 3) {
-                    document.getElementById('numero_prodotti').style.fontSize = '13px';
+                    document.getElementById('numero_prodotti').style.fontSize = '14px';
                 }
                 document.getElementById('numero_prodotti').textContent = numero_prodotti;
 
@@ -801,7 +805,7 @@ function ricerca_prodotti() {
                     // Aggiorno il numerino dei prodotti totali nel carrello, somma delle quantità
                     const numero_prodotti = oggetto_carrello.reduce((accumulatore, elemento) => accumulatore + elemento.quantità, 0);
                     if (String(numero_prodotti).length == 2) {
-                        document.getElementById('numero_prodotti').style.fontSize = '15px';
+                        document.getElementById('numero_prodotti').style.fontSize = '16px';
                     }
                     else if (String(numero_prodotti).length == 3) {
                         document.getElementById('numero_prodotti').style.fontSize = '13px';
