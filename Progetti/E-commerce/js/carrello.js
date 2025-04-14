@@ -51,7 +51,7 @@ function elimina_prodotto_fnc(event) {
 
     // Somma delle quantità degli articoli nel carrello
     const totale_quantità_prodotti = articoli.reduce((accumulatore, elemento) => accumulatore + elemento.quantità, 0);
-    
+
     // Aggiorno il numero di articoli nel carrello, se sono zero ricarico la pagina
     if (totale_quantità_prodotti > 1) {
         document.querySelector('p.numero_articoli').textContent = `${totale_quantità_prodotti} prodotti`;
@@ -102,7 +102,7 @@ if (localStorage.getItem("carrello") != null) {
     div_tutti_articoli.id = 'div_tutti_articoli';
 
     // Creo gli articoli con un loop
-    articoli.forEach(articolo => {
+    articoli.forEach((articolo, indice) => {
         // Creo il contenitore per l'articolo
         const articolo_div = document.createElement('div');
         articolo_div.classList.add('div_articolo');
@@ -139,12 +139,15 @@ if (localStorage.getItem("carrello") != null) {
         const div_quantità_input = document.createElement('div');
         div_quantità_input.classList.add('div_quantità_input');
 
-        const p_quantità = document.createElement('p');
-        p_quantità.classList.add('p_quantità');
-        p_quantità.textContent = "Quantità:";
+        const label_quantità = document.createElement('label');
+        label_quantità.classList.add('label_quantità');
+        const input_id = `input_${indice}`
+        label_quantità.setAttribute('for', input_id);
+        label_quantità.textContent = "Quantità:";
 
         const input_quantità = document.createElement('input');
-        input_quantità.classList.add('input_quantità');
+        input_quantità.id = input_id;
+        input_quantità.classList.add('input_quantità_carrello');
         input_quantità.type = 'text';
         input_quantità.maxLength = 2;
         input_quantità.setAttribute('autocomplete', 'off');
@@ -163,7 +166,7 @@ if (localStorage.getItem("carrello") != null) {
                 const lista_input_quantità = Array.from(document.querySelectorAll('.input_quantità'));
                 const lista_quantità = lista_input_quantità.map(input => parseInt(input.value));
                 const somma_quantità = lista_quantità.reduce((accumulatore, quantità) => accumulatore + quantità, 0);
-                
+
                 // Controllo se la somma delle quantità non supera 999 prodotti nel carrello
                 if (somma_quantità > 999) {
                     // Faccio somma della quantità di tutti gli input togliendo l'input corrente
@@ -176,7 +179,7 @@ if (localStorage.getItem("carrello") != null) {
                     const prezzo_totale = (articolo.prezzo_base * input_quantità.value).toFixed(2);
                     p_prezzo_totale_articolo.textContent = `${parseFloat(prezzo_totale).toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
                     calcola_somma_articoli_fnc();
-    
+
                     // Aggiorno la quantità dell'articolo nell'array articoli e nella somma delle quantità prodotti
                     articolo.quantità = parseInt(input_quantità.value);
                     const indice = articoli.findIndex(prodotto => prodotto.titolo == articolo.titolo);
@@ -188,7 +191,7 @@ if (localStorage.getItem("carrello") != null) {
                     else {
                         numero_articoli.textContent = `${totale_quantità_prodotti} prodotto`;
                     }
-    
+
                     // Aggiorno il localStorage
                     localStorage.setItem("carrello", JSON.stringify(articoli));
 
@@ -246,7 +249,7 @@ if (localStorage.getItem("carrello") != null) {
             input_quantità.setSelectionRange(0, 2);
         });
         input_quantità.value = articolo.quantità;
-        div_quantità_input.append(p_quantità, input_quantità);
+        div_quantità_input.append(label_quantità, input_quantità);
 
         // Prezzo totale articolo
         const p_prezzo_totale_articolo = document.createElement('p');
@@ -267,6 +270,13 @@ if (localStorage.getItem("carrello") != null) {
         128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 
         0c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
         `;
+        div_svg_elimina.querySelector('svg').setAttribute('tabindex', '0');
+        div_svg_elimina.querySelector('svg').addEventListener('keydown', (event) => {
+            if (event.key == 'Enter' || event.key == ' ') {
+                event.preventDefault();
+                elimina_prodotto_fnc(event);
+            }
+        });
         div_svg_elimina.addEventListener('click', (event) => {
             elimina_prodotto_fnc(event);
         })
@@ -384,6 +394,13 @@ else {
     paragrafo_ripensaci.textContent = "Possiamo trovare sicuramente gli articoli più adatti a te!";
 
     const contenitore_link_home = document.createElement('div');
+    contenitore_link_home.style.outlineOffset = '6px';
+    contenitore_link_home.addEventListener('keydown', (event) => {
+        if (event.key == 'Enter' || event.key == ' ') {
+            event.preventDefault(); // Lo spazio non fa scrollare la pagina
+            link_home.click();
+        }
+    });
     contenitore_link_home.classList.add('contenitore_link_home');
     const link_home = document.createElement('a');
     link_home.classList.add('link_home');

@@ -91,7 +91,15 @@ div_categorie.forEach(categoria => {
             input_cerca.value = event.target.textContent;
             ricerca_prodotti();
         }
-    })
+    });
+    categoria.addEventListener('keydown', (event) => {
+        if (event.key == 'Enter' || event.key == ' ') {
+            event.preventDefault();
+            categoria.click();
+        }
+    });
+    categoria.setAttribute('tabindex', '0');
+    categoria.style.outlineOffset = '3px';
 });
 
 // Sezione filtri
@@ -99,14 +107,40 @@ div_categorie.forEach(categoria => {
 crescente.addEventListener('click', () => {
     prezzo_crescente_decrescente('crescente');
 });
+crescente.addEventListener('keydown', (event) => {
+    if (event.key == 'Enter' || event.key == ' ') {
+        event.preventDefault();
+        prezzo_crescente_decrescente('crescente');
+    }
+});
+
 decrescente.addEventListener('click', () => {
     prezzo_crescente_decrescente('decrescente');
+});
+decrescente.addEventListener('keydown', (event) => {
+    if (event.key == 'Enter' || event.key == ' ') {
+        event.preventDefault();
+        prezzo_crescente_decrescente('decrescente');
+    }
 });
 
 // Range prezzi
 lista_range_prezzi.forEach(elemento => elemento.addEventListener('click', (event) => {
     range_prezzi(event);
 }));
+lista_range_prezzi.forEach(div => {
+    div.addEventListener('keydown', (event) => {
+        if (event.key == 'Enter' || event.key == ' ') {
+            event.preventDefault();
+            div.click();
+        }
+    });
+    div.setAttribute('tabindex', '0');
+})
+
+range_custom.addEventListener('focus', () => {
+    document.getElementById('div_input_valuta').style.outline = '1px solid black';
+});
 
 range_custom.addEventListener('keydown', (event) => {
     if (event.key == 'Enter') {
@@ -114,7 +148,8 @@ range_custom.addEventListener('keydown', (event) => {
     }
 });
 
-range_custom.addEventListener('blur', (event) => {
+range_custom.addEventListener('blur', () => {
+    document.getElementById('div_input_valuta').style.outline = 'none';
     document.getElementById('div_input_valuta').classList.add('attivo');
     range_custom.classList.add('attivo');
     if (range_custom.value == '') {
@@ -265,7 +300,10 @@ function prezzo_crescente_decrescente(azione) {
 
 // Funzione range prezzi
 function range_prezzi(event) {
-    // Ridimensiono dimensione contenitore_prodotti
+    // Svuoto range custom
+    range_custom.value = '';
+
+    // Ridimensiono contenitore_prodotti
     contenitore_prodotti.style.minHeight = 'fit-content';
 
     // Gestisco selezione
@@ -311,7 +349,7 @@ function range_prezzi(event) {
 }
 
 // Funzione range_custom
-function range_custom_fnc(event) {
+function range_custom_fnc() {
     // Ridimensiono dimensione contenitore_prodotti
     contenitore_prodotti.style.minHeight = 'fit-content';
 

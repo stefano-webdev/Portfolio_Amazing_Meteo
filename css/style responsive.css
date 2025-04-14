@@ -282,7 +282,7 @@
 
 
 /* Media query desktop */
-@media (min-width: 1135px) and (pointer: fine){
+@media (min-width: 1135px) {
     /* layout menu */
     #logo_svg {
         font-size: clamp(26px, 4.6vw, 40px);
@@ -426,7 +426,7 @@
     }
 
     #skill_section ul.skill_list li {
-        font-size: clamp(13.8px, 2.6vw, 25px);
+        font-size: clamp(13.8px, 2.6vw, 21px);
         letter-spacing: 2px;
     }
 

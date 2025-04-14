@@ -139,6 +139,7 @@ a#torna_portfolio {
     position: relative;
     left: -10px;
     top: -8px;
+    outline-offset: 5px;
 }
 
 a#torna_portfolio:active {
@@ -286,6 +287,8 @@ div#meteo_attuale div.quantita_e_vento div.pioggia p {
     text-align: right;
 } 
 
+
+
 button#torna_su {
     background-color: rgb(157, 228, 157);
     width: 40px;
@@ -298,6 +301,7 @@ button#torna_su {
     transform: translateX(-50%);
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    outline-offset: 4px;
     display: none;
 }
 
@@ -331,4 +335,6 @@ footer p, footer a {
 
 footer {
     display: none;
+    width: fit-content;
+    margin: auto;
 }

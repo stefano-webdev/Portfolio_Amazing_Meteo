@@ -22,6 +22,16 @@ section#contacts #github_svg {
     color: var(--github);
 }
 
+div#links_github {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+div#links_github a {
+    width: fit-content;
+}
+
 section#contacts p, section#contacts a  {
     font-style: normal;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;

@@ -57,7 +57,7 @@
 
     p.descrizione,
     p.prezzo_base,
-    p.p_quantità {
+    label.label_quantità {
         font-size: 18px;
     }
 
@@ -65,8 +65,8 @@
         font-size: 19px;
     }
 
-    .div_quantità_input input {
-        font-size: 16px;
+    .input_quantità_carrello {
+        font-size: 17px;
     }
 
     h3.totale_prodotti {
@@ -88,6 +88,10 @@
 @media (orientation: portrait) and (min-width: 461px) {
 
     /* Header */
+    div#contenitore_madre {
+        padding: 20px 35px;
+    }
+
     header {
         padding: 30px 20px;
         display: flex;
@@ -124,13 +128,13 @@
         font-size: 17px;
     }
 
-    summary {
-        font-size: 17px;
-    }
-
     #contenitore_madre_filtri button,
     #contenitore_madre_filtri div,
     #contenitore_madre_filtri input {
+        font-size: 17px;
+    }
+
+    div#div_input_valuta p {
         font-size: 17px;
     }
 
@@ -142,6 +146,10 @@
     div#contenitore_prodotti {
         grid-template-columns: repeat(auto-fit, 310px);
         column-gap: 2.5rem;
+    }
+
+    .div_articolo {
+        min-width: 328px;
     }
 
     button#torna_su {
@@ -200,7 +208,7 @@
 
     p.descrizione,
     p.prezzo_base,
-    p.p_quantità {
+    label.label_quantità {
         font-size: 18px;
     }
 
@@ -208,8 +216,8 @@
         font-size: 19px;
     }
 
-    .div_quantità_input input {
-        font-size: 16px;
+    .input_quantità_carrello {
+        font-size: 17px;
     }
 
     h3.totale_prodotti {
@@ -237,9 +245,14 @@
 @media (orientation: landscape) and (min-width: 901px) {
 
     /* Header */
+    div#contenitore_madre {
+        padding: 20px 35px;
+    }
+
     header {
         padding: 30px 20px;
         display: flex;
+        justify-content: center;
         align-items: center;
         height: 72px;
     }
@@ -277,13 +290,13 @@
         font-size: 17px;
     }
 
-    summary {
-        font-size: 17px;
-    }
-
     #contenitore_madre_filtri button,
     #contenitore_madre_filtri div,
     #contenitore_madre_filtri input {
+        font-size: 17px;
+    }
+
+    div#div_input_valuta p {
         font-size: 17px;
     }
 
@@ -360,7 +373,7 @@
 
     p.descrizione,
     p.prezzo_base,
-    p.p_quantità {
+    label.label_quantità {
         font-size: 18px;
     }
 
@@ -368,8 +381,8 @@
         font-size: 19px;
     }
 
-    .div_quantità_input input {
-        font-size: 16px;
+    .input_quantità_carrello {
+        font-size: 17px;
     }
 
     .div_svg_elimina {
@@ -399,5 +412,115 @@
 
     #div_procedi_acquisto button {
         font-size: 21px;
+    }
+}
+
+/* Media query desktop */
+@media (min-width: 1200px) and (pointer: fine) {
+
+    /* Categorie */
+    div#contenitore_madre_categorie p:first-child {
+        font-size: 19px;
+    }
+
+    div#contenitore_madre_categorie div.categoria {
+        font-size: 18px;
+    }
+
+    #contenitore_madre_filtri button,
+    #contenitore_madre_filtri div,
+    #contenitore_madre_filtri input {
+        font-size: 18px;
+    }
+
+    div#div_input_valuta p {
+        font-size: 18px;
+    }
+
+    /* Prodotti pagina */
+    div#contenitore_prodotti img.prodotto {
+        transition: box-shadow 0.35s ease;
+    }
+
+    div#contenitore_prodotti img.prodotto:hover {
+        box-shadow: 0px 0px 13px 0px rgb(69, 69, 69);
+    }
+
+    p#prodotti_trovati {
+        font-size: 30px;
+    }
+
+    div#contenitore_prodotti {
+        grid-template-columns: repeat(auto-fit, 340px);
+        column-gap: 2.5rem;
+    }
+
+    div#contenitore_prodotti p.descrizione_prodotto {
+        font-size: 17px;
+    }
+
+    /* Footer homepage e-commerce */
+    footer svg {
+        width: 32px;
+    }
+
+    /* Stile carrello pieno */
+    h1.carrello_pieno {
+        font-size: 35px;
+    }
+
+    p.numero_articoli {
+        font-size: 25px;
+    }
+
+    .div_svg_elimina svg:focus-visible {
+        outline: 2px solid rgb(0, 0, 0);
+        outline-offset: 4px;
+        border-radius: 1px;
+    }
+
+    /* Prodotti nel carrello */
+    p#paragrafo_totale_carrello {
+        font-size: 22px;
+    }
+    
+    button#svuota_carrello {
+        font-size: 17px;
+    }
+
+    #label_sconto,
+    #input_sconto,
+    #div_spedizione_gratuita p {
+        font-size: 17px;
+    }
+
+    #input_sconto:focus {
+        outline: 1px solid black;
+    }
+
+    #div_spedizione_gratuita svg {
+        width: 30px;
+    }
+
+    #div_procedi_acquisto button {
+        font-size: 22px;
+    }
+
+    /* Accessibilità */
+    #div_ricerca input:focus {
+        outline: 1px solid black;
+        /* outline-offset: 4px; */
+    }
+
+    #div_ricerca button#bottone_cerca {
+        outline-offset: 6px;
+    }
+
+    summary:focus {
+        outline-offset: 3px;
+    }
+
+    button#bottone_aggiungi_carrello {
+        outline-offset: 6px;
     }
 }
