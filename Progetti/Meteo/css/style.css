@@ -136,10 +136,12 @@ a#torna_portfolio {
     border-radius: 5px;
     border: 1px solid #1a1a1a;
     text-decoration: none;
+    margin-bottom: 20px;
     position: relative;
     left: -10px;
     top: -8px;
     outline-offset: 5px;
+    opacity: 0;
 }
 
 a#torna_portfolio:active {
@@ -175,8 +177,8 @@ div#dati_generali div:first-child {
 }
 
 div#dati_generali div:first-child svg {
-    display: none;
     width: 28px;
+    opacity: 0;
 }
 
 /* Stile selettore giorno */

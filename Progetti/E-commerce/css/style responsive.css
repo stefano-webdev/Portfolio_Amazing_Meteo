@@ -509,7 +509,6 @@
     /* Accessibilità */
     #div_ricerca input:focus {
         outline: 1px solid black;
-        /* outline-offset: 4px; */
     }
 
     #div_ricerca button#bottone_cerca {

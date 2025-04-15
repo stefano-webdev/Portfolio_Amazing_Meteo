@@ -2,7 +2,7 @@
 @media (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
     /*  Layout menu */
     #logo_svg {
-        font-size: clamp(26px, 4.6vw, 40px);
+        font-size: clamp(26px, 4.6vw, 35px);
     }
 
     #menu {
@@ -40,14 +40,11 @@
         width: 38%;
     }
 
-    section#home figure {
-        background-size: 60%;
-        background-position: calc(50% - 5.8rem) 5px;
-    }
-
-    /* Layout about */
-    section#about img {
-        width: 335px;
+    section#home svg#sfondo_immagine_personale {
+        top: 10%;
+        left: 50%;
+        transform: translateX(-70%);
+        width: 40%;
     }
 
     /* Layout skills */
@@ -56,7 +53,7 @@
     }
 
     #skill_section svg {
-        width: 140px;
+        width: 29%;
     }
 
     #skill_section ul.skill_list li {
@@ -77,7 +74,7 @@
     }
 
     section#projects a {
-        width: 50%;
+        width: 60%;
     }
 }
 
@@ -88,7 +85,7 @@
 
     /* Layout menu */
     #logo_svg {
-        font-size: clamp(26px, 4.6vw, 40px);
+        font-size: clamp(26px, 4.6vw, 35px);
     }
 
     #menu a {
@@ -105,12 +102,13 @@
     }
 
     section#home img {
-        width: 55%;
+        max-width: 380px;
     }
 
-    section#home figure {
-        background-size: 60%;
-        background-position: calc(50% - 7rem) 5px;
+    section#home svg#sfondo_immagine_personale {
+        width: 88%;
+        max-width: 331px;
+        transform: translateX(-65%);
     }
 
     /* Layout about e p + a + figcaption*/
@@ -127,7 +125,7 @@
     }
 
     section#about img {
-        width: 64%;
+        max-width: 370px;
     }
 
     section#about h3 {
@@ -139,15 +137,16 @@
     }
 
     #skill_section div.skill_container {
-        width: 75%;
+        width: 85%;
+        max-width: 650px;
     }
 
     #skill_section svg {
-        width: 31%;
+        max-width: 180px;
     }
 
     #skill_section div.skill_name {
-        font-size: clamp(22px, 4.13vw, 37px);
+        font-size: 28px;
     }
 
     #skill_section ul.skill_list {
@@ -155,7 +154,7 @@
     }
 
     #skill_section ul.skill_list li {
-        font-size: clamp(13.8px, 2.6vw, 25px);
+        font-size: 19px;
         letter-spacing: 1px;
     }
 
@@ -187,7 +186,7 @@
 
     /* layout menu */
     #logo_svg {
-        font-size: clamp(26px, 4.6vw, 40px);
+        font-size: clamp(26px, 4.6vw, 35px);
     }
 
     /* layout home */
@@ -201,11 +200,15 @@
 
     section#home img {
         width: 35%;
+        max-width: 315px;
     }
 
-    section#home figure {
-        background-size: 45%;
-        background-position: calc(50% - 7.5rem) 5px;
+    section#home svg#sfondo_immagine_personale {
+        top: 10%;
+        left: 50%;
+        transform: translateX(-67%);
+        width: 40%;
+        max-width: 360px;
     }
 
     /* layout about */
@@ -226,7 +229,7 @@
     }
 
     section#about img {
-        width: 38%;
+        max-width: 370px;
     }
 
     section#about h3 {
@@ -239,14 +242,16 @@
 
     #skill_section div.skill_container {
         width: 60%;
+        max-width: 650px;
     }
 
     #skill_section svg {
-        width: 21%;
+        width: 30%;
+        max-width: 180px;
     }
 
     #skill_section div.skill_name {
-        font-size: clamp(22px, 4.13vw, 37px);
+        font-size: 28px;
     }
 
     #skill_section ul.skill_list {
@@ -254,7 +259,7 @@
     }
 
     #skill_section ul.skill_list li {
-        font-size: clamp(13.8px, 2.6vw, 20px);
+        font-size: 19px;
         letter-spacing: 2px;
     }
 
@@ -282,10 +287,10 @@
 
 
 /* Media query desktop */
-@media (min-width: 1135px) {
+@media (min-width: 1135px) and (pointer: fine) {
     /* layout menu */
     #logo_svg {
-        font-size: clamp(26px, 4.6vw, 40px);
+        font-size: clamp(26px, 4.6vw, 35px);
     }
 
     nav {
@@ -332,7 +337,7 @@
 
     #menu li svg {
         position: absolute;
-        bottom: -70px;
+        bottom: -75px;
         opacity: 0;
         pointer-events: none;
         width: 42px;
@@ -342,6 +347,7 @@
         border-radius: 5px;
         outline: 4px solid black;
         outline-offset: 0px;
+        transition: opacity 0.5s ease;
     }
 
     #menu a:hover svg {
@@ -358,12 +364,13 @@
     }
 
     section#home img {
-        width: 35%;
+        width: 40%;
+        max-width: 400px;
     }
     
-    section#home figure {
-        background-size: 45%;
-        background-position: calc(50% - 9rem) 5px;
+    section#home svg#sfondo_immagine_personale {
+        width: 42%;
+        max-width: 390px;
     }
 
     /* layout about */
@@ -386,6 +393,7 @@
 
     section#about img {
         width: 38%;
+        max-width: 430px;
         margin-left: 45px;
     }
 
@@ -414,11 +422,11 @@
     }
 
     #skill_section svg {
-        width: 21%;
+        max-width: 150px;
     }
 
     #skill_section div.skill_name {
-        font-size: clamp(22px, 4.13vw, 37px);
+        font-size: 30px;
     }
 
     #skill_section ul.skill_list {
@@ -426,7 +434,7 @@
     }
 
     #skill_section ul.skill_list li {
-        font-size: clamp(13.8px, 2.6vw, 21px);
+        font-size: 19px;
         letter-spacing: 2px;
     }
 
@@ -444,7 +452,13 @@
     }
 
     section#projects a {
-        transition: 0.5s ease;
+        width: 66%;
+        transition: transform 0.5s ease;
+        outline-offset: 8px;
+    }
+
+    section#projects a:focus-visible {
+        outline: 2px solid rgb(171, 171, 171);
     }
 
     section#projects a:hover {
@@ -467,7 +481,7 @@
         height: 2px;
         width: 0px;
         background-color: var(--colore_sottolineatura);
-        transition: 0.8s ease;
+        transition: width 0.8s ease;
     }
 
     section#contacts a:hover::after {

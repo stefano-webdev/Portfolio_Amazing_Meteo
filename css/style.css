@@ -1,4 +1,10 @@
 /* Settaggi generali */
+* {
+    box-sizing: border-box;
+    outline-offset: 5px;
+    -webkit-tap-highlight-color: transparent;
+}
+
 html {
     text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -14,6 +20,10 @@ body {
     opacity: 0;
 }
 
+div#contenitore_madre {
+    padding: 20px 25px;
+}
+
 p {
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
@@ -24,12 +34,6 @@ p, figcaption {
 
 a {
     font-size: 14px;
-}
-
-* {
-    box-sizing: border-box;
-    outline-offset: 5px;
-    -webkit-tap-highlight-color: transparent;
 }
 
 hr {
@@ -44,7 +48,7 @@ hr {
 .fade_in {
     opacity: 0;
     transform: translateY(30px);
-    transition: 0.6s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-in-out;
 }
 
 .fade_in.show {

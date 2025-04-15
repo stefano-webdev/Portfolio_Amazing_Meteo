@@ -21,9 +21,9 @@
 <body>
     <header>
         <nav>
-            <svg id="logo_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530 60" width="100%">
-                <text id="svg_text" x="0" y="50%" text-anchor="start" dominant-baseline="middle" 
-                      fill="none" stroke="white" stroke-width="1">
+            <svg id="logo_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 60">
+                <text id="svg_text" x="0" y="50%" text-anchor="start" dominant-baseline="middle" fill="none"
+                    stroke="white" stroke-width="1">
                     &lt; Stefano Quaranta /&gt;
                 </text>
             </svg>
@@ -98,268 +98,280 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <!-- Sezione home -->
-        <section id="home">
-            <div>Front-end Web Developer</div>
-            <h1>STEFANO<br>QUARANTA</h1>
-            <figure>
-                <img src="../immagini/Immagine portfolio.webp" alt="Immagine profilo di Stefano Quaranta">
-            </figure>     
-        </section>
 
-        <hr>
+    <div id="contenitore_madre">
+        <main>
+            <!-- Sezione home -->
+            <section id="home">
+                <div>Front-end Web Developer</div>
+                <h1>STEFANO<br>QUARANTA</h1>
 
-        <!-- Sezione about -->
-        <section id="about">
-            <h2>Chi sono</h2>
-            <p class="descrizione fade_in">
-                Mi chiamo <span class="marked">Stefano Quaranta</span>, ho 29 anni e vivo a Lissone, in provincia di
-                Monza e Brianza.
-                Ho sempre avuto un interesse per lo sviluppo di siti ed applicazioni legati al web,
-                ma solo negli ultimi anni questa passione si è concretizzata. Da autodidatta,
-                ho appreso le basi dello sviluppo web e ho continuato a studiare con costanza per
-                incrementare le mie conoscenze.
-            </p>
-            <div id="chi_sono">
-                <img src="../immagini/about.webp" alt="Immagine professionale di coding" class="fade_in">
-                <div id="paragrafi_descrizione">
-                    <p class="descrizione fade_in">
-                        Il mio
-                        <span class="marked">obiettivo</span> è crescere continuamente in questo settore, imparando nuove
-                        tecnologie e
-                        migliorando le mie abilità.
-                    </p>
-                    <p class="descrizione fade_in">
-                        Per arrivare a
-                        questo traguardo mi impegno sempre a lavorare con una grande cura nei dettagli,
-                        attenzione alla UX/UI e focalizzandomi sulla realizzazione di prodotti sempre più
-                        raffinati.
-                    </p>
-                    <p class="descrizione fade_in">
-                        Attualmente, sto cercando nuove opportunità per collaborare
-                        con aziende che apprezzino la qualità e la professionalità.
-                    </p>
-                </div>
-            </div>
+                <!-- Immagine personale portfolio -->
+                <figure>
+                    <img src="../immagini/Immagine portfolio.webp" alt="Immagine profilo di Stefano Quaranta">
+                    <!-- Sfondo immagine personale gestito tramite JavaScript-->
 
-            <h3>Le mie conoscenze</h3>
-            <svg id="skill_arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6"
-                fill="currentColor">
-                <path fill-rule="evenodd"
-                    d="M11.47 13.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 0 0-1.06-1.06L12 11.69 5.03 4.72a.75.75 0 0 0-1.06 1.06l7.5 7.5Z"
-                    clip-rule="evenodd" />
-                <path fill-rule="evenodd"
-                    d="M11.47 19.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 1 0-1.06-1.06L12 17.69l-6.97-6.97a.75.75 0 0 0-1.06 1.06l7.5 7.5Z"
-                    clip-rule="evenodd" />
-            </svg>
-            <div id="skill_section">
-                <!-- HTML5 competenze -->
-                <div class="skill_container fade_in" style="border: 3px solid #F15931;">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                        <path fill="#f15931" d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 
-                            148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 
-                            112.2h241.1l-4.4 47.7z" />
-                    </svg>
-                    <div class="skill_name">HTML 5</div>
-                    <ul class="skill_list">
-                        <li>Struttura del documento</li>
-                        <li>Metadati principali</li>
-                        <li>Elementi principali</li>
-                        <li>Attributi</li>
-                        <li>Link ed immagini</li>
-                        <li>Form, moduli ed input</li>
-                        <li>Semantica avanzata</li>
-                        <li>SEO</li>
-                        <li>Accessibilità (ARIA e best practices)</li>
-                        <li>Ottimizzazione delle prestazioni</li>
-                    </ul>
-                </div>
-
-                <!-- CSS3 competenze -->
-                <div class="skill_container fade_in" style="border: 3px solid #007DC6;">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                        <path fill="#007dc6" d="M0 32l34.9 395.8L192 480l157.1-52.2L384 32H0zm313.1 
-                            80l-4.8 47.3L193 208.6l-.3 .1h111.5l-12.8 146.6-98.2 
-                            28.7-98.8-29.2-6.4-73.9h48.9l3.2 38.3 52.6 13.3 54.7-15.4 
-                            3.7-61.6-166.3-.5v-.1l-.2 .1-3.6-46.3L193.1 162l6.5-2.7H76.7L70.9 
-                            112h242.2z" />
-                    </svg>
-                    <div class="skill_name">CSS 3</div>
-                    <ul class="skill_list">
-                        <li>Selettori e specificità</li>
-                        <li>Pseudo-classi e pseudo-elementi</li>
-                        <li>Box Model</li>
-                        <li>Display e visibilità</li>
-                        <li>Background e bordi</li>
-                        <li>Colori e unità di misura</li>
-                        <li>Tipografia</li>
-                        <li>Posizionamento</li>
-                        <li>Transizioni</li>
-                        <li>Animazioni (Keyframes)</li>
-                        <li>Flexbox</li>
-                        <li>Grid Layout</li>
-                        <li>Media Queries (Responsive, Mobile first)</li>
-                    </ul>
-                </div>
-
-                <!-- JavaScript competenze -->
-                <div class="skill_container fade_in" style="border: 3px solid #FFCA28;">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                        <path fill="#ffca28"
-                            d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 
-                            0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 
-                            14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 
-                            9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z" />
-                    </svg>
-                    <div class="skill_name">JAVASCRIPT</div>
-                    <ul class="skill_list">
-                        <li>Sintassi e tipi di dati</li>
-                        <li>Variabili e scope</li>
-                        <li>Operatori, condizioni e cicli</li>
-                        <li>Funzioni e funzioni freccia</li>
-                        <li>Eventi e manipolazione del DOM</li>
-                        <li>Array e oggetti</li>
-                        <li>Asincronia (Promises e Async/Await)</li>
-                        <li>Gestione degli errori (try/catch e throw)</li>
-                        <li>Fetch API</li>
-                        <li>ES6+ e sintassi moderna</li>
-                        <li>Template literals</li>
-                        <li>Destructuring</li>
-                        <li>LocalStorage</li>
-                        <li>Modularità (import/export)</li>
-                    </ul>
-                </div>
-
-                <!-- Git/GitHub competenze -->
-                <div class="skill_container fade_in" style="border: 3px solid #DE4C36;">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                        <path fill="#de4c36" d="M439.6 236.1L244 40.5a28.9 28.9 0 0 0 -40.8 0l-40.7 40.6 
-                            51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 
-                            31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.2 199v121.9c25.3 12.5 22.3 
-                            41.9 9.1 55a34.3 34.3 0 0 1 -48.6 0c-17.6-17.6-11.1-46.9 
-                            11.3-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1a28.9 28.9 0 0 
-                            0 0 40.8l195.6 195.6a28.9 28.9 0 0 0 40.8 0l194.7-194.7a28.9 28.9 0 0 0 0-40.8z" />
-                    </svg>
-                    <div class="skill_name">GIT/GITHUB</div>
-                    <ul class="skill_list">
-                        <li>Inizializzazione del repository Git</li>
-                        <li>Aggiungere file al repository</li>
-                        <li>Eseguire i commit</li>
-                        <li>Visualizzare lo stato dei file (git status)</li>
-                        <li>Visualizzare la cronologia dei commit</li>
-                        <li>Salvare modifiche temporanee (git stash)</li>
-                        <li>Navigazione ed utilizzo dei branch</li>
-                        <li>Unire i branch</li>
-                        <li>Gestione conflitti durante il merge</li>
-                        <li>Visualizzare le differenze tra file</li>
-                        <li>Annullare modifiche locali (git reset)</li>
-                        <li>Creare un repository su GitHub</li>
-                        <li>Sincronizzare i file (git push e git pull)</li>
-                        <li>Issues</li>
-                        <li>Fork e Pull Request</li>
-                        <li>Clonare un repository</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <hr>
-
-        <!-- Sezione progetti -->
-        <section id="projects">
-            <h2>Progetti</h2>
-            <div id="contenitore_progetti">
-                <figure class="fade_in">
-                    <a href="../Progetti/Meteo/html/meteo.html">
-                        <img src="../immagini/previsioni_stock.webp" alt="Anteprima progetto sito meteo">     
-                    </a>
-                    <figcaption>Previsioni del tempo</figcaption>
                 </figure>
-                <figure class="fade_in">
-                    <a href="../Progetti/E-commerce/html/e-commerce.html">
-                        <img src="../immagini/e-commerce_stock.webp" alt="Anteprima progetto sito e-commerce">
-                    </a>
-                    <figcaption>E-commerce</figcaption>
-                </figure>
-            </div>
-        </section>
+            </section>
 
-        <hr>
+            <hr>
 
-    </main>
-    <footer>
-        <!-- Sezione contatti -->
-        <section id="contacts">
-            <h2>Contatti</h2>
-            <address>
-                <!-- Email -->
-                <div class="contenitore_contatti fade_in">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path fill="#ec4738" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 
-                            29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 
-                            150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 
-                            176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 
-                            339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
-                        </svg>
-                        <p>Email:</p>
-                    </div>
-                    <a href="mailto:stefanoquaranta.web@gmail.com">stefanoquaranta.web@gmail.com</a>
-                </div>
-
-
-                <!-- GitHub -->
-                <div class="contenitore_contatti fade_in">
-                    <div>
-                        <svg id="github_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-                            <path fill="currentColor" d="M244.8 8C106.1 8 0 113.3 0 252c0 110.9 
-                            69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 
-                            15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 
-                            21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 
-                            0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 
-                            41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 
-                            16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 
-                            33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 
-                            383.5 8 244.8 8z" />
-                        </svg>
-                        <p>GitHub:</p>
-                    </div>
-                    <div id="links_github">
-                        <a href="https://github.com/Forty9669/Portfolio" target="_blank">github.com/Forty9669/Portfolio</a>
-                        <a href="https://github.com/Forty9669/Portfolio/tree/main/Progetti/Meteo" target="_blank">github.com/Forty9669/Meteo</a>
-                        <a href="https://github.com/Forty9669/Portfolio/tree/main/Progetti/E-commerce" target="_blank">github.com/Forty9669/E-commerce</a>
+            <!-- Sezione about -->
+            <section id="about">
+                <h2 class="fade_in">Chi sono</h2>
+                <p class="descrizione fade_in">
+                    Mi chiamo <span class="marked">Stefano Quaranta</span>, ho 29 anni e vivo a Lissone, in provincia di
+                    Monza e Brianza.
+                    Ho sempre avuto un interesse per lo sviluppo di siti ed applicazioni legati al web,
+                    ma solo negli ultimi anni questa passione si è concretizzata. Da autodidatta,
+                    ho appreso le basi dello sviluppo web e ho continuato a studiare con costanza per
+                    incrementare le mie conoscenze.
+                </p>
+                <div id="chi_sono">
+                    <img src="../immagini/about.webp" alt="Immagine professionale di coding" class="fade_in">
+                    <div id="paragrafi_descrizione">
+                        <p class="descrizione fade_in">
+                            Il mio
+                            <span class="marked">obiettivo</span> è crescere continuamente in questo settore, imparando
+                            nuove
+                            tecnologie e
+                            migliorando le mie abilità.
+                        </p>
+                        <p class="descrizione fade_in">
+                            Per arrivare a
+                            questo traguardo mi impegno sempre a lavorare con una grande cura nei dettagli,
+                            attenzione alla UX/UI e focalizzandomi sulla realizzazione di prodotti sempre più
+                            raffinati.
+                        </p>
+                        <p class="descrizione fade_in">
+                            Attualmente, sto cercando nuove opportunità per collaborare
+                            con aziende che apprezzino la qualità e la professionalità.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Linkedin  -->
-                <div class="contenitore_contatti fade_in">
-                    <div>
+                <h3 class="fade_in">Le mie conoscenze</h3>
+                <svg id="skill_arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6 fade_in"
+                    fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M11.47 13.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 0 0-1.06-1.06L12 11.69 5.03 4.72a.75.75 0 0 0-1.06 1.06l7.5 7.5Z"
+                        clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                        d="M11.47 19.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 1 0-1.06-1.06L12 17.69l-6.97-6.97a.75.75 0 0 0-1.06 1.06l7.5 7.5Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div id="skill_section">
+                    <!-- HTML5 competenze -->
+                    <div class="skill_container fade_in" style="border: 3px solid #F15931;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path fill="#f15931" d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 
+                                148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 
+                                112.2h241.1l-4.4 47.7z" />
+                        </svg>
+                        <div class="skill_name">HTML 5</div>
+                        <ul class="skill_list">
+                            <li>Struttura del documento</li>
+                            <li>Metadati principali</li>
+                            <li>Elementi principali</li>
+                            <li>Attributi</li>
+                            <li>Link ed immagini</li>
+                            <li>Form, moduli ed input</li>
+                            <li>Semantica avanzata</li>
+                            <li>SEO</li>
+                            <li>Accessibilità (ARIA e best practices)</li>
+                            <li>Ottimizzazione delle prestazioni</li>
+                        </ul>
+                    </div>
+
+                    <!-- CSS3 competenze -->
+                    <div class="skill_container fade_in" style="border: 3px solid #007DC6;">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path fill="#007dc6" d="M0 32l34.9 395.8L192 480l157.1-52.2L384 32H0zm313.1 
+                                80l-4.8 47.3L193 208.6l-.3 .1h111.5l-12.8 146.6-98.2 
+                                28.7-98.8-29.2-6.4-73.9h48.9l3.2 38.3 52.6 13.3 54.7-15.4 
+                                3.7-61.6-166.3-.5v-.1l-.2 .1-3.6-46.3L193.1 162l6.5-2.7H76.7L70.9 
+                                112h242.2z" />
+                        </svg>
+                        <div class="skill_name">CSS 3</div>
+                        <ul class="skill_list">
+                            <li>Selettori e specificità</li>
+                            <li>Pseudo-classi e pseudo-elementi</li>
+                            <li>Box Model</li>
+                            <li>Display e visibilità</li>
+                            <li>Background e bordi</li>
+                            <li>Colori e unità di misura</li>
+                            <li>Tipografia</li>
+                            <li>Posizionamento</li>
+                            <li>Transizioni</li>
+                            <li>Animazioni (Keyframes)</li>
+                            <li>Flexbox</li>
+                            <li>Grid Layout</li>
+                            <li>Media Queries (Responsive, Mobile first)</li>
+                        </ul>
+                    </div>
+
+                    <!-- JavaScript competenze -->
+                    <div class="skill_container fade_in" style="border: 3px solid #FFCA28;">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                            <path fill="#0882bd" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 
-                                31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 
-                                416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 
-                                102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 
-                                243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 
-                                54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 
-                                79.7 44.3 79.7 101.9V416z" />
+                            <path fill="#ffca28"
+                                d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 
+                                0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 
+                                14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 
+                                9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z" />
                         </svg>
-                        <p>Linkedin:</p>
+                        <div class="skill_name">JAVASCRIPT</div>
+                        <ul class="skill_list">
+                            <li>Sintassi e tipi di dati</li>
+                            <li>Variabili e scope</li>
+                            <li>Operatori, condizioni e cicli</li>
+                            <li>Funzioni e funzioni freccia</li>
+                            <li>Eventi e manipolazione del DOM</li>
+                            <li>Array e oggetti</li>
+                            <li>Asincronia (Promises e Async/Await)</li>
+                            <li>Gestione degli errori (try/catch e throw)</li>
+                            <li>Fetch API</li>
+                            <li>ES6+ e sintassi moderna</li>
+                            <li>Template literals</li>
+                            <li>Destructuring</li>
+                            <li>LocalStorage</li>
+                            <li>Modularità (import/export)</li>
+                        </ul>
                     </div>
-                    <a href="https://www.linkedin.com/in/stefano-quaranta-91a0a1132/"
-                        target="_blank">linkedin.com/in/stefano-quaranta-91a0a1132</a>
+
+                    <!-- Git/GitHub competenze -->
+                    <div class="skill_container fade_in" style="border: 3px solid #DE4C36;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="#de4c36" d="M439.6 236.1L244 40.5a28.9 28.9 0 0 0 -40.8 0l-40.7 40.6 
+                                51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 
+                                31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.2 199v121.9c25.3 12.5 22.3 
+                                41.9 9.1 55a34.3 34.3 0 0 1 -48.6 0c-17.6-17.6-11.1-46.9 
+                                11.3-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1a28.9 28.9 0 0 
+                                0 0 40.8l195.6 195.6a28.9 28.9 0 0 0 40.8 0l194.7-194.7a28.9 28.9 0 0 0 0-40.8z" />
+                        </svg>
+                        <div class="skill_name">GIT/GITHUB</div>
+                        <ul class="skill_list">
+                            <li>Inizializzazione del repository Git</li>
+                            <li>Aggiungere file al repository</li>
+                            <li>Eseguire i commit</li>
+                            <li>Visualizzare lo stato dei file (git status)</li>
+                            <li>Visualizzare la cronologia dei commit</li>
+                            <li>Salvare modifiche temporanee (git stash)</li>
+                            <li>Navigazione ed utilizzo dei branch</li>
+                            <li>Unire i branch</li>
+                            <li>Gestione conflitti durante il merge</li>
+                            <li>Visualizzare le differenze tra file</li>
+                            <li>Annullare modifiche locali (git reset)</li>
+                            <li>Creare un repository su GitHub</li>
+                            <li>Sincronizzare i file (git push e git pull)</li>
+                            <li>Issues</li>
+                            <li>Fork e Pull Request</li>
+                            <li>Clonare un repository</li>
+                        </ul>
+                    </div>
                 </div>
-            </address>
-        </section>
-        <div id="footer_nota_div" class="fade_in">
-            <svg id="footer_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path fill="#FA1708"
-                    d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-            </svg>
-            <p id="footer_paragrafo">Curriculum disponibile su richiesta via email</p>
-        </div>
-    </footer>
+            </section>
+
+            <hr>
+
+            <!-- Sezione progetti -->
+            <section id="projects">
+                <h2 class="fade_in">Progetti</h2>
+                <div id="contenitore_progetti">
+                    <figure class="fade_in">
+                        <a href="../Progetti/Meteo/html/meteo.html">
+                            <img src="../immagini/previsioni_stock.webp" alt="Anteprima progetto sito meteo">
+                        </a>
+                        <figcaption>Previsioni del tempo</figcaption>
+                    </figure>
+                    <figure class="fade_in">
+                        <a href="../Progetti/E-commerce/html/e-commerce.html">
+                            <img src="../immagini/e-commerce_stock.webp" alt="Anteprima progetto sito e-commerce">
+                        </a>
+                        <figcaption>E-commerce</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <hr>
+
+        </main>
+        <footer>
+            <!-- Sezione contatti -->
+            <section id="contacts">
+                <h2 class="fade_in">Contatti</h2>
+                <address>
+                    <!-- Email -->
+                    <div class="contenitore_contatti fade_in">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="#ec4738" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 
+                                29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 
+                                150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 
+                                176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 
+                                339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+                            </svg>
+                            <p>Email:</p>
+                        </div>
+                        <a href="mailto:stefanoquaranta.web@gmail.com">stefanoquaranta.web@gmail.com</a>
+                    </div>
+
+
+                    <!-- GitHub -->
+                    <div class="contenitore_contatti fade_in">
+                        <div>
+                            <svg id="github_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                <path fill="currentColor" d="M244.8 8C106.1 8 0 113.3 0 252c0 110.9 
+                                69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 
+                                15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 
+                                21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 
+                                0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 
+                                41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 
+                                16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 
+                                33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 
+                                383.5 8 244.8 8z" />
+                            </svg>
+                            <p>GitHub:</p>
+                        </div>
+                        <div id="links_github">
+                            <a href="https://github.com/Forty9669/Portfolio"
+                                target="_blank">github.com/Forty9669/Portfolio</a>
+                            <a href="https://github.com/Forty9669/Portfolio/tree/main/Progetti/Meteo"
+                                target="_blank">github.com/Forty9669/Meteo</a>
+                            <a href="https://github.com/Forty9669/Portfolio/tree/main/Progetti/E-commerce"
+                                target="_blank">github.com/Forty9669/E-commerce</a>
+                        </div>
+                    </div>
+
+                    <!-- Linkedin  -->
+                    <div class="contenitore_contatti fade_in">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="#0882bd" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 
+                                    31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 
+                                    416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 
+                                    102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 
+                                    243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 
+                                    54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 
+                                    79.7 44.3 79.7 101.9V416z" />
+                            </svg>
+                            <p>Linkedin:</p>
+                        </div>
+                        <a href="https://www.linkedin.com/in/stefano-quaranta-91a0a1132/"
+                            target="_blank">linkedin.com/in/stefano-quaranta-91a0a1132</a>
+                    </div>
+                </address>
+            </section>
+            <div id="footer_nota_div" class="fade_in">
+                <svg id="footer_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path fill="#FA1708"
+                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
+                </svg>
+                <p id="footer_paragrafo">Curriculum disponibile su richiesta via email</p>
+            </div>
+        </footer>
+    </div>
+
     <script src="../js/javascript.js"></script>
 </body>
 

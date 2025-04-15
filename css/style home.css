@@ -1,5 +1,5 @@
 main {
-    margin-top: 7.8rem;
+    margin-top: 6.3rem;
 }
 
 section#home div:first-child {
@@ -12,7 +12,7 @@ section#home div:first-child {
 section#home h1 {
     text-align: center;
     color: var(--colore_titoli);
-    font-size: 48px;
+    font-size: 44px;
     margin-top: 12px;
     font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
     letter-spacing: 5.5px;
@@ -20,16 +20,22 @@ section#home h1 {
 
 section#home img {
     display: block;
-    width: 70%;
-    max-width: 468px;
+    width: 100%;
     margin: auto;
+    position: relative;
+    z-index: 1;
 }
 
 section#home figure {
-    background-image: var(--bg_home);
-    background-size: 80%;
-    background-position: calc(50% - 4.2rem) 0px;
-    background-repeat: no-repeat;
-    margin: 0px;
-    transition: 0.35s;
+    position: relative;
+}
+
+section#home svg#sfondo_immagine_personale {
+    position: absolute;
+    top: 6.5%;
+    left: 50%;
+    transform: translateX(-59%);
+    z-index: 0;
+    width: 100%;
+    font-size: 21px;
 }

@@ -50,7 +50,7 @@
     }
 
     footer svg {
-        width: 30px;
+        width: 25px;
     }
 
 }
@@ -99,6 +99,14 @@
     /* Sezione dati generali */
     div#dati_generali p:nth-child(1) {
         font-size: 45px;
+    }
+
+    div#dati_generali div:first-child svg {
+        width: 30px;
+    }
+
+    div#dati_generali div:first-child {
+        gap: 18px;
     }
 
     /* Sezione meteo */
@@ -160,11 +168,11 @@
     /* Sezione footer */
     footer p,
     footer a {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     footer svg {
-        width: clamp(30px, 6vw, 37px);
+        width: 25px;
     }
 }
 
@@ -212,6 +220,14 @@
     /* Sezione dati generali */
     div#dati_generali p:nth-child(1) {
         font-size: 55px;
+    }
+
+    div#dati_generali div:first-child svg {
+        width: 33px;
+    }
+
+    div#dati_generali div:first-child {
+        gap: 19px;
     }
 
     /* Sezione meteo */
@@ -279,11 +295,11 @@
     /* Sezione footer */
     footer p,
     footer a {
-        font-size: 21px;
+        font-size: 17px;
     }
 
     footer svg {
-        width: clamp(30px, 6vw, 37px);
+        width: 25px;
     }
 }
 
@@ -428,10 +444,10 @@
     /* Sezione footer */
     footer p,
     footer a {
-        font-size: 21px;
+        font-size: 17px;
     }
 
     footer svg {
-        width: clamp(30px, 6vw, 37px);
+        width: 32px;
     }
 }

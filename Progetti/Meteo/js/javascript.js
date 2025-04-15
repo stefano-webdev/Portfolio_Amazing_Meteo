@@ -46,6 +46,10 @@ const ogg_traduci_città = {
 
 
 // Assegnazione comandi
+window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+});
+
 // Ricalcolo il font del paragrafo paese per ogni resize
 window.addEventListener('resize', () => {
     ricalcola_font_paragrafo_paese();
@@ -80,7 +84,6 @@ function ricalcola_font_paragrafo_paese() {
     font_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).fontSize.slice(0, -2));
     paragrafo_paese.style.fontSize = `${font_paragrafo_paese}px`;
     paragrafo_paese.textContent = nome_paese;
-    svg_paese.style.display = 'inline';
     let altezza_paragrafo_paese = parseFloat(window.getComputedStyle(paragrafo_paese).height);
     let line_height_paragrafo_paese = parseFloat(window.getComputedStyle(paragrafo_paese).lineHeight);
     let numero_cicli = 0;
@@ -173,18 +176,20 @@ function ricerca(giorno_scelto, data_aggiornata) {
             const parola_tradotta = dati_traduzione.responseData.translatedText;
             console.log(`Ok, l'API ha tradotto: ${parola_tradotta}`);
 
-            // Richiesta dei dati meteo, fetch
+            // Richiesta princiaple dei dati meteo, fetch
             const url = `http://api.weatherapi.com/v1/forecast.json?key=${chiave}&q=${parola_tradotta}&days=${giorni}&hourly=1`;
             const risposta = await fetch(url);
             const dati = await risposta.json();
+            console.log(dati);
 
             // Dati generali
-            document.body.style.opacity = '1';
+            document.getElementById('torna_portfolio').style.opacity = '1';
             nome_paese = paese_variabile;
             nome_nazione = dati.location.country;
             if (nome_nazione == 'Italy') {
                 nome_nazione = 'Italia';
             }
+            svg_paese.style.opacity = '1';
 
             // Dati ora per ora
             // Prendo l'orario ed il codice
