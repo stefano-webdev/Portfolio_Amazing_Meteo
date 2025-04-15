@@ -29,11 +29,13 @@ let alba = 6;
 let svg;
 const anno = String(data.getFullYear());
 let data_completa = `${giorno}/${mese}/${anno}`;
+let data_selettore;
 const giorni_settimana = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
 let giorno_scelto;
 let paese;
 let prima_lettera;
 let paese_variabile;
+let dati;
 const ogg_traduci_città = {
     "Milano": "Milan",
     "Roma": "Rome",
@@ -111,40 +113,158 @@ selettore_0.textContent = 'Oggi';
 selettore_1.textContent = `${giorni_settimana[domani.getDay()]} ${domani.getDate()}`;
 selettore_2.textContent = `${giorni_settimana[dopodomani.getDay()]} ${dopodomani.getDate()}`;
 
+// Funzione selettore giorni
 for (const bottone of selettore_giorno_bottoni) {
     bottone.addEventListener('click', (event) => {
-        // Prendo 0 1 2 in base al giorno, per farlo corrispondere a forecastday, poi vai di nuovo su ricerca()
+        // Prendo 0 1 2 in base al giorno per farlo corrispondere a forecastday, poi aggiorno i dati
         document.querySelector('button.attivo').classList.remove('attivo');
         event.target.classList.add('attivo');
         if (event.target.classList.contains('zero')) {
-            data_completa = `${giorno}/${mese}/${anno}`
-            giorno_scelto = 0;
+            giorno_scelto = '0';
+            data_selettore = `${giorno}/${mese}/${anno}`;
         }
+
         else if (event.target.classList.contains('uno')) {
-            data_completa = `${domani.getDate()}/${mese}/${anno}`
-            giorno_scelto = 1;
+            giorno_scelto = '1';
+            data_selettore = `${domani.getDate()}/${mese}/${anno}`
         }
+
         else {
-            data_completa = `${dopodomani.getDate()}/${mese}/${anno}`
-            giorno_scelto = 2;
+            giorno_scelto = '2';
+            data_selettore = `${dopodomani.getDate()}/${mese}/${anno}`
         }
 
-        // Disabilito i bottoni
-        selettore_0.disabled = true;
-        selettore_1.disabled = true;
-        selettore_2.disabled = true;
+        // Dopo aver stabilito il giorno, modifico i dati
+        // Prendo l'orario
+        const location = dati.location.tz_id;
+        const fuso_orario = new Intl.DateTimeFormat('it-IT', {
+            timeZone: location,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        }).format(new Date()).slice(0, 5);
+        let ora = fuso_orario.slice(0, 2);
+        if (ora.startsWith('0')) {
+            ora = ora.slice(1);
+        }
 
-        // Chiamo la funzione
-        ricerca(giorno_scelto, data_completa);
+        // Aggiornamento dei dati nel DOM, prima dati generali
+        paragrafo_data.textContent = `Previsioni per oggi, ${data_selettore}`;
+
+        // Aggiornamento di tutte le fasce orarie
+        let ora_fascia = Number(ora);
+        if (giorno_scelto != 0) {
+            ora_fascia = 0;
+        }
+
+        // Rimuovo le fascie orarie precedenti rimaste nel DOM
+        document.querySelectorAll("div.fascia_oraria, hr").forEach(elemento => elemento.remove());
+
+        // Creo le fasce orarie in modo dinamico, ma ancora non hanno i dati dentro
+        for (let i = 0; i < 24 - ora_fascia; i++) {
+            const div_fascia_oraria = document.createElement('div');
+            div_fascia_oraria.classList.add('fascia_oraria');
+
+            const div_ora_e_condizioni = document.createElement('div');
+            div_ora_e_condizioni.classList.add('ora_e_condizioni');
+            const p_ora = document.createElement('p');
+            const p_ora2 = document.createElement('p');
+            div_ora_e_condizioni.append(p_ora, p_ora2);
+
+            const div_svg_e_gradi = document.createElement('div');
+            div_svg_e_gradi.classList.add('svg_e_gradi');
+            const svg_gradi = document.createElement('svg');
+            const p_gradi = document.createElement('p');
+            div_svg_e_gradi.append(svg_gradi, p_gradi);
+
+            const div_quantita_e_vento = document.createElement('div');
+            div_quantita_e_vento.classList.add('quantita_e_vento');
+            const div_pioggia = document.createElement('div');
+            div_pioggia.classList.add('pioggia');
+            const svg_pioggia = document.createElement('svg');
+            const p_pioggia = document.createElement('p');
+            div_pioggia.append(svg_pioggia, p_pioggia);
+            const div_vento = document.createElement('div');
+            div_vento.classList.add('vento');
+            const svg_vento = document.createElement('svg');
+            const p_vento = document.createElement('p');
+            div_vento.append(svg_vento, p_vento);
+            div_quantita_e_vento.append(div_pioggia, div_vento);
+
+            div_fascia_oraria.append(div_ora_e_condizioni, div_svg_e_gradi, div_quantita_e_vento);
+            const hr = document.createElement('hr');
+
+            document.getElementById('meteo_attuale').append(div_fascia_oraria, hr);
+        }
+
+        // Ciclo ed aggiornamento di tutte le fascie orarie
+        const div_da_usare = Array.from(document.querySelectorAll('div.fascia_oraria'));
+        div_da_usare.forEach((div) => {
+            const codice = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].condition.code;
+
+            // Prendo la condizione
+            const dati_codice = lista_condizioni.find(oggetto => oggetto.code == codice);
+            const condizione = dati_codice.languages.day_text;
+            const stato = dati_codice.languages.condizione;
+
+            // Stabilisco l'ora media del tramonto in base all'orario e stagione
+            if (mese >= 4 && mese <= 9) { // Primavera - estate
+                tramonto = 20;
+            }
+            else { // Autunno inverno
+                tramonto = 18;
+            }
+
+            // Prendo la temperatura
+            const temperatura = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].temp_c + '°';
+
+            // Prendo quantità di pioggia, se c'è
+            const mm_pioggia = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].precip_mm;
+            const qnt_pioggia = Number(mm_pioggia) == 0 ? 'Assenti' : `${mm_pioggia}mm`;
+
+            // Prendo velocità vento in km/h
+            const vento = dati.forecast.forecastday[giorno_scelto].hour[ora_fascia].wind_kph + ' km/h'
+
+            div.querySelector('div.ora_e_condizioni p:nth-child(1)').textContent = String(ora_fascia).length == 1 ? '0' + String(ora_fascia) + ':00' : String(ora_fascia) + ':00';
+
+            // Fascia notturna
+            if (ora_fascia >= tramonto || ora_fascia < alba) {
+                if (stato == "Sole" || stato == "Nuvoloso") {
+                    svg = stati_svg["Nebbia"];
+                }
+
+                else {
+                    svg = stati_svg[stato];
+                }
+            }
+
+            // Fascia diurna
+            else {
+                svg = stati_svg[stato];
+            }
+
+            div.querySelector('div.ora_e_condizioni p:nth-child(2)').textContent = condizione;
+            div.querySelector('div.svg_e_gradi svg:nth-child(1)').outerHTML = svg;
+            div.querySelector('div.svg_e_gradi p:nth-of-type(1)').textContent = temperatura;
+
+            div.querySelector('div.quantita_e_vento div.pioggia svg:nth-of-type(1)').outerHTML = stati_svg["Goccia"];
+            div.querySelector('div.quantita_e_vento div.pioggia p:nth-of-type(1)').textContent = qnt_pioggia;
+            div.querySelector('div.quantita_e_vento div.vento svg:nth-of-type(1)').outerHTML = stati_svg["Vento"];
+            div.querySelector('div.quantita_e_vento div.vento p:nth-of-type(1)').textContent = vento;
+
+            div.nextElementSibling.style.display = 'block';
+            ora_fascia += 1
+        });
     })
 };
 
 
-// Funzione ricerca meteo paese
+// Funzione ricerca principale meteo
 function ricerca(giorno_scelto, data_aggiornata) {
     // Raccolta del paese ed aggiustamenti
     try {
         paese = input_cerca.value;
+        paese = paese.trim();
         prima_lettera = paese.at(0).toUpperCase();
         paese = prima_lettera + paese.slice(1);
         input_cerca.value = paese;
@@ -167,20 +287,22 @@ function ricerca(giorno_scelto, data_aggiornata) {
         // Previsione meteo ed aggiornamento DOM
         try {
             // Variabili locali
-            const giorni = 4;
+            const giorni = 3;
             const url_traduzione = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(paese)}&langpair=it|en`;
 
             // Traduci dall'italiano all'inglese, fetch
             const risposta_traduzione = await fetch(url_traduzione);
             const dati_traduzione = await risposta_traduzione.json();
             const parola_tradotta = dati_traduzione.responseData.translatedText;
-            console.log(`Ok, l'API ha tradotto: ${parola_tradotta}`);
 
             // Richiesta princiaple dei dati meteo, fetch
             const url = `http://api.weatherapi.com/v1/forecast.json?key=${chiave}&q=${parola_tradotta}&days=${giorni}&hourly=1`;
             const risposta = await fetch(url);
-            const dati = await risposta.json();
-            console.log(dati);
+            dati = await risposta.json();
+
+            if (Object.keys(dati)[0] === "error") {
+                throw new Error ("errore nella richiesta")
+            }
 
             // Dati generali
             document.getElementById('torna_portfolio').style.opacity = '1';
@@ -192,7 +314,7 @@ function ricerca(giorno_scelto, data_aggiornata) {
             svg_paese.style.opacity = '1';
 
             // Dati ora per ora
-            // Prendo l'orario ed il codice
+            // Prendo l'orario
             const location = dati.location.tz_id;
             const fuso_orario = new Intl.DateTimeFormat('it-IT', {
                 timeZone: location,
@@ -219,7 +341,7 @@ function ricerca(giorno_scelto, data_aggiornata) {
             // Rimuovo le fascie orarie precedenti rimaste nel DOM
             document.querySelectorAll("div.fascia_oraria, hr").forEach(elemento => elemento.remove());
 
-            // Creo le fasce orarie in modo dinamico
+            // Creo le fasce orarie in modo dinamico, ma ancora non hanno i dati dentro
             for (let i = 0; i < 24 - ora_fascia; i++) {
                 const div_fascia_oraria = document.createElement('div');
                 div_fascia_oraria.classList.add('fascia_oraria');
@@ -315,15 +437,10 @@ function ricerca(giorno_scelto, data_aggiornata) {
                 ora_fascia += 1
             });
 
-            // Nel CSS avevo nascosto degli elementi, qui lli mostro
+            // Nel CSS avevo nascosto degli elementi, qui li mostro
             selettore_giorno.style.display = 'flex';
             document.getElementById('torna_su').style.display = 'inline-block';
             document.querySelector('footer').style.display = 'block';
-
-            // Riabilito i bottoni
-            selettore_0.disabled = false;
-            selettore_1.disabled = false;
-            selettore_2.disabled = false;
         }
         catch (errore) {
             input_cerca.style.border = '2px solid #ff0000';
