@@ -11,6 +11,10 @@
         padding: 25px;
     }
 
+    header #div_ricerca {
+        width: 55%;
+    }
+
     nav {
         margin-bottom: 7px;
     }
@@ -26,8 +30,7 @@
 
     /* Sezione meteo */
     p,
-    #selettore_giorno button,
-    header input {
+    #selettore_giorno button {
         font-size: 18px;
     }
 
@@ -79,7 +82,7 @@
 
     header input {
         width: 100%;
-        font-size: clamp(16px, 3.3vw, 24px);
+        font-size: 18px;
         padding: 0px 47px 0px 12px;
     }
 
@@ -201,7 +204,7 @@
 
     header input {
         width: 100%;
-        font-size: clamp(16px, 3.3vw, 24px);
+        font-size: 20px;
         padding: 0px 47px 0px 12px;
     }
 
@@ -336,7 +339,6 @@
 
     header input {
         width: 100%;
-        font-size: clamp(16px, 3.3vw, 30px);
         padding: 0px 47px 0px 12px;
     }
 
@@ -435,12 +437,12 @@
     }
 
     button#torna_su {
-        width: 45px;
+        width: 40px;
     }
 
     button#torna_su svg {
-        width: 30px;
-        height: 33px;
+        width: 25px;
+        height: 28px;
     }
 
     /* Sezione footer */

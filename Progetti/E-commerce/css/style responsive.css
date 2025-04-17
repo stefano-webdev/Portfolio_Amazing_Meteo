@@ -453,12 +453,21 @@
     }
 
     div#contenitore_prodotti {
-        grid-template-columns: repeat(auto-fit, 340px);
+        grid-template-columns: repeat(auto-fit, 270px);
         column-gap: 2.5rem;
     }
 
     div#contenitore_prodotti p.descrizione_prodotto {
         font-size: 17px;
+    }
+
+    button#torna_su {
+        width: 40px;
+    }
+
+    button#torna_su svg {
+        width: 25px;
+        height: 28px;
     }
 
     /* Footer homepage e-commerce */

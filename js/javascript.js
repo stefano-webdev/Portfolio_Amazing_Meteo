@@ -138,6 +138,7 @@ btn_menu_toggle.addEventListener("click", () => {
 // Scroll fino alla destinazione in modo fluido e chiudo menu in automatico quando clicco un link
 for (const x of links) {
     x.addEventListener("click", (event) => {
+        // Scroll fluido fino alla sezione
         event.preventDefault()
         const targetId = x.getAttribute("href");
         const targetElement = document.querySelector(targetId);
@@ -147,10 +148,13 @@ for (const x of links) {
             behavior: 'smooth'
         });
 
-        btn_menu_toggle.classList.toggle("open");
-        menu.classList.toggle("open");
-        document.body.classList.toggle("open");
-    })
+        // Animazione apertura e chiusura menu ed impedisco scroll con menu aperto, limitata a mobile/tablet
+        if (window.innerWidth < 1225) {
+            btn_menu_toggle.classList.toggle("open");
+            menu.classList.toggle("open");
+            document.body.classList.toggle("open");
+        }
+    });
 }
 
 //  Se theme non è uguale a null e theme è dark, applico la dark mode
