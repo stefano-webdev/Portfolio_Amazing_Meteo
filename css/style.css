@@ -16,7 +16,7 @@ body {
     min-width: 320px;
     max-width: 1550px;
     background-color: var(--bg_color);
-    transition: background-color 0.35s, opacity 0.6s ease;
+    transition: background-color 0.35s;
     opacity: 0;
 }
 
@@ -59,9 +59,8 @@ hr {
 /* Modalità chiara */
 :root.light_mode {
     --bg_color: #F5F5F7;
-    --text_color: rgb(55, 55, 55);
     --bg_menu_color: rgb(238, 238, 238);
-    --bg_menu_shadow: 0px 15px 25px 0px rgb(19, 19, 19);
+    --bg_menu_shadow: 0px 15px 30px 0px rgb(68, 68, 68);
     --bg_toggle_light_dark: rgb(34, 111, 150);
     --bg_home: url("../immagini/home_bg_light.webp");
     --colore_titoli: #353535;
@@ -74,14 +73,13 @@ hr {
 /* Modalità scura */
 :root.dark_mode {
     --bg_color: #1D2A35;
-    --text_color: rgb(229, 229, 229);
     --bg_menu_color: rgb(13, 55, 77);
-    --bg_menu_shadow: 0px 15px 20px 0px rgb(19, 19, 19);
+    --bg_menu_shadow: 0px 15px 25px 0px rgb(19, 19, 19);
     --bg_toggle_light_dark: rgb(255, 255, 255);
     --bg_home: url("../immagini/home_bg_dark.webp");
-    --colore_titoli: #302e2e;
+    --colore_titoli: #f1f1f1;
     --colore_frontend: rgb(125, 125, 125);
-    --hr: #e0e0e0;
+    --hr: #f1f1f1;
     --github: #FFFFFF;
     --colore_sottolineatura: #e0e0e0;
 }

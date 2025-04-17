@@ -85,7 +85,7 @@
 
 
 /* Media query tablet verticale */
-@media (orientation: portrait) and (min-width: 461px) {
+@media (orientation: portrait) and (min-width: 600px) {
 
     /* Header */
     div#contenitore_madre {
@@ -163,7 +163,8 @@
 
     footer p,
     footer a {
-        font-size: 16px;
+        font-size: 17px;
+        white-space: nowrap;
     }
 
     /* Stile carrello vuoto */
@@ -229,7 +230,7 @@
         font-size: 21px;
     }
 
-    /* Footer */
+    /* Footer carrello */
     #label_sconto,
     #input_sconto,
     #div_spedizione_gratuita p {
@@ -242,7 +243,7 @@
 }
 
 /* Media query tablet orizzontale */
-@media (orientation: landscape) and (min-width: 901px) {
+@media (orientation: landscape) and (min-width: 960px) {
 
     /* Header */
     div#contenitore_madre {
@@ -322,6 +323,7 @@
     footer p,
     footer a {
         font-size: 17px;
+        white-space: nowrap;
     }
 
     /* Stile carrello vuoto */
@@ -403,7 +405,7 @@
         font-size: 21px;
     }
 
-    /* Footer */
+    /* Footer carrello */
     #label_sconto,
     #input_sconto,
     #div_spedizione_gratuita p {
@@ -462,6 +464,11 @@
     /* Footer homepage e-commerce */
     footer svg {
         width: 32px;
+    }
+
+    footer p,
+    footer a {
+        white-space: nowrap;
     }
 
     /* Stile carrello pieno */

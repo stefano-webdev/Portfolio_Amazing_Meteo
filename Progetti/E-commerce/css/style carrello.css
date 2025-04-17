@@ -39,6 +39,10 @@ button {
     cursor: pointer;  
 }
 
+button {
+    transition: background-color 0.15s ease-in-out;
+}
+
 div#contenitore_madre {
     padding: 20px 30px;
 }
@@ -49,6 +53,7 @@ div#logo_contenitore {
     align-items: center;
     justify-content: center;
     height: 37px;
+    cursor: pointer;
 }
 
 nav div#logo {

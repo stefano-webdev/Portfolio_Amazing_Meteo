@@ -1,38 +1,43 @@
+/* Media query per dimensioni basse */
+@media (max-width: 340px) {
+    #logo_svg {
+        font-size: 22.5px;
+    }
+}
+
+
 /* Media query mobile landscape */
 @media (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
+
     /*  Layout menu */
     #logo_svg {
-        font-size: clamp(26px, 4.6vw, 35px);
+        font-size: 30px;
     }
 
     #menu {
-        height: calc(100svh - 130px);
-        padding: 12px 0px;
+        height: 45svh;
+        padding: 0px 0px 12px 0px;
         gap: 15px;
+    }
+
+    #btn_light_dark_toggle {
+        position: static;
+        height: fit-content;
+        margin: 0px auto;
     }
 
     #menu {
         flex-direction: row;
+        align-items: center;
     }
 
     #menu a {
         gap: 5px;
-        font-size: 20px;
     }
 
     #menu li {
-        margin: 10px auto 0px auto;
+        margin: 15px auto 0px auto;
         padding: 0px;
-    }
-
-    #menu li svg {
-        width: 33px;
-    }
-
-    #btn_light_dark_toggle {
-        top: auto;
-        right: auto;
-        bottom: 15px;
     }
 
     /* Layout home */
@@ -81,15 +86,25 @@
 
 
 /* Media query tablet verticale */
-@media (orientation: portrait) and (min-width: 461px) {
+@media (orientation: portrait) and (min-width: 600px) {
 
     /* Layout menu */
     #logo_svg {
-        font-size: clamp(26px, 4.6vw, 35px);
+        font-size: 36.5px;
     }
 
     #menu a {
-        font-size: 22px;
+        font-size: 27px;
+    }
+
+    #menu li svg {
+        width: 33px;
+        height: 45px;
+    }
+
+    #btn_light_dark_toggle svg {
+        width: 25px;
+        height: 25px;
     }
 
     /* Layout home */
@@ -142,7 +157,7 @@
     }
 
     #skill_section svg {
-        max-width: 180px;
+        max-width: 160px;
     }
 
     #skill_section div.skill_name {
@@ -182,11 +197,45 @@
 }
 
 /* Media query tablet orizzontale */
-@media (orientation: landscape) and (min-width: 901px) {
+@media (orientation: landscape) and (min-width: 960px) {
 
     /* layout menu */
     #logo_svg {
-        font-size: clamp(26px, 4.6vw, 35px);
+        font-size: 36.5px;
+    }
+
+    #menu {
+        flex-direction: row;
+        align-items: center;
+        height: 45svh;
+        padding: 0px 0px 12px 0px;
+        gap: 15px;
+    }
+
+    #menu a {
+        font-size: 27px;
+        gap: 5px;
+    }
+
+    #menu li {
+        margin: 15px auto 0px auto;
+        padding: 0px;
+    }
+
+    #menu li svg {
+        width: 33px;
+        height: 45px;
+    }
+
+    #btn_light_dark_toggle {
+        position: static;
+        height: fit-content;
+        margin: 0px auto;
+    }
+
+    #btn_light_dark_toggle svg {
+        width: 25px;
+        height: 25px;
     }
 
     /* layout home */
@@ -247,7 +296,7 @@
 
     #skill_section svg {
         width: 30%;
-        max-width: 180px;
+        max-width: 160px;
     }
 
     #skill_section div.skill_name {
@@ -290,10 +339,11 @@
 @media (min-width: 1135px) and (pointer: fine) {
     /* layout menu */
     #logo_svg {
-        font-size: clamp(26px, 4.6vw, 35px);
+        font-size: 38px;
     }
 
     nav {
+        display: flex;
         height: 70px;
         align-items: center;
         justify-content: center;
@@ -311,6 +361,7 @@
     }
 
     #menu {
+        transition: none;
         opacity: 1;
         flex-direction: row;
         justify-content: center;
@@ -319,6 +370,7 @@
         position: static;
         height: auto;
         width: fit-content;
+        padding: 0px;
         transform: translateY(0px);
         pointer-events: auto;
         box-shadow: none;
@@ -326,7 +378,7 @@
     }
 
     #menu a {
-        color: rgb(229, 229, 229);
+        color: #f1f1f1;
     }
 
     #menu li {
@@ -367,7 +419,7 @@
         width: 40%;
         max-width: 400px;
     }
-    
+
     section#home svg#sfondo_immagine_personale {
         width: 42%;
         max-width: 390px;
@@ -467,7 +519,7 @@
 
     /* layout contatti */
     section#contacts svg {
-        width: clamp(25px, 4.68vw, 40px);
+        width: 40px;
     }
 
     section#contacts a {
@@ -489,11 +541,11 @@
     }
 
     #footer_svg {
-        width: clamp(20px, 3.5vw, 25px);
+        width: 25px;
     }
 
     #footer_paragrafo {
-        font-size: clamp(11px, 2.05vw, 15px);
+        font-size: 15px;
     }
 
 }

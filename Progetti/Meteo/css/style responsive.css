@@ -56,7 +56,7 @@
 }
 
 /* Media query tablet verticale */
-@media (orientation: portrait) and (min-width: 461px) {
+@media (orientation: portrait) and (min-width: 600px) {
 
     /* Torna portfolio */
     a#torna_portfolio {
@@ -168,7 +168,8 @@
     /* Sezione footer */
     footer p,
     footer a {
-        font-size: 16px;
+        font-size: 17px;
+        white-space: nowrap;
     }
 
     footer svg {
@@ -177,7 +178,7 @@
 }
 
 /* Media query tablet orizzontale */
-@media (orientation: landscape) and (min-width: 901px) {
+@media (orientation: landscape) and (min-width: 960px) {
 
     /* Torna portfolio */
     a#torna_portfolio {
@@ -296,6 +297,7 @@
     footer p,
     footer a {
         font-size: 17px;
+        white-space: nowrap;
     }
 
     footer svg {
@@ -445,6 +447,7 @@
     footer p,
     footer a {
         font-size: 17px;
+        white-space: nowrap;
     }
 
     footer svg {

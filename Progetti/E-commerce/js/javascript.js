@@ -311,7 +311,7 @@ function range_prezzi(event) {
         event.target.classList.remove('attivo');
         const div_prodotti = Array.from(document.querySelectorAll('div.prodotto'));
         div_prodotti.forEach(elemento => elemento.style = 'flex');
-        document.getElementById('prodotti_trovati').textContent = '5 prodotti trovati';
+        document.getElementById('prodotti_trovati').textContent = input_cerca.value != "" ? '5 prodotti trovati' : '60 prodotti trovati'
     }
 
     else {

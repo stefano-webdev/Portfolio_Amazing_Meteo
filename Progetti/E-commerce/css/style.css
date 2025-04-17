@@ -46,6 +46,10 @@ button {
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
 
+button {
+    transition: background-color 0.15s ease-in-out;
+}
+
 summary {
     width: fit-content;
     list-style-type: none;
@@ -510,7 +514,7 @@ button#bottone_aggiungi_carrello {
 }
 
 button#bottone_aggiungi_carrello:active {
-    background-color: #14a235;
+    background-color: #0f7727;
 }
 
 /* Bottone torna su */
