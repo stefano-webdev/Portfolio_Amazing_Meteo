@@ -1,23 +1,93 @@
 # E-commerce
-Questo progetto è stato sviluppato tramite HTML, CSS e JavaScript con l'intento di dimostrare le mie conoscenze come sviluppatore web con un focus primario su JavaScript. Il progetto vuole presentare un finto e-commerce realistico specializzato nella vendita di articoli legati all'elettronica tra cui computer, mouse, tablet, smartphone, cuffie ecc ... Sono presenti in totale 60 articoli suddivisi in 5 categorie ed ogni categoria possiede 5 prodotti diversi. L'utente può fare una rapida ricerca digitando oppure cliccando sulle varie categorie disponibili, è possibile applicare vari filtri come prezzo crescente/descrescente, limitare il prezzo fino ad una determinata cifra anche personalizzabile e disporre gli articoli in ordine alfabetico. In questo progetto sono stati usati i seguenti concetti chiave:
 
-1) Fetch API:
-A differenza del progetto sulle previsioni meteo qui non sono state utilizzate API reali, viene fatta una simulazione di richiesta dati tramite l'API del browser Fetch, in modo da ricevere tutti i dati dei prodotti richiesti per poterli disporre e presentare sulla pagina web, proprio come accadrebbe in un e-commerce reale. Natualmente vengono usati anche i metodi try e catch per poter effettuare richieste di dati ed allo stesso tempo gestire eventuali errori se ad esempio l'articolo richiesto non è disponibile.
+Questo progetto è stato sviluppato tramite **HTML**, **CSS** e **JavaScript** con l’intento di dimostrare le mie conoscenze come sviluppatore web, con un focus primario su **JavaScript**.  
+Il progetto presenta un finto e-commerce realistico, specializzato nella vendita di articoli legati all’elettronica, tra cui computer, mouse, tablet, smartphone, cuffie ecc.
 
-2) JSON (JavaScript Object Notation):
-Il catalogo prodotti viene gestito a parte in file di tipo .json il quale funziona come un archivio strutturato, simulando un semplice database. I dati dei prodotti richiesti dal cliente vengono prelevati direttamente da questo file tramite una richiesta Fetch API, in modo da poterli manipolare efficacemente ed usarli per creare una struttura completa ed organizzata.
+Sono presenti in totale **60 articoli**, suddivisi in **5 categorie**, ognuna delle quali contiene 5 prodotti diversi.
 
-3) Grid e Flexbox:
-All'interno di questo progetto gli elementi vengono disposti in layout ben organizzati creati tramite i sistemi Grid e Flex. Il layout principale dei prodotti visibili viene gestito da CSS Grid, il quale si occupa di creare una griglia composta da righe e colonne. Nello specifico i prodotti sono disposti all'interno di una griglia che adatta dinamicamente il suo layout in base allo spazio disponibile. Grazie alla funzione auto-fit in grid-template-columns, il numero di colonne si modifica automaticamente per ospitare il maggior numero possibile di prodotti in ogni riga, garantendo una disposizione ottimale su schermi di diverse dimensioni in modo da rendere la griglia responsiva. Inoltre è stato ampiamente usato anche CSS Flexbox, sia per disporre i dati dei prodotti all'interno della griglia stessa sia in molte altre sezioni. Il sistema flex permette di avere un ottimo controllo, ad esempio determinando lo spazio degli elementi tramite la proprietà gap e allineandoli orizzontalmente o verticalmente nei casi in cui torna utile, tramite le proprietà justify-content ed align-items. Inoltre l'uso strategico di flex-wrap assicura un'ottima responsività, permettendo agli elementi di disporsi su più righe quando è presente poco spazio.
+L’utente può:
+- Effettuare una rapida **ricerca** digitando nel campo apposito
+- Cliccare sulle varie **categorie** disponibili
+- Applicare diversi **filtri**: prezzo crescente/decrescente, limite di prezzo personalizzabile, ordine alfabetico
 
-4) Manipolazione del DOM:
-In questo e-commerce simulato viene fatto un utilizzo molto ampio della manipolazione del DOM e dei suoi elementi tramite JavaScript. Durante le ricerche dell'utente, l'applicazione/rimozione di filtri, l'aggiunta/rimozione degli elementi del carrello e in molte altre situazioni JavaScript aggiorna continuamente gli elementi visibili sulla pagina web in modo da seguire le esigenze del cliente, manipolando il DOM in maniera efficace e rapida. Vengono usati metodi recenti come querySelectorAll() che permette di sfruttare l'elasticità dei selettori CSS, metodi specifici per gli array come reduce(), find(), filter() ed altri.
+---
 
-5) LocalStorage e creazione carrello:
-Per questo progetto viene sfruttata anche un'altra API del browser, ovvero localStorage. Ogni volta che degli articoli vengono aggiunti al carrello oltre ad essere mostrati all'utente vengono salvati su localStorage ovvero nella memoria del browser in modo permanente. Questo significa che anche se l'utente chiude il browser, chiude la scheda oppure ricarica la pagina i dati vengono ogni volta prelevati dal localStorage (se presenti) e caricati automaticamente nel carrello, in modo da riprendere subito l'esperienza di acquisto precedente senza interruzioni, simulando il comportamento di un vero e-commerce. All'apertura del carrello viene usato JavaScript per aggiungere dinamicamente i dati degli articoli in una nuova pagina, nella quale è possibile interagire in diversi modi per aumentare la quantità di ciascun articolo, rimuovere del tutto un articolo singolarmente oppure svuotare tutto il carrello in un click. Ogni azione viene registata nuovamente nel localStorage, in modo che tornando alla pagina principale dell'e-commerce tutte le modifiche fatte al carrello vengono applicate immediatamente agli elementi della pagina, senza nemmeno doverla ricaricare grazie a JavaScript che rileva il tutto tramite l'evento pageshow.
+## Concetti chiave utilizzati
 
-6) Accessibilità:
-È stata data importanza anche all'accessibilità garantendo un buon contrasto colori degli elementi per una miglior visibilità e garantendo che qualsiasi elemento interagibile o cliccabile può essere raggiunto facilmente tramite il tasto TAB, per gli utenti che preferiscono muoversi tramite tastiera. Anche qui sono state usate alcune aria-labels per fornire maggiori informazioni agli screen reader e garantire un miglior punteggio SEO.
+### 1. Fetch API
 
-7) Media queries:
-Infine per garantire una completa compatibilità e responsività su tutti i dispositivi sono state usate delle CSS Media queries. Le situazioni totali che vengono gestite sono cinque ovvero dispositivo mobile in verticale, dispositivo mobile in orizzontale, tablet in verticale, tablet in orizzontale e modalità desktop. L'approccio utilizzato è mobile-first, il layout viene quindi pensato e progettato prima per i dispositivi mobili ovvero i telefoni per poi essere adattato a qualsiasi altra dimensione di schermo proprio grazie alle Media queries, in modo da avere pieno controllo. Il vantaggio di questo approccio si traduce in un aumento delle performance e miglior compatibilità, poichè la maggior parte delle volte i dispositivi usati per la navigazione web sono i telefoni, quindi viene caricato da subito il layout CSS lato mobile evitando al contrario di caricare per primo il CSS lato desktop per poi andarlo subito dopo a sostituire tramite una media query.
+A differenza del progetto sulle previsioni meteo, qui non sono state utilizzate API reali.  
+Viene fatta una **simulazione** di richiesta dati tramite l’API del browser `fetch()`, per ricevere tutti i dati dei prodotti da visualizzare sulla pagina, proprio come accadrebbe in un e-commerce reale.  
+Sono stati utilizzati anche `try` e `catch` per gestire eventuali errori, ad esempio nel caso in cui un articolo richiesto non sia disponibile.
+
+---
+
+### 2. JSON (JavaScript Object Notation)
+
+Il **catalogo prodotti** è gestito in un file `.json`, che funge da archivio strutturato e simula un semplice database.  
+I dati vengono recuperati da questo file tramite `fetch()` e poi **manipolati** ed elaborati per creare una struttura ordinata e completa.
+
+---
+
+### 3. Grid e Flexbox
+
+Gli elementi del layout sono disposti tramite **CSS Grid** e **Flexbox**.
+
+- Il layout principale è gestito da **CSS Grid** con `auto-fit` in `grid-template-columns`, che rende la griglia completamente **responsiva**
+- **Flexbox** è stato usato per organizzare contenuti interni, controllare spazi con `gap`, e allineare con `justify-content`, `align-items`, e `flex-wrap`
+
+---
+
+### 4. Manipolazione del DOM
+
+Il progetto fa largo uso della **manipolazione del DOM** tramite JavaScript.  
+Durante la ricerca, i filtri, le modifiche al carrello, ecc., gli elementi della pagina vengono **aggiornati dinamicamente**.
+
+Sono stati utilizzati:
+- `querySelectorAll()` per selezionare elementi come con i selettori CSS
+- Metodi sugli array come `reduce()`, `find()`, `filter()` per elaborare i dati
+
+---
+
+### 5. LocalStorage e creazione carrello
+
+L’**API LocalStorage** viene usata per salvare in modo **permanente** i dati del carrello nel browser.  
+Anche ricaricando la pagina o chiudendo il browser, gli articoli vengono mantenuti.
+
+Funzionalità incluse:
+- Aumentare la **quantità** di ciascun articolo
+- **Rimuovere** un articolo singolarmente
+- **Svuotare** l’intero carrello con un click
+
+Ogni azione aggiorna il localStorage **in tempo reale**, e grazie alla gestione dell’evento `pageshow`, il carrello resta sincronizzato anche tornando alla homepage.
+
+---
+
+### 6. Accessibilità
+
+È stata data importanza all’**accessibilità**, garantendo:
+- Buon **contrasto** tra i colori
+- Navigazione tramite **tasto TAB**
+- Uso di **`aria-label`** per screen reader e SEO
+
+---
+
+### 7. Media Queries
+
+Sono state utilizzate **CSS Media Queries** per rendere il layout compatibile con diversi dispositivi:
+
+- Mobile verticale
+- Mobile orizzontale
+- Tablet verticale
+- Tablet orizzontale
+- Desktop
+
+È stato adottato l’approccio **mobile-first**, progettando il layout per dispositivi mobili e poi adattandolo a schermi più grandi.  
+Questo migliora le prestazioni e la compatibilità.
+
+---
+
+## ℹ️ Nota
+
+Nel carrello, il pulsante **“Vai al pagamento”** non porta a nessuna pagina, trattandosi di un **progetto dimostrativo**.  
+È stato inserito solo per **motivi estetici e realistici**.

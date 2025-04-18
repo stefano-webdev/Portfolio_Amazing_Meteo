@@ -305,21 +305,16 @@ if (localStorage.getItem("carrello") != null) {
     paragrafo_iva_inclusa.id = 'iva_inclusa';
     paragrafo_iva_inclusa.textContent = "IVA inclusa";
 
-    // Bottone svuota carrello
-    const div_svuota_carrello = document.createElement('div');
-    div_svuota_carrello.classList.add('div_svuota_carrello');
-    const svuota_carrello = document.createElement('button');
-    svuota_carrello.id = 'svuota_carrello';
-    svuota_carrello.textContent = "Svuota carrello";
-    svuota_carrello.addEventListener('click', () => {
-        // Elimino tutti i prodotti dalla lista articoli, aggiorno localStorage e ricarico la pagina
-        localStorage.removeItem("carrello");
-        location.reload();
-    });
-    div_svuota_carrello.append(svuota_carrello);
+    // Bottone procedi all'acquisto
+    const div_procedi_acquisto = document.createElement('div');
+    div_procedi_acquisto.id = 'div_procedi_acquisto';
+    document.querySelector('footer').append(div_procedi_acquisto);
+    const bottone_acquisto = document.createElement('button');
+    bottone_acquisto.textContent = "Vai al pagamento";
+    div_procedi_acquisto.append(bottone_acquisto);
 
     // Aggiungo al DOM la somma totale dei prodotti nel carrello ed IVA inclusa
-    document.querySelector('main').append(totale_prodotti, paragrafo_totale_carrello, paragrafo_iva_inclusa, div_svuota_carrello);
+    document.querySelector('main').append(totale_prodotti, paragrafo_totale_carrello, paragrafo_iva_inclusa, div_procedi_acquisto);
 
     // Label ed input per il codice sconto
     // Div
@@ -366,13 +361,20 @@ if (localStorage.getItem("carrello") != null) {
     // Aggiungo SVG e paragrafo al div
     div_spedizione_gratuita.append(svg_spedizione_gratuita, p_spedizione_gratuita);
 
-    // Bottone procedi all'acquisto
-    const div_procedi_acquisto = document.createElement('div');
-    div_procedi_acquisto.id = 'div_procedi_acquisto';
-    document.querySelector('footer').append(div_procedi_acquisto);
-    const bottone_acquisto = document.createElement('button');
-    bottone_acquisto.textContent = "Vai al pagamento";
-    div_procedi_acquisto.append(bottone_acquisto);
+    // Bottone svuota carrello
+    const div_svuota_carrello = document.createElement('div');
+    div_svuota_carrello.classList.add('div_svuota_carrello');
+    const svuota_carrello = document.createElement('button');
+    svuota_carrello.id = 'svuota_carrello';
+    svuota_carrello.textContent = "Svuota carrello";
+    svuota_carrello.addEventListener('click', () => {
+        // Elimino tutti i prodotti dalla lista articoli, aggiorno localStorage e ricarico la pagina
+        localStorage.removeItem("carrello");
+        location.reload();
+    });
+    div_svuota_carrello.append(svuota_carrello);
+    // Aggiunto il bottone al DOM
+    document.querySelector('footer').append(div_svuota_carrello);
 }
 else {
     // Creo layout per avvisare che il carrello è vuoto

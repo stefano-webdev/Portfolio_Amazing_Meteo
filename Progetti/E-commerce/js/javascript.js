@@ -36,11 +36,11 @@ const lista_categorie = ["Mouse", "Accessori", "Altoparlante", "Assistenti vocal
 // Assegnazione comandi
 // Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
 window.addEventListener('load', () => {
-    document.body.style.opacity = '1';
     setTimeout(() => {
+        document.body.style.opacity = '1';
         document.getElementById('torna_su').style.opacity = '1';
         document.querySelector('footer').style.opacity = '1';
-    }, 40);
+    }, 100);
 });
 
 // Se torno alla homepage dell'ecommerce con il tasto indietro del browser, ricarico la pagina per sincronizzare il localStorage

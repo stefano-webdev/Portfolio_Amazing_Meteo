@@ -54,6 +54,7 @@ div#logo_contenitore {
     justify-content: center;
     height: 37px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 nav div#logo {
@@ -159,12 +160,11 @@ div.div_svuota_carrello {
 
 button#svuota_carrello {
     font-size: 16px;
-    background-color: #fbbf24;
+    background-color: #e65100;
     padding: 4px 12px;
     border-radius: 6px;
-    border: 2px solid orange;
-    margin-top: 13px;
-    color: #1f2937;
+    border: 1px solid black;
+    color: white;
     letter-spacing: 1px;
     user-select: none;
     -webkit-user-select: none;
@@ -173,7 +173,7 @@ button#svuota_carrello {
 }
 
 button#svuota_carrello:active {
-    background-color: #ebaf17;
+    background-color: #cf4900;
 }
 
 /* Contenitore tutti gli articoli ed elementi al suo interno */
@@ -339,7 +339,7 @@ p#iva_inclusa {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    margin-bottom: 3.3rem;
+    margin-bottom: 3.8rem;
 }
 
 #div_spedizione_gratuita svg {
@@ -355,19 +355,20 @@ p#iva_inclusa {
 /* Procedi all'acquisto */
 #div_procedi_acquisto {
     text-align: center;
+    margin-top: 15px;
 }
 
 #div_procedi_acquisto button {
-    background-color: #e65100;
-    color: white;
+    background-color: #ffcb47;
+    color: black;
     font-size: 19px;
-    font-weight: bold;
     padding: 10px 24px;
-    border: 1px solid black;
+    border: 2px solid orange;
     border-radius: 8px;
     outline-offset: 6px;
+    letter-spacing: 1px;
 }
 
 #div_procedi_acquisto button:active {
-    background-color: #ff6a00;
+    background-color: rgb(247, 191, 51);
 }

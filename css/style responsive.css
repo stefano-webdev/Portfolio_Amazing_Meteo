@@ -147,6 +147,10 @@
         font-size: clamp(23px, 4.35vw, 38px);
     }
 
+    section#about svg#skill_arrow {
+        width: 34px;
+    }
+
     #skill_section {
         gap: 11rem;
     }
@@ -283,6 +287,10 @@
 
     section#about h3 {
         font-size: clamp(23px, 4.35vw, 38px);
+    }
+
+    section#about svg#skill_arrow {
+        width: 34px;
     }
 
     #skill_section {
@@ -465,7 +473,7 @@
         flex-wrap: wrap;
         column-gap: 0px;
         row-gap: 13rem;
-        align-items: flex-start;
+        align-items: stretch;
         margin: 0px 45px;
     }
 
@@ -479,6 +487,7 @@
 
     #skill_section div.skill_name {
         font-size: 30px;
+        margin: auto;
     }
 
     #skill_section ul.skill_list {

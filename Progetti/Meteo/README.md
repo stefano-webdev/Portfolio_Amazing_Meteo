@@ -1,26 +1,77 @@
 # Meteo
-Questo progetto è stato sviluppato tramite HTML, CSS e JavaScript con l'intento di dimostrare le mie conoscenze come sviluppatore web con un focus primario su JavaScript. Anche se la pagina web in sè può sembrare semplice come risultato nel suo utilizzo, sono stati usati concetti chiave ed importanti per il suo sviluppo come:
 
-1) Utilizzo e gestione di API:
-Vengono usate due API che comunicano fra loro e rendono la pagina web dinamica, ovvero la prima che traduce l'input utente della località in inglese per una maggior precisione, dopodichè questo dato viene comunicato alla seconda API la quale fa le vere e proprie chiamate per raccogliere i dati meteo usando Fetch API per ricevere i dati ora per ora, per 3 giorni consecutivi. Il tutto viene ovviamente gestito con try e catch per individuare e gestire eventuali errori nel caso in cui l'utente lascia il campo vuoto per errore oppure la località non viene trovata.
+Questo progetto è stato realizzato con **HTML**, **CSS** e **JavaScript** con l’obiettivo di dimostrare le mie competenze come sviluppatore web, con particolare attenzione all’utilizzo di JavaScript.  
+Anche se l’interfaccia della pagina può sembrare semplice, sono stati applicati concetti fondamentali e tecnicamente rilevanti, come:
 
-2) Manipolazione del DOM:
-Il file HTML di base è molto semplice e leggero con poco contenuto in modo da mantenerlo leggero e performante, tutte le fasce orarie necessarie vengono create con JavaScript basandosi sull'orario reale al momento della chiamata delle API dopodichè vengono inserite nel DOM, tenendo anche conto del fuso orario per città estere. Questo permette di avere un file HTML piccolo e facilmente gestibile per eventuali modifiche, ma allo stesso tempo dal contenuto molto dinamico e vario grazie a JavaScript. Nello specifico vengono usati metodi come querySelectorAll, forEach(), document.createElement, document.Append, classList.add ecc...
+---
 
-3) Async e Await:
-Per ottenere i dati meteo utilizzo una chiamata API che restituisce una Promise. Per una gestione più chiara, efficace e semplice del codice asincrono ho scelto di usare async/await con la Fetch API, evitando l'uso della catena di metodi .then() e .catch() in modo da scrivere codice più moderno, leggibile e mantenibile.
+### 1. Utilizzo e gestione di API
 
-4) Grid e Flexbox per il layout:
-Per disporre in modo efficiente i dati raccolti ho usato i moderni metodi Grid e Flex. L'utilizzo di queste due tecniche mi ha permesso di creare dei layout piuttosto molto organizzati e ben definiti, in modo da disporre tutti i contenuti efficacemente anche per dispositivi piuttosto piccoli come smartphone compatti, mantenendo sempre una buona struttura.
+Sono state integrate **due API** che lavorano in combinazione per rendere la pagina dinamica.  
+La prima traduce l’input della località fornito dall’utente in inglese, per aumentare l’accuratezza delle chiamate.  
+Successivamente, il dato tradotto viene passato alla **seconda API**, che effettua le richieste meteo tramite **Fetch API**, recuperando le previsioni ora per ora per **3 giorni consecutivi**.
 
-5) Positioning:
-È stato usato anche il Positioning per disporre in maniera ottimale elementi come il bottone di ricerca (lente di ingrandimento) ed il bottone per tornare su partendo da qualsiasi posizione nella pagina web, faciliando la navigazione e l'utilizzo.
+Il tutto è gestito tramite **`try` e `catch`** per rilevare eventuali errori, ad esempio nel caso di:
+- Campo località lasciato vuoto
+- Città non trovata
 
-6) Accessibilità ed ARIA labels:
-È stata data importanza anche all'accessibilità garantendo un buon contrasto colori e facendo in modo che qualsiasi elemento interagibile può essere raggiunto tramite il tasto TAB. Inoltre per fornire maggior informazioni agli screen reader e garantire un miglior SEO sono stati usate alcune aria-labels, in modo da dare una chiara descrizione sull'utilità dei vari elementi HTML.
+---
 
-7) Media queries:
-Infine per garantire una completa compatibilità e responsività sono state usate delle media queries, in modo da adattare i vari elementi e le loro dimensioni anche per layout più grandi, partendo dal mobile-first fino agli schermi più grandi come quelli desktop/ultrawide. Le media queries sono state usate anche per il Portfolio base in maniera più specifica ed approfondita, andando a modificare più elementi nel layout.
+### 2. Manipolazione del DOM
 
-NOTA:
-Le informazioni sui dati meteo e le ricerche delle località tramite API in questo progetto potrebbero non essere sempre precise al 100%. L'obiettivo principale non è creare un vero e proprio sito di previsioni meteo, ma dimostrare le mie competenze nello sviluppo web attraverso una possibile applicazione realistica.
+La struttura HTML è volutamente minimale e leggera.  
+Tutti gli elementi dinamici (come le fasce orarie) vengono creati con **JavaScript** in base all’orario reale ottenuto tramite API, tenendo conto anche del **fuso orario** della città selezionata.  
+
+L’inserimento degli elementi nel DOM è gestito con metodi come:
+- `querySelectorAll`
+- `forEach()`
+- `document.createElement`
+- `append()`
+- `classList.add`, ecc.
+
+---
+
+### 3. Async e Await
+
+Per gestire il flusso asincrono delle chiamate API, è stato utilizzato **`async/await`** al posto della classica catena `.then()` / `.catch()`.  
+Questa scelta migliora la **leggibilità** e la **manutenibilità** del codice, adottando uno stile più moderno e chiaro.
+
+---
+
+### 4. Layout con CSS Grid e Flexbox
+
+Il layout della pagina è stato progettato utilizzando **CSS Grid** e **Flexbox**, due tecniche moderne per il posizionamento degli elementi.  
+Questo ha permesso di ottenere una struttura ordinata, ben distribuita e **adattabile anche a schermi piccoli**, come quelli degli smartphone compatti.
+
+---
+
+### 5. Posizionamento degli elementi
+
+È stato utilizzato anche il **positioning** CSS per posizionare in modo ottimale elementi come:
+- Il bottone di ricerca (lente di ingrandimento)
+- Il bottone "torna su" per facilitare la navigazione
+
+---
+
+### 6. Accessibilità e ARIA labels
+
+L’accessibilità è stata tenuta in considerazione con:
+- Buon contrasto tra colori
+- Navigazione tramite **tasto TAB**
+- Uso di **`aria-label`** per migliorare la compatibilità con screen reader e contribuire a un miglior **SEO**
+
+---
+
+### 7. Media Queries
+
+Per garantire la completa **responsività**, sono state utilizzate **media queries** in ottica **mobile-first**.  
+Il layout si adatta fluidamente a qualsiasi dimensione di schermo, compresi **monitor desktop** e **ultrawide**.
+
+Le media queries sono state utilizzate anche nel progetto Portfolio, con uno studio più dettagliato del layout responsivo.
+
+---
+
+### 📌 Nota
+
+Le previsioni meteo e la geolocalizzazione dipendono dai dati forniti dalle API esterne, quindi potrebbero non essere sempre perfettamente accurate.  
+L’obiettivo di questo progetto non è offrire un servizio meteo reale, ma dimostrare la mia **capacità di sviluppare applicazioni dinamiche** partendo da un caso realistico.

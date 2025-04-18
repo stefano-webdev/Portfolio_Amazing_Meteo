@@ -58,7 +58,7 @@ hr {
 
 /* Modalità chiara */
 :root.light_mode {
-    --bg_color: #F5F5F7;
+    --bg_color: #fafafa;
     --bg_menu_color: rgb(238, 238, 238);
     --bg_menu_shadow: 0px 15px 30px 0px rgb(68, 68, 68);
     --bg_toggle_light_dark: rgb(34, 111, 150);
