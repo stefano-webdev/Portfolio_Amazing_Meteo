@@ -57,6 +57,7 @@ summary {
     letter-spacing: 1px;
     cursor: pointer;
     padding-left: 0;
+    width: fit-content;
   }
 
 a,

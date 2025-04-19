@@ -7,6 +7,9 @@ window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
 
+// Attivo evento tocco su Safari per forzare la pseudo classe :active
+document.addEventListener("touchstart", function() {}, true);
+
 // Home page Amazing
 document.getElementById('logo').addEventListener('click', () => {
     window.location.href = "../html/e-commerce.html";

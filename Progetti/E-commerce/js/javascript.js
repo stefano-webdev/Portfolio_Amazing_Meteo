@@ -34,6 +34,9 @@ const lista_categorie = ["Mouse", "Accessori", "Altoparlante", "Assistenti vocal
     "Reflex", "Camera", "Macchina fotografica"];
 
 // Assegnazione comandi
+// Attivo evento tocco su Safari per forzare la pseudo classe :active
+document.addEventListener("touchstart", function() {}, true);
+
 // Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
 window.addEventListener('load', () => {
     setTimeout(() => {
