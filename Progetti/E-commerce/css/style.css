@@ -44,6 +44,7 @@ p,
 button {
     font-size: 16px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
+    color:  black;
 }
 
 button {
@@ -51,28 +52,12 @@ button {
 }
 
 summary {
-    width: fit-content;
-    list-style-type: none;
-    cursor: pointer;
-    position: relative;
-    padding-left: 20px;
     font-size: 18px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
     letter-spacing: 1px;
-}
-
-summary::before {
-    content: "▶";
-    position: absolute;
-    left: 0px;
-    top: -2px;
-    color: #000000;
-    transition: transform 0.4s ease;
-}
-
-details[open] summary::before {
-    transform: rotate(90deg);
-}
+    cursor: pointer;
+    padding-left: 0;
+  }
 
 a,
 summary,
@@ -82,7 +67,9 @@ button {
     -webkit-user-select: none;
 }
 
-input, button, div {
+input,
+button,
+div {
     -webkit-tap-highlight-color: transparent;
 }
 

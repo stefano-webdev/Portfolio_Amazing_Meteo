@@ -242,7 +242,7 @@ function aggiungi_al_carrello_fnc(event) {
     div_quantità_nel_carrello.querySelector('p#paragrafo_quantità_nel_carrello').
         textContent = String(oggetto_carrello.find(elemento => elemento.titolo == prodotto.titolo).quantità);
 
-    // Aggiorno il numerino dei prodotti totali nel carrello, somma delle quantità
+    // Aggiorno il numerino dei prodotti totali nel carrello
     const numero_prodotti = oggetto_carrello.reduce((accumulatore, elemento) => accumulatore + elemento.quantità, 0);
     if (String(numero_prodotti).length == 2) {
         document.getElementById('numero_prodotti').style.fontSize = '16px';
