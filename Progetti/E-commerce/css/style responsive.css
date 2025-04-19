@@ -453,7 +453,7 @@
     }
 
     div#contenitore_prodotti {
-        grid-template-columns: repeat(auto-fit, 270px);
+        grid-template-columns: repeat(auto-fit, 320px);
         column-gap: 2.5rem;
     }
 
