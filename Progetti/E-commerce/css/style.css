@@ -453,6 +453,8 @@ div#contenitore_prodotti div.contenitore_quantità button.operatore {
     border: none;
     cursor: pointer;
     outline-offset: 2px;
+    padding: 0px;
+    width: fit-content;
 }
 
 div#contenitore_prodotti div.contenitore_prezzo_e_quantità {
