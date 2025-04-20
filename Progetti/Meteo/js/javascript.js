@@ -296,7 +296,7 @@ function ricerca(giorno_scelto, data_aggiornata) {
             const parola_tradotta = dati_traduzione.responseData.translatedText;
 
             // Richiesta princiaple dei dati meteo, fetch
-            const url = `http://api.weatherapi.com/v1/forecast.json?key=${chiave}&q=${parola_tradotta}&days=${giorni}&hourly=1`;
+            const url = `/api/meteo?q=${parola_tradotta}&days=${giorni}`;
             const risposta = await fetch(url);
             dati = await risposta.json();
 
