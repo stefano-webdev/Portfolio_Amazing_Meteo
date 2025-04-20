@@ -314,9 +314,6 @@ p.paragrafo_avviso {
     border: 0px;
     background-color: #F8F8F8;
     font-size: 16px;
-}
-
-.input_range:focus {
     outline: none;
 }
 

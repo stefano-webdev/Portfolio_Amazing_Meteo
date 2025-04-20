@@ -361,6 +361,15 @@ function range_custom_fnc() {
         range_custom.value = range_custom.value.slice(0, 7);
     }
 
+    // Evito numeri invalidi
+    if (range_custom.value == '00') {
+        range_custom.value = range_custom.value.slice(0, 1);
+    }
+
+    if (range_custom.value.startsWith('0') && range_custom.value.length == 2) {
+        range_custom.value = range_custom.value.slice(1);
+    }
+
     // Entra nell'if solo se è un numero valido
     if (!isNaN(parseFloat(range_custom.value))) {
         // Rendo tutti i div visibili
