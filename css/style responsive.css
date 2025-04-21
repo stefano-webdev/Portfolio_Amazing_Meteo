@@ -1,7 +1,11 @@
-/* Media query per dimensioni basse */
-@media (max-width: 340px) {
+/* Media query per dimensioni molto basse */
+@media (max-width: 340px) {    
     #logo_svg {
         font-size: 22.5px;
+    }
+
+    section#home h1 {
+        font-size: 35px;
     }
 }
 
@@ -42,14 +46,14 @@
 
     /* Layout home */
     section#home img {
-        width: 38%;
+        width: 45%;
     }
 
     section#home svg#sfondo_immagine_personale {
         top: 10%;
         left: 50%;
         transform: translateX(-70%);
-        width: 40%;
+        width: 45%;
     }
 
     /* Layout skills */
@@ -86,7 +90,7 @@
 
 
 /* Media query tablet verticale */
-@media (orientation: portrait) and (min-width: 600px) {
+@media (min-width: 600px) and (min-height: 600px) {
 
     /* Layout menu */
     #logo_svg {
@@ -108,22 +112,16 @@
     }
 
     /* Layout home */
-    section#home div:first-child {
-        font-size: clamp(15px, 2.65vw, 23px);
+    section#home p:first-child {
+        font-size: 20px;
     }
 
     section#home h1 {
-        font-size: clamp(48px, 8.5vw, 80px);
-    }
-
-    section#home img {
-        max-width: 380px;
+        font-size: 60px;
     }
 
     section#home svg#sfondo_immagine_personale {
-        width: 88%;
-        max-width: 331px;
-        transform: translateX(-65%);
+        transform: translateX(-62%);
     }
 
     /* Layout about e p + a + figcaption*/
@@ -201,7 +199,7 @@
 }
 
 /* Media query tablet orizzontale */
-@media (orientation: landscape) and (min-width: 960px) {
+@media (min-width: 960px) and (pointer: coarse) and (orientation: landscape) {
 
     /* layout menu */
     #logo_svg {
@@ -243,25 +241,23 @@
     }
 
     /* layout home */
-    section#home div:first-child {
-        font-size: clamp(15px, 2.65vw, 23px);
+    section#home p:first-child {
+        font-size: 20px;
     }
 
     section#home h1 {
-        font-size: clamp(48px, 8.5vw, 80px);
+        font-size: 65px;
     }
 
     section#home img {
-        width: 35%;
-        max-width: 315px;
+        max-width: 430px;
     }
 
     section#home svg#sfondo_immagine_personale {
         top: 10%;
         left: 50%;
         transform: translateX(-67%);
-        width: 40%;
-        max-width: 360px;
+        max-width: 430px;
     }
 
     /* layout about */
@@ -415,22 +411,20 @@
     }
 
     /* layout home */
-    section#home div:first-child {
-        font-size: clamp(15px, 2.65vw, 23px);
+    section#home p:first-child {
+        font-size: 25px;
     }
 
     section#home h1 {
-        font-size: clamp(48px, 8.5vw, 80px);
+        font-size: 80px;
     }
 
     section#home img {
-        width: 40%;
-        max-width: 400px;
+        max-width: 500px;
     }
 
     section#home svg#sfondo_immagine_personale {
-        width: 42%;
-        max-width: 390px;
+        max-width: 500px;
     }
 
     /* layout about */

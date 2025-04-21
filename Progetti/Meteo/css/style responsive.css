@@ -59,7 +59,7 @@
 }
 
 /* Media query tablet verticale */
-@media (orientation: portrait) and (min-width: 600px) {
+@media (min-width: 600px) and (min-height: 600px) {
 
     /* Torna portfolio */
     a#torna_portfolio {
@@ -82,7 +82,7 @@
 
     header input {
         width: 100%;
-        font-size: 18px;
+        font-size: 20px;
         padding: 0px 47px 0px 12px;
     }
 
@@ -181,7 +181,7 @@
 }
 
 /* Media query tablet orizzontale */
-@media (orientation: landscape) and (min-width: 960px) {
+@media (min-width: 960px) and (pointer: coarse) {
 
     /* Torna portfolio */
     a#torna_portfolio {
@@ -365,7 +365,7 @@
     }
 
     div#dati_generali div:first-child svg {
-        width: 37px;
+        width: 33px;
     }
 
     div#dati_generali p:nth-child(3) {

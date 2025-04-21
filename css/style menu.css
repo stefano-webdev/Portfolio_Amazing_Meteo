@@ -24,8 +24,8 @@ nav {
 }
 
 #menu li svg {
-    width: 28px;
-    height: 40px;
+    width: 26px;
+    height: 38px;
 }
 
 /* Animazione Logo SVG */
@@ -50,6 +50,7 @@ nav {
     right: 15px;
     top: 50%;
     transform: translateY(-55%);
+    cursor: pointer;
 }
 
 #btn_menu_toggle:focus-visible {
@@ -134,7 +135,7 @@ nav {
     color: var(--colore_titoli);
     text-decoration: none;
     font-family: 'Arial', 'Helvetica', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 /* Quando il menu è aperto, diventa visibile */

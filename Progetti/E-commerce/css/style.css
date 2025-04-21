@@ -77,7 +77,8 @@ div {
 nav {
     display: flex;
     justify-content: space-between;
-    height: 37px;
+    align-items: center;
+    height: 48px;
     width: 100%;
     max-width: 1550px;
 }
@@ -86,20 +87,24 @@ div#logo_contenitore {
     display: flex;
     gap: 7px;
     align-items: center;
-    height: 37px;
+    height: 48px;
     cursor: pointer;
+}
+
+nav a {
+    height: fit-content;
 }
 
 div#carrello_contenitore {
     position: relative;
     width: fit-content;
-    height: 37px;
+    height: 40px;
 }
 
 div#prodotti_nel_carrello {
     position: absolute;
     left: -27px;
-    bottom: -8px;
+    bottom: -4px;
     background-color: rgb(44, 163, 44);
     border-radius: 50%;
     width: 30px;
@@ -135,7 +140,7 @@ svg#svg_carrello {
 
 header {
     background-color: #35475f;
-    padding: 15px;
+    padding: 10px 15px;
     position: fixed;
     z-index: 1;
     top: 0px;
@@ -490,7 +495,6 @@ svg#svg_quantità_carrello {
 button#bottone_aggiungi_carrello {
     font-size: 20px;
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    color: black;
     margin: 35px 0px 15px 0px;
     padding: 6px 15px;
     border: 1px solid black;

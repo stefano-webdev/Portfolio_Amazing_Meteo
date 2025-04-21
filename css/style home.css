@@ -2,17 +2,18 @@ main {
     margin-top: 6.3rem;
 }
 
-section#home div:first-child {
+section#home p:first-child {
     font-family: Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--colore_frontend);
     font-size: 15px;
+    color: var(--colore_frontend);
+    margin: 0px;
     text-align: center;
 }
 
 section#home h1 {
     text-align: center;
     color: var(--colore_titoli);
-    font-size: 44px;
+    font-size: 45px;
     margin-top: 12px;
     font-family: "Trebuchet MS", Arial, "Lucida Grande", sans-serif;
     letter-spacing: 5.5px;
@@ -21,6 +22,7 @@ section#home h1 {
 section#home img {
     display: block;
     width: 100%;
+    max-width: 380px;
     margin: auto;
     position: relative;
     z-index: 1;
@@ -28,6 +30,7 @@ section#home img {
 
 section#home figure {
     position: relative;
+    margin: 16px 30px;
 }
 
 section#home svg#sfondo_immagine_personale {
@@ -37,5 +40,6 @@ section#home svg#sfondo_immagine_personale {
     transform: translateX(-59%);
     z-index: 0;
     width: 100%;
+    max-width: 380px;
     font-size: 21px;
 }

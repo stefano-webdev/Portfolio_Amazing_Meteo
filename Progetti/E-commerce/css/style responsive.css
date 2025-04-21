@@ -1,3 +1,10 @@
+/* Media query per dimensioni molto basse */
+@media (max-width: 340px) {
+    h1.carrello_pieno {
+        font-size: 25px;
+    }
+}
+
 /* Media query mobile landscape */
 @media (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
 
@@ -85,7 +92,7 @@
 
 
 /* Media query tablet verticale */
-@media (orientation: portrait) and (min-width: 600px) {
+@media (min-width: 600px) and (min-height: 600px) {
 
     /* Header */
     div#contenitore_madre {
@@ -93,8 +100,9 @@
     }
 
     header {
-        padding: 30px 20px;
+        padding: 15px 20px;
         display: flex;
+        justify-content: center;
         align-items: center;
         height: 72px;
     }
@@ -105,6 +113,10 @@
 
     nav svg {
         width: 27px;
+    }
+
+    div#carrello_contenitore {
+        height: 48px;
     }
 
     svg#svg_carrello {
@@ -121,7 +133,7 @@
     }
 
     #div_ricerca input {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     div#contenitore_madre_categorie p:first-child {
@@ -243,7 +255,7 @@
 }
 
 /* Media query tablet orizzontale */
-@media (orientation: landscape) and (min-width: 960px) {
+@media (min-width: 960px) and (pointer: coarse) {
 
     /* Header */
     div#contenitore_madre {
@@ -251,7 +263,7 @@
     }
 
     header {
-        padding: 30px 20px;
+        padding: 15px 20px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -358,7 +370,7 @@
     }
 
     #div_tutti_articoli {
-        width: 95%;
+        width: 100%;
         margin: auto;
         flex-direction: row;
         flex-wrap: wrap;
@@ -370,7 +382,7 @@
     }
 
     .img_articolo {
-        width: 145px;
+        width: 160px;
     }
 
     p.descrizione,
@@ -452,11 +464,6 @@
         font-size: 30px;
     }
 
-    div#contenitore_prodotti {
-        grid-template-columns: repeat(auto-fit, 320px);
-        column-gap: 2.5rem;
-    }
-
     div#contenitore_prodotti p.descrizione_prodotto {
         font-size: 17px;
     }
@@ -489,6 +496,22 @@
         font-size: 25px;
     }
 
+    #div_tutti_articoli {
+        width: 100%;
+        margin: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .div_articolo {
+        width: 335px;
+    }
+
+    .div_svg_elimina svg {
+        width: 20px;
+    }
+
     .div_svg_elimina svg:focus-visible {
         outline: 2px solid rgb(0, 0, 0);
         outline-offset: 4px;
@@ -496,14 +519,6 @@
     }
 
     /* Prodotti nel carrello */
-    p#paragrafo_totale_carrello {
-        font-size: 22px;
-    }
-    
-    button#svuota_carrello {
-        font-size: 17px;
-    }
-
     #label_sconto,
     #input_sconto,
     #div_spedizione_gratuita p {
@@ -516,10 +531,6 @@
 
     #div_spedizione_gratuita svg {
         width: 30px;
-    }
-
-    #div_procedi_acquisto button {
-        font-size: 22px;
     }
 
     /* Accessibilità */
