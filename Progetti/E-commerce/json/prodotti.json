@@ -364,7 +364,7 @@
         "nome": "Router Wi-Fi Dual Band 1200Mbps",
         "prezzo": 79.99,
         "immagine": "../../../immagini/e-commerce/router/router_1.webp",
-        "categoria": ["router", "router mesh", "wifi mesh", "modem", "dispositivo di rete", "wifi", "wi-fi", "wi fi", "Router wi-fi"],
+        "categoria": ["router", "router mesh", "wifi mesh", "modem", "dispositivo di rete", "wifi", "wi-fi", "wi fi", "router wi-fi"],
         "descrizione": "Router Wi-Fi dual band con velocità fino a 1200Mbps, perfetto per streaming, gaming e smart home. Copertura stabile e ampio raggio d'azione per una connessione affidabile in tutta la casa."
       },
       {
@@ -372,7 +372,7 @@
         "nome": "Router Mesh per Casa e Ufficio",
         "prezzo": 149.99,
         "immagine": "../../../immagini/e-commerce/router/router_2.webp",
-        "categoria": ["router", "router mesh", "wifi mesh", "modem", "dispositivo di rete", "wifi", "wi-fi", "wi fi", "Router wi-fi"],
+        "categoria": ["router", "router mesh", "wifi mesh", "modem", "dispositivo di rete", "wifi", "wi-fi", "wi fi", "router wi-fi"],
         "descrizione": "Sistema Wi-Fi Mesh per copertura estesa senza interruzioni. Ideale per abitazioni grandi e uffici, garantisce una connessione stabile su più dispositivi contemporaneamente."
       },
       {
@@ -380,7 +380,7 @@
         "nome": "Router 4G LTE Portatile",
         "prezzo": 99.49,
         "immagine": "../../../immagini/e-commerce/router/router_3.webp",
-        "categoria": ["router", "router mesh", "wifi mesh", "modem", "dispositivo di rete", "wifi", "wi-fi", "wi fi", "Router wi-fi"],
+        "categoria": ["router", "router mesh", "wifi mesh", "modem", "dispositivo di rete", "wifi", "wi-fi", "wi fi", "router wi-fi"],
         "descrizione": "Router 4G LTE portatile con slot SIM, perfetto per viaggi e lavoro remoto. Connessione veloce e sicura ovunque, con supporto multi-dispositivo."
       },
       {
@@ -388,7 +388,7 @@
         "nome": "Router Wi-Fi 6 con Tecnologia MU-MIMO",
         "prezzo": 199.99,
         "immagine": "../../../immagini/e-commerce/router/router_4.webp",
-        "categoria": ["router", "router mesh", "wifi mesh", "modem", "dispositivo di rete", "wifi", "wi-fi", "wi fi", "Router wi-fi"],
+        "categoria": ["router", "router mesh", "wifi mesh", "modem", "dispositivo di rete", "wifi", "wi-fi", "wi fi", "router wi-fi"],
         "descrizione": "Router di ultima generazione con Wi-Fi 6 e tecnologia MU-MIMO per prestazioni superiori. Perfetto per case smart e uffici, offre velocità elevate e latenza ridotta."
       },
       {
@@ -396,7 +396,7 @@
         "nome": "Router Gigabit Ethernet con Porte LAN",
         "prezzo": 89.99,
         "immagine": "../../../immagini/e-commerce/router/router_5.webp",
-        "categoria": ["router", "router mesh", "wifi mesh", "modem", "dispositivo di rete", "wifi", "wi-fi", "wi fi", "Router wi-fi"],
+        "categoria": ["router", "router mesh", "wifi mesh", "modem", "dispositivo di rete", "wifi", "wi-fi", "wi fi", "router wi-fi"],
         "descrizione": "Router con porte Gigabit Ethernet per connessioni cablate ad alta velocità. Ideale per gaming e streaming senza lag, con firewall avanzato per maggiore sicurezza."
       },
       {
