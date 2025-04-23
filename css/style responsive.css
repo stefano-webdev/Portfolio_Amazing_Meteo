@@ -36,12 +36,17 @@
     }
 
     #menu a {
+        font-size: max(20px, 2.8vw);
         gap: 5px;
     }
 
     #menu li {
         margin: 15px auto 0px auto;
         padding: 0px;
+    }
+
+    #menu li svg {
+        width: max(21px, 3.2vw);
     }
 
     /* Layout home */
@@ -103,7 +108,6 @@
 
     #menu li svg {
         width: 33px;
-        height: 45px;
     }
 
     #btn_light_dark_toggle svg {
@@ -216,7 +220,6 @@
 
     #menu a {
         font-size: 27px;
-        gap: 5px;
     }
 
     #menu li {
@@ -226,7 +229,6 @@
 
     #menu li svg {
         width: 33px;
-        height: 45px;
     }
 
     #btn_light_dark_toggle {
@@ -397,7 +399,6 @@
         opacity: 0;
         pointer-events: none;
         width: 42px;
-        height: 42px;
         background-color: rgb(89, 89, 89);
         padding: 4px;
         border-radius: 5px;

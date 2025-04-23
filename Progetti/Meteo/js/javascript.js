@@ -48,9 +48,13 @@ const ogg_traduci_città = {
 
 
 // Assegnazione comandi
+// Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
 window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
+
+// Attivo evento tocco su Safari per forzare la pseudo classe :active
+document.addEventListener("touchstart", function() {}, true);
 
 // Ricalcolo il font del paragrafo paese per ogni resize
 window.addEventListener('resize', () => {
@@ -301,7 +305,7 @@ function ricerca(giorno_scelto, data_aggiornata) {
             dati = await risposta.json();
 
             if (Object.keys(dati)[0] === "error") {
-                throw new Error ("errore nella richiesta")
+                throw new Error("errore nella richiesta")
             }
 
             // Dati generali
