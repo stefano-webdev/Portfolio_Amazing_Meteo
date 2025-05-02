@@ -14,15 +14,24 @@ const selettore_0 = document.querySelector('div#selettore_giorno button:nth-chil
 const selettore_1 = document.querySelector('div#selettore_giorno button:nth-child(2)');
 const selettore_2 = document.querySelector('div#selettore_giorno button:nth-child(3)');
 const data = new Date();
-const domani = new Date();
+let domani = new Date();
 domani.setDate(data.getDate() + 1);
-const dopodomani = new Date();
+if (domani.length == 1) {
+    domani = '0' + domani;
+}
+let dopodomani = new Date();
 dopodomani.setDate(data.getDate() + 2);
-const giorno = String(data.getDate());
+if (dopodomani.length == 1) {
+    dopodomani = '0' + dopodomani;
+}
+let giorno = String(data.getDate());
 let mese = String(data.getMonth() + 1);
 let mese_stagione = mese;
 if (mese.length == 1) {
     mese = '0' + mese;
+}
+if (giorno.length == 1) {
+    giorno = '0' + giorno;
 }
 let tramonto;
 let alba = 6;
@@ -85,6 +94,7 @@ document.querySelector('button#torna_su').addEventListener('click', () => {
     document.querySelector('button#torna_su').blur();
 });
 
+// Calcola dimensione font-size del paragrafo paese in modo dinamico
 function ricalcola_font_paragrafo_paese() {
     paragrafo_paese.style.removeProperty("font-size");
     font_paragrafo_paese = Number(window.getComputedStyle(paragrafo_paese).fontSize.slice(0, -2));
