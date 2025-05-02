@@ -16,14 +16,8 @@ const selettore_2 = document.querySelector('div#selettore_giorno button:nth-chil
 const data = new Date();
 let domani = new Date();
 domani.setDate(data.getDate() + 1);
-if (domani.length == 1) {
-    domani = '0' + domani;
-}
 let dopodomani = new Date();
 dopodomani.setDate(data.getDate() + 2);
-if (dopodomani.length == 1) {
-    dopodomani = '0' + dopodomani;
-}
 let giorno = String(data.getDate());
 let mese = String(data.getMonth() + 1);
 let mese_stagione = mese;
@@ -140,12 +134,18 @@ for (const bottone of selettore_giorno_bottoni) {
 
         else if (event.target.classList.contains('uno')) {
             giorno_scelto = '1';
-            data_selettore = `${domani.getDate()}/${mese}/${anno}`
+            if (domani.getDate().length == 1) {
+                domani = '0' + domani.getDate();
+            }
+            data_selettore = `${domani}/${mese}/${anno}`
         }
 
         else {
             giorno_scelto = '2';
-            data_selettore = `${dopodomani.getDate()}/${mese}/${anno}`
+            if (dopodomani.getDate().length == 1) {
+                dopodomani = '0' + dopodomani.getDate();
+            }
+            data_selettore = `${dopodomani}/${mese}/${anno}`
         }
 
         // Dopo aver stabilito il giorno, modifico i dati
