@@ -16,16 +16,28 @@ const selettore_2 = document.querySelector('div#selettore_giorno button:nth-chil
 const data = new Date();
 let domani = new Date();
 domani.setDate(data.getDate() + 1);
+const giorni_settimana = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+selettore_0.textContent = 'Oggi';
+selettore_1.textContent = `${giorni_settimana[domani.getDay()]} ${domani.getDate()}`;
+domani = String(domani.getDate());
+if (domani.length == 1) {
+    domani = '0' + domani;
+}
 let dopodomani = new Date();
 dopodomani.setDate(data.getDate() + 2);
+selettore_2.textContent = `${giorni_settimana[dopodomani.getDay()]} ${dopodomani.getDate()}`;
+dopodomani = String(dopodomani.getDate());
+if (dopodomani.length == 1) {
+    dopodomani = '0' + dopodomani;
+}
 let giorno = String(data.getDate());
+if (giorno.length == 1) {
+    giorno = '0' + giorno;
+}
 let mese = String(data.getMonth() + 1);
 let mese_stagione = mese;
 if (mese.length == 1) {
     mese = '0' + mese;
-}
-if (giorno.length == 1) {
-    giorno = '0' + giorno;
 }
 let tramonto;
 let alba = 6;
@@ -33,7 +45,6 @@ let svg;
 const anno = String(data.getFullYear());
 let data_completa = `${giorno}/${mese}/${anno}`;
 let data_selettore;
-const giorni_settimana = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
 let giorno_scelto;
 let paese;
 let prima_lettera;
@@ -115,12 +126,6 @@ function ricalcola_font_paragrafo_paese() {
     document.getElementById('contenitore_madre').style.marginTop = `${altezza_header}px`;
 }
 
-
-// Selettore giorni con testo dinamico
-selettore_0.textContent = 'Oggi';
-selettore_1.textContent = `${giorni_settimana[domani.getDay()]} ${domani.getDate()}`;
-selettore_2.textContent = `${giorni_settimana[dopodomani.getDay()]} ${dopodomani.getDate()}`;
-
 // Funzione selettore giorni
 for (const bottone of selettore_giorno_bottoni) {
     bottone.addEventListener('click', (event) => {
@@ -134,17 +139,11 @@ for (const bottone of selettore_giorno_bottoni) {
 
         else if (event.target.classList.contains('uno')) {
             giorno_scelto = '1';
-            if (domani.getDate().length == 1) {
-                domani = '0' + domani.getDate();
-            }
             data_selettore = `${domani}/${mese}/${anno}`
         }
 
         else {
             giorno_scelto = '2';
-            if (dopodomani.getDate().length == 1) {
-                dopodomani = '0' + dopodomani.getDate();
-            }
             data_selettore = `${dopodomani}/${mese}/${anno}`
         }
 
