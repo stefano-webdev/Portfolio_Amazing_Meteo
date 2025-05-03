@@ -148,17 +148,12 @@ for (const x of links) {
             behavior: 'smooth'
         });
 
-        // Se NON sono su desktop quindi sono su mobile, chiusura automatica menù e gestisco overflow body
-        if(!(window.matchMedia("(pointer: fine)").matches)) {
+        // Se il bottone mobile esiste, chiusura automatica menù e gestisco overflow body
+        if(window.getComputedStyle(btn_menu_toggle).display === 'block') {
             btn_menu_toggle.classList.toggle("open");
             menu.classList.toggle("open");
             document.body.classList.toggle("open");
         }
-        
-        // Animazione apertura e chiusura menu ed impedisco scroll con menu aperto, limitata a mobile/tablet
-        // if (window.innerWidth < 1225) {
-        //     document.body.classList.toggle("open");
-        // }
     });
 }
 

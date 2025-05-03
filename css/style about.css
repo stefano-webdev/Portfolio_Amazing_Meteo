@@ -66,6 +66,7 @@ section#about svg#skill_arrow {
 
 #skill_section svg {
     width: 40%;
+    max-width: 160px;
     display: block;
     margin: auto;
 }

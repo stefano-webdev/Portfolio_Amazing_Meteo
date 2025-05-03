@@ -28,8 +28,12 @@ p {
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
 
-p, figcaption {
+p {
     font-size: 16px;
+}
+
+figcaption {
+    font-size: 19px;
 }
 
 a {

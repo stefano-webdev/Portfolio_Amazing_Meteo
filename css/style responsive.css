@@ -89,6 +89,7 @@
 
     section#projects a {
         width: 60%;
+        max-width: none;
     }
 }
 
@@ -186,6 +187,11 @@
         gap: 1rem;
         width: fit-content;
         margin: 40px auto auto auto;
+    }
+
+    section#projects a {
+        min-width: 195px;
+        max-width: none;
     }
 
     /* Layout contatti */
@@ -327,6 +333,11 @@
         margin: 40px auto auto auto;
     }
 
+    section#projects a {
+        max-width: none;
+    }
+
+    /* layout contatti */
     section#contacts svg {
         width: clamp(25px, 4.68vw, 40px);
     }
@@ -509,6 +520,7 @@
 
     section#projects a {
         width: 66%;
+        max-width: none;
         transition: transform 0.5s ease;
         outline-offset: 8px;
     }

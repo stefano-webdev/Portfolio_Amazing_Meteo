@@ -16,6 +16,7 @@ section#projects figure {
 section#projects a {
     display: inline-block;
     width: 68%;
+    max-width: 260px;
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid rgb(111, 224, 232);
