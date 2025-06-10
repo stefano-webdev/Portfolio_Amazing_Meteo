@@ -59,9 +59,10 @@ section#about svg#skill_arrow {
 
 #skill_section div.skill_container {
     width: 95%;
+    min-width: 283px;
     padding-top: 10px;
     border-radius: 30px;
-    background-image: linear-gradient(90deg, #97c1ff, #a5df8a);
+    background-image: linear-gradient(90deg, #94f1fc, #d1fca9, #bbff7b);
 }
 
 #skill_section svg {
@@ -73,11 +74,11 @@ section#about svg#skill_arrow {
 
 #skill_section div.skill_name {
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     width: fit-content;
     margin: auto;
-    letter-spacing: 3px;
+    letter-spacing: 0.5px;
 }
 
 #skill_section ul.skill_list {
@@ -88,5 +89,5 @@ section#about svg#skill_arrow {
 #skill_section ul.skill_list li {
     font-size: 15px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
-    margin: 12.7px 0px;
+    margin: 14px 0px;
 }
