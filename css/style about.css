@@ -62,7 +62,7 @@ section#about svg#skill_arrow {
     min-width: 283px;
     padding-top: 10px;
     border-radius: 30px;
-    background-image: linear-gradient(90deg, #94f1fc, #d1fca9, #bbff7b);
+    background-image: linear-gradient(90deg, #94f2fcd5, #d1fca9d4, #bbff7bac);
 }
 
 #skill_section svg {
@@ -87,7 +87,7 @@ section#about svg#skill_arrow {
 }
 
 #skill_section ul.skill_list li {
-    font-size: 15px;
+    font-size: 16px;
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
     margin: 14px 0px;
 }

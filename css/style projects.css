@@ -37,4 +37,5 @@ section#projects figcaption {
     font-family: 'Tahoma', 'Verdana', 'Arial', 'Helvetica', sans-serif;
     text-align: center;
     margin: 20px 0px;
+    padding: 0px 6px;
 }

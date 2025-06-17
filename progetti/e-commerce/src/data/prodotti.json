@@ -1,0 +1,1007 @@
+[
+  {
+    "id": 1,
+    "nome": "Mouse con filo",
+    "prezzo": 29.99,
+    "prezzoVirgola": "29,99",
+    "immagine": "mouse1",
+    "categoria": [
+      "mouse",
+      "accessori"
+    ],
+    "descrizione": "Mouse da ufficio con illuminazione RGB, con tasti laterali indietro e avanti. Questo mouse ha anche un design ergonomico ed un selettore di DPI molto preciso."
+  },
+  {
+    "id": 2,
+    "nome": "Mouse Wireless",
+    "prezzo": 19.99,
+    "prezzoVirgola": "19,99",
+    "immagine": "mouse2",
+    "categoria": [
+      "mouse",
+      "accessori"
+    ],
+    "descrizione": "Mouse senza fili con batteria ricaricabile e design ergonomico. Questo prodotto è dotato di grip laterali per una migliore presa."
+  },
+  {
+    "id": 3,
+    "nome": "Mouse Ultra Precision",
+    "prezzo": 49.99,
+    "prezzoVirgola": "49,99",
+    "immagine": "mouse3",
+    "categoria": [
+      "mouse",
+      "accessori"
+    ],
+    "descrizione": "Mouse laser ad alta precisione con DPI regolabile fino a 16000. È dotato di un design comodo ed accattivante grazie alla sua illuminazione RGB, molto versatile e comodo per il gaming poichè è dotato di 5 tasti programmabili."
+  },
+  {
+    "id": 4,
+    "nome": "Mouse Wireless bianco",
+    "prezzo": 14.49,
+    "prezzoVirgola": "14,49",
+    "immagine": "mouse4",
+    "categoria": [
+      "mouse",
+      "accessori"
+    ],
+    "descrizione": "Mouse economico ed affidabile per attività quotidiane e di ufficio. È dotato di connessione bluethoot per una maggior comodità e permette di navigare facilmente, grazie ai tasti laterali dedicati avanti e indietro."
+  },
+  {
+    "id": 5,
+    "nome": "Mouse wireless Base",
+    "prezzo": 24.99,
+    "prezzoVirgola": "24,99",
+    "immagine": "mouse5",
+    "categoria": [
+      "mouse",
+      "accessori"
+    ],
+    "descrizione": "Mouse wireless senza fili con sensibilità 1200 DPI e design semplice, comodo ed ergonomico. Nonostante la sua semplicità, questo mouse garatisce un grip ed una sensazione di controllo superiore alla media grazie alle lievi scalanature presenti sulla rotella e a lato."
+  },
+  {
+    "id": 6,
+    "nome": "Assistente vocale con filo",
+    "prezzo": 49.99,
+    "prezzoVirgola": "49,99",
+    "immagine": "altoparlante1",
+    "categoria": [
+      "altoparlanti",
+      "altoparlante",
+      "assistenti vocali",
+      "assistente vocale",
+      "speaker",
+      "smart home"
+    ],
+    "descrizione": "Il tuo assistente vocale intelligente per la casa. Controlla la musica, imposta promemoria, ricevi informazioni e gestisci i tuoi dispositivi smart con la sola voce."
+  },
+  {
+    "id": 7,
+    "nome": "Altoparlante bluetooth intelligente",
+    "prezzo": 69.99,
+    "prezzoVirgola": "69,99",
+    "immagine": "altoparlante2",
+    "categoria": [
+      "altoparlanti",
+      "altoparlante",
+      "assistenti vocali",
+      "assistente vocale",
+      "speaker",
+      "smart home"
+    ],
+    "descrizione": "Un altoparlante potente con intelligenza integrata. Ascolta la tua musica preferita con un suono ricco e usa i comandi vocali per semplificare la tua giornata."
+  },
+  {
+    "id": 8,
+    "nome": "Altoparlante WI-FI",
+    "prezzo": 34.99,
+    "prezzoVirgola": "34,99",
+    "immagine": "altoparlante3",
+    "categoria": [
+      "altoparlanti",
+      "altoparlante",
+      "assistenti vocali",
+      "assistente vocale",
+      "speaker",
+      "smart home"
+    ],
+    "descrizione": "Interagisci con la tua casa in modo naturale. Questo dispositivo vocale smart ti permette di riprodurre audio, ottenere risposte a domande e controllare la tua smart home senza usare le mani."
+  },
+  {
+    "id": 9,
+    "nome": "Assistente vocale per smart-home",
+    "prezzo": 59.49,
+    "prezzoVirgola": "59,49",
+    "immagine": "altoparlante4",
+    "categoria": [
+      "altoparlanti",
+      "altoparlante",
+      "assistenti vocali",
+      "assistente vocale",
+      "speaker",
+      "smart home"
+    ],
+    "descrizione": "Un hub centrale per la tua vita digitale. Chiedi informazioni, ascolta le ultime notizie, gestisci la tua agenda e goditi un suono di alta qualità, tutto con la tua voce."
+  },
+  {
+    "id": 10,
+    "nome": "Assistente vocale con audio di qualità",
+    "prezzo": 119.99,
+    "prezzoVirgola": "119,99",
+    "immagine": "altoparlante5",
+    "categoria": [
+      "altoparlanti",
+      "altoparlante",
+      "assistenti vocali",
+      "assistente vocale",
+      "speaker",
+      "smart home"
+    ],
+    "descrizione": "Porta l'assistenza vocale nella tua quotidianità. Questo elegante altoparlante intelligente risponde ai tuoi comandi, riproduce la tua musica e ti aiuta a rimanere organizzato in modo semplice e intuitivo."
+  },
+  {
+    "id": 11,
+    "nome": "Laptop ufficio 13\" Full HD",
+    "prezzo": 989.99,
+    "prezzoVirgola": "989,99",
+    "immagine": "laptop1",
+    "categoria": [
+      "laptop",
+      "notebook",
+      "computer portatile",
+      "portatile",
+      "computer",
+      "pc",
+      "pc portatile",
+      "pc portatili"
+    ],
+    "descrizione": "Laptop da 15.6\" con display Full HD, processore Intel Core i5 e 8 GB di RAM. Perfetto per lavoro, studio e intrattenimento, con SSD da 512 GB per prestazioni veloci e una lunga durata della batteria. Il design sottile e leggero lo rende ideale per chi è sempre in movimento."
+  },
+  {
+    "id": 12,
+    "nome": "Laptop ufficio 14\" IPS",
+    "prezzo": 1079.49,
+    "prezzoVirgola": "1079,49",
+    "immagine": "laptop2",
+    "categoria": [
+      "laptop",
+      "notebook",
+      "computer portatile",
+      "portatile",
+      "computer",
+      "pc",
+      "pc portatile",
+      "pc portatili"
+    ],
+    "descrizione": "Elegante laptop da 14\" con schermo IPS Full HD, processore Intel Core i5 di ultima generazione e 16 GB di RAM. Ideale per la produttività e il multitasking, con un veloce SSD da 256 GB e una tastiera retroilluminata."
+  },
+  {
+    "id": 13,
+    "nome": "Laptop professionale 15.6\" Antiriflesso",
+    "prezzo": 1289.99,
+    "prezzoVirgola": "1289,99",
+    "immagine": "laptop3",
+    "categoria": [
+      "laptop",
+      "notebook",
+      "computer portatile",
+      "portatile",
+      "computer",
+      "pc",
+      "pc portatile",
+      "pc portatili"
+    ],
+    "descrizione": "Laptop professionale da 15.6\" con display Full HD antiriflesso, processore Intel Core i7 e 16 GB di RAM DDR5. Ottimo per applicazioni aziendali e sviluppo, dotato di SSD NVMe da 512 GB e funzionalità di sicurezza avanzate."
+  },
+  {
+    "id": 14,
+    "nome": "Laptop ultraleggero 13.3\" Retina",
+    "prezzo": 1149.99,
+    "prezzoVirgola": "1149,99",
+    "immagine": "laptop4",
+    "categoria": [
+      "laptop",
+      "notebook",
+      "computer portatile",
+      "portatile",
+      "computer",
+      "pc",
+      "pc portatile",
+      "pc portatili"
+    ],
+    "descrizione": "Laptop ultraleggero da 13.3\" con display Retina ad alta risoluzione, processore Intel Core i5 e 8 GB di RAM. Perfetto per chi cerca portabilità e prestazioni, con SSD da 512 GB e un'autonomia della batteria estesa."
+  },
+  {
+    "id": 15,
+    "nome": "Laptop standard 15.6\" Full HD",
+    "prezzo": 899.99,
+    "prezzoVirgola": "899,99",
+    "immagine": "laptop5",
+    "categoria": [
+      "laptop",
+      "notebook",
+      "computer portatile",
+      "portatile",
+      "computer",
+      "pc",
+      "pc portatile",
+      "pc portatili"
+    ],
+    "descrizione": "Laptop standard da 15.6\" con display Full HD, processore Intel Core i5 e 8 GB di RAM. Un ottimo equilibrio tra prestazioni e convenienza per l'uso quotidiano, lo studio e il lavoro. Dispone di un veloce SSD da 512 GB e una tastiera comoda per lunghe sessioni di digitazione."
+  },
+  {
+    "id": 16,
+    "nome": "Tastiera Meccanica Bianca",
+    "prezzo": 69.99,
+    "prezzoVirgola": "69,99",
+    "immagine": "tastiera1",
+    "categoria": [
+      "tastiere",
+      "tasiera",
+      "keyboard",
+      "dispositivo di input",
+      "digitazione"
+    ],
+    "descrizione": "Tastiera meccanica bianca con tasti leggeri e comodi, ideale per una digitazione fluida e veloce. Design semplice ed elegante, perfetta per ogni esigenza di lavoro e svago."
+  },
+  {
+    "id": 17,
+    "nome": "Tastiera Ergonomica Bianca",
+    "prezzo": 54.99,
+    "prezzoVirgola": "54,99",
+    "immagine": "tastiera2",
+    "categoria": [
+      "tastiere",
+      "tasiera",
+      "keyboard",
+      "dispositivo di input",
+      "digitazione"
+    ],
+    "descrizione": "Tastiera ergonomica di colore bianco, progettata per offrire comfort durante lunghe sessioni di digitazione. Layout standard e tasti silenziosi, ideale per l'ufficio e l'uso quotidiano."
+  },
+  {
+    "id": 18,
+    "nome": "Tastiera Slim Nera",
+    "prezzo": 45.49,
+    "prezzoVirgola": "45,49",
+    "immagine": "tastiera3",
+    "categoria": [
+      "tastiere",
+      "tasiera",
+      "keyboard",
+      "dispositivo di input",
+      "digitazione"
+    ],
+    "descrizione": "Tastiera slim dal profilo sottile in color nero, perfetta per chi cerca un design compatto e moderno. Tasti a basso profilo per una digitazione rapida e precisa."
+  },
+  {
+    "id": 19,
+    "nome": "Tastiera Standard Argento",
+    "prezzo": 34.99,
+    "prezzoVirgola": "34,99",
+    "immagine": "tastiera4",
+    "categoria": [
+      "tastiere",
+      "tasiera",
+      "keyboard",
+      "dispositivo di input",
+      "digitazione"
+    ],
+    "descrizione": "Tastiera standard di colore argento, un modello classico e affidabile per tutte le tue attività informatiche. Tasti reattivi e layout intuitivo per una digitazione confortevole."
+  },
+  {
+    "id": 20,
+    "nome": "Tastiera Compatta Nera",
+    "prezzo": 59.99,
+    "prezzoVirgola": "59,99",
+    "immagine": "tastiera5",
+    "categoria": [
+      "tastiere",
+      "tasiera",
+      "keyboard",
+      "dispositivo di input",
+      "digitazione"
+    ],
+    "descrizione": "Tastiera compatta di colore nero, ideale per chi ha poco spazio sulla scrivania o necessita di portabilità. Tasti ben distanziati per una digitazione precisa nonostante le dimensioni ridotte."
+  },
+  {
+    "id": 21,
+    "nome": "Cuffie Over-Ear Nere",
+    "prezzo": 89.99,
+    "prezzoVirgola": "89,99",
+    "immagine": "cuffie1",
+    "categoria": [
+      "cuffie",
+      "cuffia",
+      "cuffie over-ear",
+      "cuffie over ear",
+      "cuffie wireless",
+      "audio",
+      "accessori audio",
+      "headphones"
+    ],
+    "descrizione": "Cuffie over-ear nere con design avvolgente che garantisce comfort e isolamento acustico. Ideali per lunghi ascolti, con suono cristallino e bassi potenti. Perfette per musica, film e gaming."
+  },
+  {
+    "id": 22,
+    "nome": "Cuffie Over-Ear Comfort",
+    "prezzo": 74.49,
+    "prezzoVirgola": "74,49",
+    "immagine": "cuffie2",
+    "categoria": [
+      "cuffie",
+      "cuffia",
+      "cuffie over-ear",
+      "cuffie over ear",
+      "cuffie wireless",
+      "audio",
+      "accessori audio",
+      "headphones"
+    ],
+    "descrizione": "Cuffie over-ear progettate per un comfort prolungato, grazie ai morbidi cuscinetti e all'archetto regolabile. Offrono un suono bilanciato e una buona riduzione del rumore passivo, perfette per l'ascolto quotidiano."
+  },
+  {
+    "id": 23,
+    "nome": "Cuffie Over-Ear Audio Puro",
+    "prezzo": 109.99,
+    "prezzoVirgola": "109,99",
+    "immagine": "cuffie3",
+    "categoria": [
+      "cuffie",
+      "cuffia",
+      "cuffie over-ear",
+      "cuffie over ear",
+      "cuffie wireless",
+      "audio",
+      "accessori audio",
+      "headphones"
+    ],
+    "descrizione": "Cuffie over-ear focalizzate sulla qualità audio, con driver ad alta fedeltà per un suono dettagliato e immersivo. L'isolamento acustico efficace ti permette di concentrarti sulla tua musica o sulle tue chiamate."
+  },
+  {
+    "id": 24,
+    "nome": "Cuffie Over-Ear Avvolgenti",
+    "prezzo": 65.99,
+    "prezzoVirgola": "65,99",
+    "immagine": "cuffie4",
+    "categoria": [
+      "cuffie",
+      "cuffia",
+      "cuffie over-ear",
+      "cuffie over ear",
+      "cuffie wireless",
+      "audio",
+      "accessori audio",
+      "headphones"
+    ],
+    "descrizione": "Cuffie over-ear con padiglioni ampi che avvolgono completamente le orecchie, offrendo un'esperienza d'ascolto confortevole e isolata. Ideali per concentrarsi e godersi la propria musica senza distrazioni."
+  },
+  {
+    "id": 25,
+    "nome": "Cuffie Over-Ear Bassi Profondi",
+    "prezzo": 95.49,
+    "prezzoVirgola": "95,49",
+    "immagine": "cuffie5",
+    "categoria": [
+      "cuffie",
+      "cuffia",
+      "cuffie over-ear",
+      "cuffie over ear",
+      "cuffie wireless",
+      "audio",
+      "accessori audio",
+      "headphones"
+    ],
+    "descrizione": "Cuffie over-ear ottimizzate per bassi profondi e potenti, senza sacrificare la chiarezza delle frequenze medie e alte. Perfette per gli amanti della musica con ritmi marcati e per un'esperienza multimediale coinvolgente."
+  },
+  {
+    "id": 26,
+    "nome": "Smartphone 6.5\" Display Full HD",
+    "prezzo": 499.99,
+    "prezzoVirgola": "499,99",
+    "immagine": "smartphone1",
+    "categoria": [
+      "smartphone",
+      "telefono",
+      "telefoni",
+      "telefonino",
+      "telefonini",
+      "telefono cellulare",
+      "cellulare",
+      "dispositivo mobile"
+    ],
+    "descrizione": "Smartphone con display 6.5\" Full HD, processore octa-core, 6GB di RAM e 128GB di memoria interna. Fotocamera principale da 48MP per scatti dettagliati. Perfetto per chi cerca prestazioni solide, una lunga durata della batteria e un'esperienza di utilizzo fluida, senza rinunciare a un design elegante."
+  },
+  {
+    "id": 27,
+    "nome": "Smartphone 6.7\" AMOLED 5G",
+    "prezzo": 699.49,
+    "prezzoVirgola": "699,49",
+    "immagine": "smartphone2",
+    "categoria": [
+      "smartphone",
+      "telefono",
+      "telefoni",
+      "telefonino",
+      "telefonini",
+      "telefono cellulare",
+      "cellulare",
+      "dispositivo mobile"
+    ],
+    "descrizione": "Smartphone con ampio display AMOLED da 6.7\" e connettività 5G ultraveloce. Dotato di un processore octa-core performante, 8GB di RAM e 256GB di memoria interna. Versatile tripla fotocamera con sensore principale da 64MP e registrazione video 4K. Ideale per gaming, streaming e fotografia di alta qualità."
+  },
+  {
+    "id": 28,
+    "nome": "iPhone 14 (Ricondizionato Certificato)",
+    "prezzo": 699.49,
+    "prezzoVirgola": "699,49",
+    "immagine": "smartphone3",
+    "categoria": [
+      "smartphone",
+      "telefono",
+      "telefoni",
+      "telefonino",
+      "telefonini",
+      "telefono cellulare",
+      "cellulare",
+      "dispositivo mobile"
+    ],
+    "descrizione": "iPhone 14 ricondizionato certificato con display Super Retina XDR da 6.1\", chip A15 Bionic, 6GB di RAM e 128GB di memoria interna. Sistema a doppia fotocamera da 12MP con modalità Cinema e Photonic Engine. Offre prestazioni elevate, un ecosistema integrato e la qualità Apple ad un prezzo più accessibile. Garanzia di funzionamento e condizioni estetiche ottimali."
+  },
+  {
+    "id": 29,
+    "nome": "Smartphone 6.6\" 120Hz Fotocamera Avanzata",
+    "prezzo": 749.99,
+    "prezzoVirgola": "749,99",
+    "immagine": "smartphone4",
+    "categoria": [
+      "smartphone",
+      "telefono",
+      "telefoni",
+      "telefonino",
+      "telefonini",
+      "telefono cellulare",
+      "cellulare",
+      "dispositivo mobile"
+    ],
+    "descrizione": "Smartphone con display fluido a 120Hz da 6.6\", processore Snapdragon di fascia alta, 8GB di RAM e 256GB di memoria interna. Un sistema di fotocamere avanzato con stabilizzazione ottica dell'immagine e sensore principale da 108MP. Perfetto per chi cerca un'esperienza visiva immersiva e scatti di qualità professionale in diverse condizioni di luce."
+  },
+  {
+    "id": 30,
+    "nome": "Xiaomi Smartphone 6.6\" 120Hz Fotocamera 108MP",
+    "prezzo": 449.99,
+    "prezzoVirgola": "449,99",
+    "immagine": "smartphone5",
+    "categoria": [
+      "smartphone",
+      "telefono",
+      "telefoni",
+      "telefonino",
+      "telefonini",
+      "telefono cellulare",
+      "cellulare",
+      "dispositivo mobile"
+    ],
+    "descrizione": "Xiaomi smartphone con display da 6.6\" a 120Hz, processore potente, 8GB di RAM e 256GB di memoria interna. Fotocamera principale da 108MP con stabilizzazione per scatti nitidi anche in movimento. Perfetto per chi cerca prestazioni elevate e una qualità fotografica avanzata."
+  },
+  {
+    "id": 31,
+    "nome": "Tablet 10.1\" Display HD",
+    "prezzo": 399.99,
+    "prezzoVirgola": "399,99",
+    "immagine": "tablet1",
+    "categoria": [
+      "tablet"
+    ],
+    "descrizione": "Tablet con display da 10.1\" HD, batteria da 6000mAh per un'autonomia duratura, 4GB di RAM e 64GB di memoria interna. Dotato di un processore veloce e fotocamera da 8MP, perfetto per intrattenimento, studio e lavoro in movimento."
+  },
+  {
+    "id": 32,
+    "nome": "Tablet 11\" Display Full HD",
+    "prezzo": 479.99,
+    "prezzoVirgola": "479,99",
+    "immagine": "tablet2",
+    "categoria": [
+      "tablet"
+    ],
+    "descrizione": "Tablet con display da 11\" Full HD, processorer octa-core, 6GB di RAM e 128GB di memoria interna. Doppia fotocamera da 13MP e 8MP, ideale per videoconferenze e scatti di qualità. Ottimo per la produttività e il consumo di contenuti multimediali."
+  },
+  {
+    "id": 33,
+    "nome": "iPad Pro 11\"",
+    "prezzo": 899.99,
+    "prezzoVirgola": "899,99",
+    "immagine": "tablet3",
+    "categoria": [
+      "tablet"
+    ],
+    "descrizione": "iPad Pro 11 pollici con display Liquid Retina XDR, chip M4 e 128GB di memoria interna. Sistema di fotocamere Pro (grandangolo e ultra-grandangolo) con scanner LiDAR. Wi-Fi 6E e Thunderbolt / USB 4. Ideale per professionisti della creatività e per un'esperienza utente al top."
+  },
+  {
+    "id": 34,
+    "nome": "iPad Air",
+    "prezzo": 699.49,
+    "prezzoVirgola": "699,49",
+    "immagine": "tablet4",
+    "categoria": [
+      "tablet"
+    ],
+    "descrizione": "iPad Air con display Liquid Retina da 10.9\", chip M2 e 256GB di memoria interna. Fotocamera posteriore da 12MP e anteriore da 12MP Ultra Wide con Inquadratura Automatica. Compatibile con Apple Pencil e Magic Keyboard. Ottimo per la creatività, la produttività e un'esperienza visiva di alta qualità."
+  },
+  {
+    "id": 35,
+    "nome": "Tablet 9.7\" Batteria a Lunga Durata",
+    "prezzo": 329.99,
+    "prezzoVirgola": "329,99",
+    "immagine": "tablet5",
+    "categoria": [
+      "tablet"
+    ],
+    "descrizione": "Tablet con display da 9.7\" e batteria da 7000mAh per un utilizzo prolungato, 4GB di RAM e 128GB di memoria interna. Processore efficiente e fotocamera da 5MP e 2MP. Ottimo per lo studio online, la navigazione web e la visione di video durante gli spostamenti."
+  },
+  {
+    "id": 36,
+    "nome": "Smartwatch 1.4\" Display HD Batteria Lunga Durata",
+    "prezzo": 149.99,
+    "prezzoVirgola": "149,99",
+    "immagine": "smartwatch1",
+    "categoria": [
+      "smartwatch",
+      "orologio intelligente",
+      "fitness tracker",
+      "fitness",
+      "smart wearable",
+      "orologio",
+      "orologi"
+    ],
+    "descrizione": "Smartwatch con display da 1.4\" HD e batteria a lunga durata. Dotato di monitoraggio della salute, notifiche smart e resistenza all'acqua. Perfetto per chi cerca uno stile moderno e funzionalità avanzate per il fitness e la vita quotidiana."
+  },
+  {
+    "id": 37,
+    "nome": "Smartwatch Fitness Tracker AMOLED",
+    "prezzo": 129.49,
+    "prezzoVirgola": "129,49",
+    "immagine": "smartwatch2",
+    "categoria": [
+      "smartwatch",
+      "orologio intelligente",
+      "fitness tracker",
+      "fitness",
+      "smart wearable",
+      "orologio",
+      "orologi"
+    ],
+    "descrizione": "Smartwatch con display AMOLED a colori e funzionalità avanzate per il tracciamento del fitness, inclusi GPS integrato e monitoraggio della frequenza cardiaca. Ricevi notifiche, controlla la musica e monitora il tuo sonno con un design leggero e confortevole."
+  },
+  {
+    "id": 38,
+    "nome": "Smartwatch Elegante in Alluminio",
+    "prezzo": 179.49,
+    "prezzoVirgola": "179,49",
+    "immagine": "smartwatch3",
+    "categoria": [
+      "smartwatch",
+      "orologio intelligente",
+      "fitness tracker",
+      "fitness",
+      "smart wearable",
+      "orologio",
+      "orologi"
+    ],
+    "descrizione": "Smartwatch con cassa in alluminio dal design elegante e display touchscreen. Offre monitoraggio dell'attività fisica, notifiche personalizzabili e diverse opzioni di quadranti. Resistente all'acqua e con una buona autonomia della batteria per un utilizzo quotidiano senza preoccupazioni."
+  },
+  {
+    "id": 39,
+    "nome": "Smartwatch Sportivo con GPS",
+    "prezzo": 199.99,
+    "prezzoVirgola": "199,99",
+    "immagine": "smartwatch4",
+    "categoria": [
+      "smartwatch",
+      "orologio intelligente",
+      "fitness tracker",
+      "fitness",
+      "smart wearable",
+      "orologio",
+      "orologi"
+    ],
+    "descrizione": "Smartwatch sportivo con GPS integrato per il tracciamento preciso degli allenamenti all'aperto. Monitoraggio avanzato della frequenza cardiaca, resistenza all'acqua fino a 50 metri e diverse modalità sportive preimpostate. Ideale per gli appassionati di fitness e attività all'aria aperta."
+  },
+  {
+    "id": 40,
+    "nome": "Smartwatch Multifunzione Display a Colori",
+    "prezzo": 159.99,
+    "prezzoVirgola": "159,99",
+    "immagine": "smartwatch5",
+    "categoria": [
+      "smartwatch",
+      "orologio intelligente",
+      "fitness tracker",
+      "fitness",
+      "smart wearable",
+      "orologio",
+      "orologi"
+    ],
+    "descrizione": "Smartwatch multifunzione con display a colori, monitoraggio della salute (frequenza cardiaca, ossigeno nel sangue), notifiche di chiamate e messaggi, e controllo della riproduzione musicale. Batteria a lunga durata e interfaccia intuitiva per un utilizzo semplice e completo."
+  },
+  {
+    "id": 41,
+    "nome": "Microfono Standard a Filo per Voce",
+    "prezzo": 39.99,
+    "prezzoVirgola": "39,99",
+    "immagine": "microfono1",
+    "categoria": [
+      "microfoni",
+      "microfono",
+      "microphone"
+    ],
+    "descrizione": "Microfono standard a filo, robusto e affidabile per canto, karaoke e parlato. Facile da usare e con una buona risposta vocale per diverse applicazioni."
+  },
+  {
+    "id": 42,
+    "nome": "Microfono da Tavolo con Base",
+    "prezzo": 59.49,
+    "prezzoVirgola": "59,49",
+    "immagine": "microfono2",
+    "categoria": [
+      "microfoni",
+      "microfono",
+      "microphone"
+    ],
+    "descrizione": "Microfono a condensatore con base stabile, ideale per streaming, podcast e videoconferenze. Offre un audio chiaro e professionale, perfetto per chi cerca qualità e praticità sulla scrivania."
+  },
+  {
+    "id": 43,
+    "nome": "Microfono Dinamico per Voce e Performance",
+    "prezzo": 49.49,
+    "prezzoVirgola": "49,49",
+    "immagine": "microfono3",
+    "categoria": [
+      "microfoni",
+      "microfono",
+      "microphone"
+    ],
+    "descrizione": "Microfono dinamico robusto e versatile, perfetto per performance live, karaoke e applicazioni vocali generali. Ottima reiezione del rumore di fondo e gestione di alti volumi sonori."
+  },
+  {
+    "id": 44,
+    "nome": "Microfono per Presentazioni",
+    "prezzo": 29.99,
+    "prezzoVirgola": "29,99",
+    "immagine": "microfono4",
+    "categoria": [
+      "microfoni",
+      "microfono",
+      "microphone"
+    ],
+    "descrizione": "Microfono con qualità discreta e facile da usare, ideale per presentazioni, conferenze e registrazioni vocali dove la libertà di movimento è importante. Offre una qualità audio chiara e costante."
+  },
+  {
+    "id": 45,
+    "nome": "Microfono a Sospensione per Studio",
+    "prezzo": 159.99,
+    "prezzoVirgola": "159,99",
+    "immagine": "microfono5",
+    "categoria": [
+      "microfoni",
+      "microfono",
+      "microphone"
+    ],
+    "descrizione": "Microfono semiprofessionale per studio con sistema di sospensione anti-shock. Ideale per registrazioni vocali, podcasting e doppiaggio, riducendo le vibrazioni e offrendo un suono pulito e dettagliato."
+  },
+  {
+    "id": 46,
+    "nome": "Router Wi-Fi Dual Band 1200Mbps",
+    "prezzo": 79.99,
+    "prezzoVirgola": "79,99",
+    "immagine": "router1",
+    "categoria": [
+      "router",
+      "router mesh",
+      "wifi mesh",
+      "modem",
+      "dispositivo di rete",
+      "wifi",
+      "wi-fi",
+      "wi fi",
+      "router wi-fi"
+    ],
+    "descrizione": "Router Wi-Fi dual band con velocità fino a 1200Mbps, perfetto per streaming, gaming e smart home. Copertura stabile e ampio raggio d'azione per una connessione affidabile in tutta la casa."
+  },
+  {
+    "id": 47,
+    "nome": "Router Mesh per Casa e Ufficio",
+    "prezzo": 149.99,
+    "prezzoVirgola": "149,99",
+    "immagine": "router2",
+    "categoria": [
+      "router",
+      "router mesh",
+      "wifi mesh",
+      "modem",
+      "dispositivo di rete",
+      "wifi",
+      "wi-fi",
+      "wi fi",
+      "router wi-fi"
+    ],
+    "descrizione": "Sistema Wi-Fi Mesh per copertura estesa senza interruzioni. Ideale per abitazioni grandi e uffici, garantisce una connessione stabile su più dispositivi contemporaneamente."
+  },
+  {
+    "id": 48,
+    "nome": "Router 4G LTE Portatile",
+    "prezzo": 99.49,
+    "prezzoVirgola": "99,49",
+    "immagine": "router3",
+    "categoria": [
+      "router",
+      "router mesh",
+      "wifi mesh",
+      "modem",
+      "dispositivo di rete",
+      "wifi",
+      "wi-fi",
+      "wi fi",
+      "router wi-fi"
+    ],
+    "descrizione": "Router 4G LTE portatile con slot SIM, perfetto per viaggi e lavoro remoto. Connessione veloce e sicura ovunque, con supporto multi-dispositivo."
+  },
+  {
+    "id": 49,
+    "nome": "Router Wi-Fi 6 con Tecnologia MU-MIMO",
+    "prezzo": 199.99,
+    "prezzoVirgola": "199,99",
+    "immagine": "router4",
+    "categoria": [
+      "router",
+      "router mesh",
+      "wifi mesh",
+      "modem",
+      "dispositivo di rete",
+      "wifi",
+      "wi-fi",
+      "wi fi",
+      "router wi-fi"
+    ],
+    "descrizione": "Router di ultima generazione con Wi-Fi 6 e tecnologia MU-MIMO per prestazioni superiori. Perfetto per case smart e uffici, offre velocità elevate e latenza ridotta."
+  },
+  {
+    "id": 50,
+    "nome": "Router Gigabit Ethernet con Porte LAN",
+    "prezzo": 89.99,
+    "prezzoVirgola": "89,99",
+    "immagine": "router5",
+    "categoria": [
+      "router",
+      "router mesh",
+      "wifi mesh",
+      "modem",
+      "dispositivo di rete",
+      "wifi",
+      "wi-fi",
+      "wi fi",
+      "router wi-fi"
+    ],
+    "descrizione": "Router con porte Gigabit Ethernet per connessioni cablate ad alta velocità. Ideale per gaming e streaming senza lag, con firewall avanzato per maggiore sicurezza."
+  },
+  {
+    "id": 51,
+    "nome": "Webcam Full HD 1080p con Microfono",
+    "prezzo": 49.99,
+    "prezzoVirgola": "49,99",
+    "immagine": "webcam1",
+    "categoria": [
+      "webcam",
+      "webcam full hd",
+      "webcam 1080p",
+      "videocamera",
+      "videocamere",
+      "videocamera web",
+      "videocamera per computer",
+      "videochiamate",
+      "streaming",
+      "videoconferenze",
+      "camera per videochiamate"
+    ],
+    "descrizione": "Webcam Full HD 1080p con microfono integrato per videochiamate chiare e dettagliate. Perfetta per riunioni online, streaming e didattica a distanza."
+  },
+  {
+    "id": 52,
+    "nome": "Webcam 2K Ultra Wide con Autofocus",
+    "prezzo": 79.99,
+    "prezzoVirgola": "79,99",
+    "immagine": "webcam2",
+    "categoria": [
+      "webcam",
+      "webcam full hd",
+      "webcam 1080p",
+      "videocamera",
+      "videocamere",
+      "videocamera web",
+      "videocamera per computer",
+      "videochiamate",
+      "streaming",
+      "videoconferenze",
+      "camera per videochiamate"
+    ],
+    "descrizione": "Webcam 2K con angolo ultra wide e autofocus intelligente. Ideale per conferenze e streaming di alta qualità, garantisce un'inquadratura ampia e immagini nitide."
+  },
+  {
+    "id": 53,
+    "nome": "Webcam 4K con HDR e Doppio Microfono",
+    "prezzo": 129.99,
+    "prezzoVirgola": "129,99",
+    "immagine": "webcam3",
+    "categoria": [
+      "webcam",
+      "webcam full hd",
+      "webcam 1080p",
+      "videocamera",
+      "videocamere",
+      "videocamera web",
+      "videocamera per computer",
+      "videochiamate",
+      "streaming",
+      "videoconferenze",
+      "camera per videochiamate"
+    ],
+    "descrizione": "Webcam 4K con HDR per immagini nitide e colori realistici. Dotata di doppio microfono per un audio chiaro e professionale, perfetta per content creator e videoconferenze avanzate."
+  },
+  {
+    "id": 54,
+    "nome": "Webcam HD 720p Compatta e Plug & Play",
+    "prezzo": 29.99,
+    "prezzoVirgola": "29,99",
+    "immagine": "webcam4",
+    "categoria": [
+      "webcam",
+      "webcam full hd",
+      "webcam 1080p",
+      "videocamera",
+      "videocamere",
+      "videocamera web",
+      "videocamera per computer",
+      "videochiamate",
+      "streaming",
+      "videoconferenze",
+      "camera per videochiamate"
+    ],
+    "descrizione": "Webcam HD 720p compatta e facile da usare, con connessione USB plug & play. Ideale per chi cerca una soluzione semplice ed economica per videochiamate quotidiane."
+  },
+  {
+    "id": 55,
+    "nome": "Webcam con Luce LED Regolabile",
+    "prezzo": 59.99,
+    "prezzoVirgola": "59,99",
+    "immagine": "webcam5",
+    "categoria": [
+      "webcam",
+      "webcam full hd",
+      "webcam 1080p",
+      "videocamera",
+      "videocamere",
+      "videocamera web",
+      "videocamera per computer",
+      "videochiamate",
+      "streaming",
+      "videoconferenze",
+      "camera per videochiamate"
+    ],
+    "descrizione": "Webcam con luce LED integrata e regolabile, perfetta per videochiamate e streaming in condizioni di scarsa illuminazione. Offre immagini chiare e una resa professionale."
+  },
+  {
+    "id": 56,
+    "nome": "Nikon D870 Reflex APS-C",
+    "prezzo": 999.99,
+    "prezzoVirgola": "999,99",
+    "immagine": "fotocamera1",
+    "categoria": [
+      "fotocamere",
+      "fotocamera",
+      "fotocamera reflex",
+      "fotocamera digitale",
+      "fotocamera professionale",
+      "fotocamera mirrorless",
+      "fotografia",
+      "fotografia digitale",
+      "mirrorless",
+      "reflex",
+      "fotocamera reflex digitale",
+      "camera",
+      "macchina fotografica"
+    ],
+    "descrizione": "Reflex APS-C con sensore da 20.9MP e processore EXPEED 5. Autofocus veloce e registrazione video 4K, perfetta per fotografi appassionati e creativi."
+  },
+  {
+    "id": 57,
+    "nome": "Nikon Z50 Mirrorless Compatta",
+    "prezzo": 1199.99,
+    "prezzoVirgola": "1199,99",
+    "immagine": "fotocamera2",
+    "categoria": [
+      "fotocamere",
+      "fotocamera",
+      "fotocamera reflex",
+      "fotocamera digitale",
+      "fotocamera professionale",
+      "fotocamera mirrorless",
+      "fotografia",
+      "fotografia digitale",
+      "mirrorless",
+      "reflex",
+      "fotocamera reflex digitale",
+      "camera",
+      "macchina fotografica"
+    ],
+    "descrizione": "Mirrorless compatta con sensore APS-C da 20.9MP, ottima qualità d'immagine e video 4K. Perfetta per chi vuole un'alternativa leggera senza rinunciare alle prestazioni."
+  },
+  {
+    "id": 58,
+    "nome": "Olympus OM-D E-M5 Mark III",
+    "prezzo": 799.99,
+    "prezzoVirgola": "799,99",
+    "immagine": "fotocamera3",
+    "categoria": [
+      "fotocamere",
+      "fotocamera",
+      "fotocamera reflex",
+      "fotocamera digitale",
+      "fotocamera professionale",
+      "fotocamera mirrorless",
+      "fotografia",
+      "fotografia digitale",
+      "mirrorless",
+      "reflex",
+      "fotocamera reflex digitale",
+      "camera",
+      "macchina fotografica"
+    ],
+    "descrizione": "Fotocamera mirrorless Micro 4/3 con stabilizzazione a 5 assi e sensore da 20.4MP. Design compatto e tropicalizzato, ideale per la fotografia di viaggio e d’azione."
+  },
+  {
+    "id": 59,
+    "nome": "Canon EOS 90D Reflex Versatile",
+    "prezzo": 1049.99,
+    "prezzoVirgola": "1049,99",
+    "immagine": "fotocamera4",
+    "categoria": [
+      "fotocamere",
+      "fotocamera",
+      "fotocamera reflex",
+      "fotocamera digitale",
+      "fotocamera professionale",
+      "fotocamera mirrorless",
+      "fotografia",
+      "fotografia digitale",
+      "mirrorless",
+      "reflex",
+      "fotocamera reflex digitale",
+      "camera",
+      "macchina fotografica"
+    ],
+    "descrizione": "Reflex APS-C con sensore da 32.5MP e velocità di scatto fino a 10 fps. Perfetta per sport, natura e ritratti grazie all’autofocus rapido e preciso."
+  },
+  {
+    "id": 60,
+    "nome": "Fujifilm X-T100 II Mirrorless",
+    "prezzo": 849.99,
+    "prezzoVirgola": "849,99",
+    "immagine": "fotocamera5",
+    "categoria": [
+      "fotocamere",
+      "fotocamera",
+      "fotocamera reflex",
+      "fotocamera digitale",
+      "fotocamera professionale",
+      "fotocamera mirrorless",
+      "fotografia",
+      "fotografia digitale",
+      "mirrorless",
+      "reflex",
+      "fotocamera reflex digitale",
+      "camera",
+      "macchina fotografica"
+    ],
+    "descrizione": "Mirrorless compatta con sensore X-Trans CMOS 4 da 26.1MP. Color science Fujifilm per immagini dal look cinematografico e modalità video 4K avanzate."
+  }
+]
