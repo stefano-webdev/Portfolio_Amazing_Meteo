@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/progetti/e-commerce/(.*)", "destination": "/progetti/e-commerce/index.html" }
+    { "source": "/progetti/e-commerce/(.*)", 
+    "destination": "/progetti/e-commerce/index.html" }
   ]
 }
