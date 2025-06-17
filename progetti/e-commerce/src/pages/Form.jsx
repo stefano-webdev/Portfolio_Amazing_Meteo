@@ -34,7 +34,7 @@ export default function Form() {
             setAvviso(svgRef.current)
         } else if (passwordControllata.current) {
             setAvviso(false);
-            // alert('I dati sono stati validati correttamente. Grazie per aver visitato Amazing.');
+            alert('I dati sono stati validati correttamente. Grazie per aver visitato Amazing!');
         }
     }
 
