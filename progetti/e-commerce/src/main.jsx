@@ -22,10 +22,7 @@ const router = createBrowserRouter(
       ]
     },
     { path: '*', element: <NotFound /> }
-  ],
-  {
-    basename: '/progetti/e-commerce'
-  }
+  ]
 );
 
 createRoot(document.getElementById('root')).render(
