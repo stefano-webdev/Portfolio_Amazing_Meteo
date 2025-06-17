@@ -24,7 +24,7 @@ const router = createBrowserRouter(
     { path: '*', element: <NotFound /> }
   ],
   {
-    basename: '/e-commerce'
+    basename: '/progetti/e-commerce'
   }
 );
 
