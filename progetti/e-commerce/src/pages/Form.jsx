@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 export default function Form() {
     // Variabili di stato
     const [isLoaded, setIsLoaded] = useState(false);
-    const [marginTop, setMarginTop] = useState('0');
+    const [marginTop, setMarginTop] = useState('0px');
     const passwordRef = useRef(null);
     const passwordConfermaRef = useRef(null);
     const [passwordCheck, setPasswordCheck] = useState(false);

@@ -1,5 +1,5 @@
-/* Media query per dimensioni molto basse */
-@media (max-width: 370px) {
+/* Media query per dimensioni ancora più basse come iPhone 5 */
+@media (max-width: 330px) {
     h1.carrello_pieno {
         font-size: 25px;
     }
@@ -13,7 +13,42 @@
     }
 
     nav a#logo {
-        font-size: 24px;
+        font-size: 25px;
+    }
+
+    svg#svg_carrello {
+        width: 29px;
+        height: 32px;
+        margin-top: 4px;
+    }
+
+    div#prodotti_nel_carrello {
+        width: 27px;
+        height: 27px;
+        left: -26px;
+    }
+
+    div#logo_contenitore {
+        gap: 2px;
+    }
+}
+
+/* Media query per dimensioni molto basse */
+@media (max-width: 380px) and (min-width: 331px) {
+    h1.carrello_pieno {
+        font-size: 25px;
+    }
+
+    header {
+        padding: 10px 9px;
+    }
+
+    #formLinkSvg {
+        width: 30px;
+    }
+
+    nav a#logo {
+        font-size: 27px;
     }
 
     svg#svg_carrello {
@@ -111,11 +146,6 @@
 
     #div_procedi_acquisto button {
         font-size: 21px;
-    }
-
-    /* Sezione form */
-    input.inputTesto {
-        width: 330px;
     }
 }
 
@@ -290,10 +320,6 @@
     h2.form {
         font-size: 25px;
         margin-bottom: 2.7rem;
-    }
-
-    input.inputTesto {
-        width: 330px;
     }
 
     label.labelTesto {
@@ -473,11 +499,6 @@
     #div_procedi_acquisto button {
         font-size: 21px;
     }
-
-    /* Sezione from */
-    input.inputTesto {
-        width: 350px;
-    }
 }
 
 /* Media query desktop */
@@ -578,12 +599,15 @@
         width: 30px;
     }
 
-    /* Sezione form */
-    input.inputTesto {
-        width: 350px;
+    /* UX */
+    a#torna_portfolio:hover {
+        background-color: #333232;
     }
 
-    /* UX */
+    a#torna_portfolio:active {
+        background-color: #282727;
+    }
+
     /* HomePage */
     button.categoria:hover {
         background-color: rgb(75, 101, 134);

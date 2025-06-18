@@ -97,7 +97,7 @@ export default function HomePage() {
     // Variabili
     const [isLoaded, setIsLoaded] = useState(false);
     const [prodottiPagina, setProdottiPagina] = useState([]);
-    const [marginTop, setMarginTop] = useState('0');
+    const [marginTop, setMarginTop] = useState('0px');
     const [heightBottoneCerca, setHeightBottoneCerca] = useState('0');
     const inputRef = useRef(null);
     const [testoInputCerca, setTestoInputCerca] = useState('');
@@ -198,7 +198,7 @@ export default function HomePage() {
         }
     }
 
-    // Funzioni filtri
+    // Filtri
     // Crescente/decrescente e range valore
     function handleFiltriOrdineRange(e) {
         if (e.target.closest('.ordine')?.textContent === 'Crescente') {
@@ -340,7 +340,7 @@ export default function HomePage() {
     useEffect(() => {
         document.title = "Amazing";
         window.scrollTo(0, 0);
-        // Faccio vedere la pagina solo quanto tutti i prodotti sono caricati
+        // Faccio vedere la pagina solo quando tutti i prodotti sono caricati
         setIsLoaded(true);
 
         // Imposto margini

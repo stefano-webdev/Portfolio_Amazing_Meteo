@@ -1,8 +1,4 @@
 /* Settaggi generali + header */
-main {
-    margin-bottom: 1.2rem;
-}
-
 p,
 button,
 a,
@@ -48,8 +44,8 @@ p.ripensaci {
     color: black;
     font-size: 17px;
     text-align: center;
-    margin-top: 6.5rem;
-    margin-bottom: 1.1rem;
+    margin-top: 6rem;
+    margin-bottom: 1.3rem;
     letter-spacing: 1px;
 }
 
@@ -78,7 +74,7 @@ a.link_home:active {
 }
 
 /* Stile carrello pieno */
-h1.carrello_pieno {
+h1.carrello {
     color: black;
     font-size: 28px;
     text-align: center;

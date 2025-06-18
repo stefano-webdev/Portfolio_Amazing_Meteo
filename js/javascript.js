@@ -142,7 +142,7 @@ for (const x of links) {
         event.preventDefault()
         const targetId = x.getAttribute("href");
         const targetElement = document.querySelector(targetId);
-        const offset = 80;
+        const offset = 90;
         window.scrollTo({
             top: targetElement.offsetTop - offset,
             behavior: 'smooth'

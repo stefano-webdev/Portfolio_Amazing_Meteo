@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import CarrelloVuoto from "../components/CarrelloVuoto.jsx";
 import CarrelloPieno from "../components/CarrelloPieno.jsx";
+import Footer from "../components/Footer.jsx";
 
 export default function Carrello() {
     // Variabili di stato
     const [isLoaded, setIsLoaded] = useState(false);
-    const [marginTop, setMarginTop] = useState('0');
+    const [marginTop, setMarginTop] = useState('0px');
     const [carrelloPienoVuoto, setCarrelloPienoVuoto] = useState(localStorage.getItem('carrello'));
     const setQuantitàCarrelloOutlet = useOutletContext();
 
@@ -16,9 +17,9 @@ export default function Carrello() {
         // Faccio vedere la pagina solo quanto tutti i prodotti sono caricati
         setIsLoaded(true);
 
-
         // Imposto margini
         const altezza_header = window.getComputedStyle(document.querySelector('header')).height;
+        console.log(altezza_header);
         setMarginTop(altezza_header);
     }, []);
 
@@ -35,6 +36,9 @@ export default function Carrello() {
                         <CarrelloVuoto />
                     )}
                 </main>
+                <footer id='footerHomePage'>
+                    <Footer />
+                </footer>
             </div>
         </>
     );

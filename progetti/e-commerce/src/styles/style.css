@@ -41,7 +41,7 @@ a#torna_portfolio {
 }
 
 a#torna_portfolio:active {
-    background-color: #313030;
+    background-color: #282727;
 }
 
 p,
@@ -168,7 +168,7 @@ p#numero_prodotti {
 }
 
 nav a#logo {
-    font-size: 27px;
+    font-size: 31px;
     font-family: 'Courier New', 'Lucida Console', 'Monaco', 'Andale Mono', monospace;
     font-weight: bold;
     font-style: italic;
@@ -624,7 +624,7 @@ button#torna_su svg {
 /* Footer */
 #footerHomePage {
     width: fit-content;
-    margin: 5.5rem auto auto auto;
+    margin: 5.5rem auto 0px auto;
 }
 
 #footerHomePage p,
@@ -685,7 +685,8 @@ h2.form {
     flex-direction: column;
     align-items: center;
     gap: 25px;
-    width: fit-content;
+    width: 95%;
+    max-width: 455px;
     margin: 0px auto 1.4rem auto;
     padding: 30px;
     border: 2px solid #D8D8D8;
@@ -695,6 +696,7 @@ h2.form {
 
 label.labelTesto {
     font-size: 18px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -702,7 +704,7 @@ label.labelTesto {
 
 input.inputTesto {
     font-size: 16px;
-    width: 250px;
+    width: 100%;
     border: 1px solid black;
     border-radius: 3px;
     outline: none;
