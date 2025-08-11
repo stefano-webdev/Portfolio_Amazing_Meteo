@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 });
 
 // Click fuori dal menu aperto ne provoca la chiusura
-window.addEventListener('click', (e) => {
+function clickChiudiMenu(e) {
     const el = e.target;
     if (!el.closest('#menu') &&
         el.id !== 'btn_menu_toggle' &&
@@ -24,7 +24,9 @@ window.addEventListener('click', (e) => {
         menu.classList.toggle("open");
         document.body.classList.toggle("open");
     }
-})
+}
+window.addEventListener('click', clickChiudiMenu);
+window.addEventListener('touchstart', clickChiudiMenu);
 
 // Gli elementi appaiono in modo fluido solo quando sono visibili sullo schermo
 document.addEventListener("DOMContentLoaded", () => {
