@@ -6,7 +6,6 @@ const links = document.querySelectorAll('#menu a');
 const btn_light_dark = document.getElementById("btn_light_dark_toggle");
 const root = document.documentElement;
 const theme = localStorage.getItem("mode");
-let scrollPosition = 0;
 
 // Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
 window.addEventListener('load', () => {
@@ -14,20 +13,18 @@ window.addEventListener('load', () => {
 });
 
 // Click fuori dal menu aperto ne provoca la chiusura
-// function clickChiudiMenu(e) {
-//     const el = e.target;
-//     if (!el.closest('#menu') &&
-//         el.id !== 'btn_menu_toggle' &&
-//         !el.classList.contains('hamburger') &&
-//         document.body.classList.contains('open')) {
+window.addEventListener('click', (e) => {
+    const el = e.target;
+    if (!el.closest('#menu') &&
+        el.id !== 'btn_menu_toggle' &&
+        !el.classList.contains('hamburger') &&
+        document.body.classList.contains('open')) {
 
-//         btn_menu_toggle.classList.toggle("open");
-//         menu.classList.toggle("open");
-//         document.body.classList.toggle("open");
-//     }
-// }
-// window.addEventListener('click', clickChiudiMenu);
-// window.addEventListener('touchstart', clickChiudiMenu);
+        btn_menu_toggle.classList.toggle("open");
+        menu.classList.toggle("open");
+        document.body.classList.toggle("open");
+    }
+})
 
 // Gli elementi appaiono in modo fluido solo quando sono visibili sullo schermo
 document.addEventListener("DOMContentLoaded", () => {
@@ -147,22 +144,9 @@ function attiva_toggle_dark_light() {
 
 // Aggiungo al bottone un evento per l'apertura/chiusura del menu tramite switch sulla classe
 btn_menu_toggle.addEventListener("click", () => {
-    if (!document.body.classList.contains("open")) {
-        // Apro menu: salvo scroll e blocco
-        scrollPosition = window.scrollY;
-        document.body.style.position = "fixed";
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.classList.add("open");
-    } else {
-        // Chiudo menu: sblocco e ripristino scroll
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.classList.remove("open");
-        window.scrollTo(0, scrollPosition);
-    }
-
     btn_menu_toggle.classList.toggle("open");
     menu.classList.toggle("open");
+    document.body.classList.toggle("open");
 });
 
 // Scroll fino alla destinazione in modo fluido e chiudo menu in automatico quando clicco un link
@@ -193,7 +177,7 @@ if (theme !== null && theme == "dark") {
     root.classList.add("dark_mode");
 }
 
-// Aggiunge l'evento click al toggle
+// Aggiunge l'evento click al toggle e l'interattività con toggle per l'accessibilità 
 btn_light_dark.addEventListener("click", attiva_toggle_dark_light);
 
 // Vado nella funzione che gestisce sfondo portfolio

@@ -144,9 +144,7 @@ nav {
 }
 
 body.open {
-  position: fixed;
-  width: 100%; /* evita salto orizzontale */
-  overflow-y: scroll; /* mantiene la scrollbar visibile per evitare shift */
+    overflow: hidden;
 }
 
 /* Grafica e logica toggle light/dark mode */
