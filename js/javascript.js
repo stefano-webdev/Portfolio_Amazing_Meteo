@@ -12,6 +12,22 @@ window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
 
+// Click fuori dal menu aperto ne provoca la chiusura
+// function clickChiudiMenu(e) {
+//     const el = e.target;
+//     if (!el.closest('#menu') &&
+//         el.id !== 'btn_menu_toggle' &&
+//         !el.classList.contains('hamburger') &&
+//         document.body.classList.contains('open')) {
+
+//         btn_menu_toggle.classList.toggle("open");
+//         menu.classList.toggle("open");
+//         document.body.classList.toggle("open");
+//     }
+// }
+// window.addEventListener('click', clickChiudiMenu);
+// window.addEventListener('touchstart', clickChiudiMenu);
+
 // Gli elementi appaiono in modo fluido solo quando sono visibili sullo schermo
 document.addEventListener("DOMContentLoaded", () => {
     const osservatore = new IntersectionObserver(entries => {
@@ -130,15 +146,10 @@ function attiva_toggle_dark_light() {
 
 // Aggiungo al bottone un evento per l'apertura/chiusura del menu tramite switch sulla classe
 btn_menu_toggle.addEventListener("click", () => {
-    // Fermo il momentum scroll di iOS
-    window.scrollTo(window.scrollX, window.scrollY);
-
-    // Applico il toggle con un leggero ritardo per evitare problemi su iOS
-    setTimeout(() => {
-        btn_menu_toggle.classList.toggle("open");
-        menu.classList.toggle("open");
-        document.body.classList.toggle("open");
-    }, 50);
+    btn_menu_toggle.classList.toggle("open");
+    menu.classList.toggle("open");
+    document.body.classList.toggle("open");
+    document.documentElement.classList.toggle('open');
 });
 
 // Scroll fino alla destinazione in modo fluido e chiudo menu in automatico quando clicco un link
