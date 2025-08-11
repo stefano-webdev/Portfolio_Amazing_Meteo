@@ -133,7 +133,7 @@ nav {
     color: var(--colore_titoli);
     text-decoration: none;
     font-family: 'Arial', 'Helvetica', sans-serif;
-    font-size: min(27px, 6.2vw);
+    font-size: clamp(16px, 6.2vw, 24px);
 }
 
 /* Quando il menu è aperto, diventa visibile */

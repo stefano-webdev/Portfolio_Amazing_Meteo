@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import ProdottoCarrello from "./ProdottoCarrello.jsx";
-import Footer from "./Footer.jsx";
 
 export default function CarrelloPieno({ setQuantitàCarrelloOutlet, setCarrelloPienoVuoto }) {
     // Variabili di stato

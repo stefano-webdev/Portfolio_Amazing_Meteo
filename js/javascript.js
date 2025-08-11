@@ -12,6 +12,20 @@ window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
 
+// Click fuori dal menu aperto ne provoca la chiusura
+window.addEventListener('click', (e) => {
+    const el = e.target;
+    if (!el.closest('#menu') &&
+        el.id !== 'btn_menu_toggle' &&
+        !el.classList.contains('hamburger') &&
+        document.body.classList.contains('open')) {
+
+        btn_menu_toggle.classList.toggle("open");
+        menu.classList.toggle("open");
+        document.body.classList.toggle("open");
+    }
+})
+
 // Gli elementi appaiono in modo fluido solo quando sono visibili sullo schermo
 document.addEventListener("DOMContentLoaded", () => {
     const osservatore = new IntersectionObserver(entries => {
@@ -149,7 +163,7 @@ for (const x of links) {
         });
 
         // Se il bottone mobile esiste, chiusura automatica menù e gestisco overflow body
-        if(window.getComputedStyle(btn_menu_toggle).display === 'block') {
+        if (window.getComputedStyle(btn_menu_toggle).display === 'block') {
             btn_menu_toggle.classList.toggle("open");
             menu.classList.toggle("open");
             document.body.classList.toggle("open");

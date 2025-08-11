@@ -1,5 +1,5 @@
 /* Media query per dimensioni molto basse */
-@media (max-width: 340px) {    
+@media (max-width: 340px) {
     #logo_svg {
         font-size: 22.5px;
     }
@@ -21,7 +21,6 @@
     #menu {
         height: 45svh;
         padding: 0px 0px 12px 0px;
-        gap: 15px;
     }
 
     #btn_light_dark_toggle {
@@ -35,18 +34,13 @@
         align-items: center;
     }
 
-    #menu a {
-        font-size: max(20px, 2.8vw);
-        gap: 5px;
-    }
-
     #menu li {
         margin: 15px auto 0px auto;
         padding: 0px;
     }
 
     #menu li svg {
-        width: max(21px, 3.2vw);
+        width: max(27px, 3.2vw);
     }
 
     /* Layout home */
@@ -103,12 +97,12 @@
         font-size: 36.5px;
     }
 
-    #menu a {
-        font-size: 27px;
-    }
-
     #menu li svg {
         width: 33px;
+    }
+
+    #menu a {
+        font-size: clamp(16px, 6.2vw, 27px);
     }
 
     #btn_light_dark_toggle svg {
@@ -137,7 +131,6 @@
     }
 
     p,
-    a,
     figcaption {
         font-size: clamp(16px, 3vw, 20px);
     }
@@ -224,13 +217,13 @@
         gap: 15px;
     }
 
-    #menu a {
-        font-size: 27px;
-    }
-
     #menu li {
         margin: 15px auto 0px auto;
         padding: 0px;
+    }
+
+    #menu a {
+        font-size: clamp(16px, 6.2vw, 27px);
     }
 
     #menu li svg {
@@ -276,7 +269,6 @@
     }
 
     p,
-    a,
     figcaption {
         font-size: clamp(16px, 3vw, 20px);
     }
@@ -354,6 +346,7 @@
 
 /* Media query desktop */
 @media (min-width: 1225px) and (pointer: fine) {
+
     /* layout menu */
     #logo_svg {
         font-size: 38px;
@@ -396,6 +389,7 @@
 
     #menu a {
         color: #f1f1f1;
+        font-size: clamp(16px, 6.2vw, 27px);
     }
 
     #menu li {
@@ -447,7 +441,6 @@
     }
 
     p,
-    a,
     figcaption {
         font-size: clamp(16px, 3vw, 20px);
     }
