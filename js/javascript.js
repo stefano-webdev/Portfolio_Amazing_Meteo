@@ -149,7 +149,7 @@ btn_menu_toggle.addEventListener("click", () => {
     btn_menu_toggle.classList.toggle("open");
     menu.classList.toggle("open");
     document.body.classList.toggle("open");
-    document.documentElement.classList.toggle('open');
+    document.getElementById("wrapper").classList.toggle("noScroll");
 });
 
 // Scroll fino alla destinazione in modo fluido e chiudo menu in automatico quando clicco un link

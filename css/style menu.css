@@ -142,8 +142,16 @@ nav {
     opacity: 1;
     transform: translateY(0px);
 }
-
+/* 
 body.open, html.open{
+    overflow: hidden;
+} */
+
+#wrapper{
+    height: 100vh;
+}
+
+#wrapper.noScroll {
     overflow: hidden;
 }
 
