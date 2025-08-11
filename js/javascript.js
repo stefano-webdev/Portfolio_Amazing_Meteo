@@ -6,6 +6,7 @@ const links = document.querySelectorAll('#menu a');
 const btn_light_dark = document.getElementById("btn_light_dark_toggle");
 const root = document.documentElement;
 const theme = localStorage.getItem("mode");
+let scrollPosition = 0;
 
 // Faccio vedere il body solo quando il caricamento è finito, per evitare il flickering/flash layout
 window.addEventListener('load', () => {
@@ -146,10 +147,22 @@ function attiva_toggle_dark_light() {
 
 // Aggiungo al bottone un evento per l'apertura/chiusura del menu tramite switch sulla classe
 btn_menu_toggle.addEventListener("click", () => {
+    if (!document.body.classList.contains("open")) {
+        // Apro menu: salvo scroll e blocco
+        scrollPosition = window.scrollY;
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.classList.add("open");
+    } else {
+        // Chiudo menu: sblocco e ripristino scroll
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.classList.remove("open");
+        window.scrollTo(0, scrollPosition);
+    }
+
     btn_menu_toggle.classList.toggle("open");
     menu.classList.toggle("open");
-    document.body.classList.toggle("open");
-    document.getElementById("wrapper").classList.toggle("noScroll");
 });
 
 // Scroll fino alla destinazione in modo fluido e chiudo menu in automatico quando clicco un link
