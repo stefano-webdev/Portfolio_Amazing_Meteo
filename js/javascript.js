@@ -12,22 +12,6 @@ window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
 
-// Click fuori dal menu aperto ne provoca la chiusura
-function clickChiudiMenu(e) {
-    const el = e.target;
-    if (!el.closest('#menu') &&
-        el.id !== 'btn_menu_toggle' &&
-        !el.classList.contains('hamburger') &&
-        document.body.classList.contains('open')) {
-
-        btn_menu_toggle.classList.toggle("open");
-        menu.classList.toggle("open");
-        document.body.classList.toggle("open");
-    }
-}
-window.addEventListener('click', clickChiudiMenu);
-window.addEventListener('touchstart', clickChiudiMenu);
-
 // Gli elementi appaiono in modo fluido solo quando sono visibili sullo schermo
 document.addEventListener("DOMContentLoaded", () => {
     const osservatore = new IntersectionObserver(entries => {
@@ -179,7 +163,7 @@ if (theme !== null && theme == "dark") {
     root.classList.add("dark_mode");
 }
 
-// Aggiunge l'evento click al toggle e l'interattività con toggle per l'accessibilità 
+// Aggiunge l'evento click al toggle
 btn_light_dark.addEventListener("click", attiva_toggle_dark_light);
 
 // Vado nella funzione che gestisce sfondo portfolio
