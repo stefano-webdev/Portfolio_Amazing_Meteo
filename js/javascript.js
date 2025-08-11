@@ -130,9 +130,15 @@ function attiva_toggle_dark_light() {
 
 // Aggiungo al bottone un evento per l'apertura/chiusura del menu tramite switch sulla classe
 btn_menu_toggle.addEventListener("click", () => {
-    btn_menu_toggle.classList.toggle("open");
-    menu.classList.toggle("open");
-    document.body.classList.toggle("open");
+    // Fermo il momentum scroll di iOS
+    window.scrollTo(window.scrollX, window.scrollY);
+
+    // Applico il toggle con un leggero ritardo per evitare problemi su iOS
+    setTimeout(() => {
+        btn_menu_toggle.classList.toggle("open");
+        menu.classList.toggle("open");
+        document.body.classList.toggle("open");
+    }, 50);
 });
 
 // Scroll fino alla destinazione in modo fluido e chiudo menu in automatico quando clicco un link
