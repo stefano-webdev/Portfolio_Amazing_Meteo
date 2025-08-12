@@ -403,12 +403,11 @@
         bottom: -75px;
         opacity: 0;
         pointer-events: none;
-        width: 42px;
+        width: 49px;
         background-color: rgb(89, 89, 89);
         padding: 4px;
-        border-radius: 5px;
-        outline: 4px solid black;
-        outline-offset: 0px;
+        border-radius: 12px;
+        border: 4px solid black;
         transition: opacity 0.5s ease;
     }
 
