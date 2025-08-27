@@ -131,8 +131,10 @@
                 <p class="descrizione fade_in">
                     Ho costruito il mio percorso formativo partendo dalle basi del front-end ovvero HTML5, CSS3 e
                     JavaScript.
-                    Nel tempo ho continuato a imparare, arrivando a utilizzare librerie moderne per la creazione 
-                    di interfacce utente come React e React Router e strumenti per il versionamento del codice, come Git e GitHub.
+                    Nel tempo ho continuato a imparare, arrivando a utilizzare librerie moderne per la creazione
+                    di interfacce utente come React e React Router, strumenti per il versionamento del codice come Git e
+                    GitHub, e un
+                    linguaggio tipizzato moderno come TypeScript.
                 </p>
                 <p class="descrizione fade_in">
                     Mi impegno quotidianamente per incrementare le mie conoscenze con nuove tecnologie realizzando
@@ -222,13 +224,15 @@
 
                     <!-- JavaScript competenze -->
                     <div class="skill_container fade_in" style="border: 3px solid #eeda2b;">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <!-- Cambiato a 512x512 -->
-                            <!-- Sfondo giallo quadrato -->
+                        <svg style="margin-top: 13px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <!-- Sfondo blu quadrato -->
                             <rect width="512" height="512" fill="#edd853" />
 
-                            <!-- JS nero centrato -->
-                            <path fill="#3d3d3d" transform="translate(52,25)"
-                                d="M243.8 381.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z" />
+                            <!-- JS bianco in basso a destra con margini -->
+                            <text x="490" y="475" text-anchor="end" dominant-baseline="alphabetic"
+                                font-family="Arial, sans-serif" font-weight="bold" font-size="280" fill="#3d3d3d">
+                                JS
+                            </text>
                         </svg>
                         <div class="skill_name" style="margin-top: 11px;">JAVASCRIPT</div>
                         <ul class="skill_list">
@@ -248,6 +252,40 @@
                             <li>Destructuring con oggetti e array</li>
                             <li>LocalStorage</li>
                             <li>Modularità (import/export)</li>
+                        </ul>
+                    </div>
+
+                    <!-- TypeScript competenze -->
+                    <div class="skill_container fade_in" style="border: 3px solid #1871C3;">
+                        <svg style="margin-top: 13px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <!-- Sfondo blu quadrato -->
+                            <rect width="512" height="512" fill="#1871C3" />
+
+                            <!-- TS bianco in basso a destra con margini -->
+                            <text x="490" y="475" text-anchor="end" dominant-baseline="alphabetic"
+                                font-family="Arial, sans-serif" font-weight="bold" font-size="280" fill="white">
+                                TS
+                            </text>
+                        </svg>
+
+                        <div style="margin-top: 11px;" class="skill_name">TYPESCRIPT</div>
+                        <ul class="skill_list">
+                            <li>Cos'è TypeScript e perchè usarlo</li>
+                            <li>Tipi primari: string, number e boolean</li>
+                            <li>Tipi speciali: any, unknown, void, never</li>
+                            <li>Array e tuple</li>
+                            <li>Tipizzazione delle funzioni</li>
+                            <li>Tipizzazione dei parametri e del ritorno</li>
+                            <li>Type e Interface</li>
+                            <li>Union types</li>
+                            <li>Intersection types e extends</li>
+                            <li>Type aliases</li>
+                            <li>Narrowing con controlli sul tipo</li>
+                            <li>Funzioni generiche</li>
+                            <li>Inferenza</li>
+                            <li>Utility types: Pick, Omit, Record e ReturnType</li>
+                            <li>Integrazione con React</li>
+                            <li>Import ed export di tipi tramite i moduli</li>
                         </ul>
                     </div>
 
@@ -347,12 +385,20 @@
             <section id="projects">
                 <h2 class="fade_in">Progetti</h2>
                 <div id="contenitore_progetti">
+                    <!-- Health Dashboard -->
+                    <figure class="fade_in">
+                        <a href="https://health-dash-git-main-stefanos-projects-56967b59.vercel.app/">
+                            <img src="./immagini/dashboard/dashboard_stock.webp" alt="Anteprima progetto health dashboard">
+                        </a>
+                        <figcaption>Dashboard<br>Typescript, React e React Router</figcaption>
+                    </figure>
+
                     <!-- E-commerce -->
                     <figure class="fade_in">
                         <a href="https://amazing-virid.vercel.app/">
                             <img src="./immagini/e-commerce_stock.webp" alt="Anteprima progetto sito e-commerce">
                         </a>
-                        <figcaption>E-commerce<br>(React e React Router)</figcaption>
+                        <figcaption>E-commerce<br>React e React Router</figcaption>
                     </figure>
 
                     <!-- Meteo -->
@@ -360,7 +406,7 @@
                         <a href="./progetti/meteo/html/meteo.html">
                             <img src="./immagini/previsioni_stock.webp" alt="Anteprima progetto sito meteo">
                         </a>
-                        <figcaption>Previsioni del tempo<br>(JavaScript e API reali per dati meteo)</figcaption>
+                        <figcaption>Previsioni del tempo<br>JavaScript e API reali per dati meteo</figcaption>
                     </figure>
                 </div>
             </section>
@@ -408,6 +454,8 @@
                         <div id="links_github">
                             <a href="https://github.com/stefano-webdev/Portfolio"
                                 target="_blank">github.com/stefano-webdev/portfolio</a>
+                            <a href="https://github.com/stefano-webdev/HealthDash"
+                                target="_blank">github.com/stefano-webdev/healthdash</a>
                             <a href="https://github.com/stefano-webdev/Portfolio/tree/main/progetti/e-commerce"
                                 target="_blank">github.com/stefano-webdev/e-commerce</a>
                             <a href="https://github.com/stefano-webdev/Portfolio/tree/main/progetti/meteo"
