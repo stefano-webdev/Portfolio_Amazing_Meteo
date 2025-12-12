@@ -39,3 +39,12 @@ section#projects figcaption {
     margin: 20px 0px;
     padding: 0px 6px;
 }
+
+section#projects .projectName {
+    font-style: italic;
+    font-weight: bold;
+}
+
+section#projects .projectDescription {
+    color: var(--colore_descrizione_progetti);
+}
